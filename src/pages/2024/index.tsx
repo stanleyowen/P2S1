@@ -3,7 +3,7 @@ import Head from "next/head";
 import Header from "../components/header";
 import Slideshow from "../components/slideshow";
 import Statistic from "../components/statistics";
-import About2023P2S1 from "./about";
+import About2024P2S1 from "./about";
 import SearchBar from "./search";
 
 const twothousandtwentythree = () => {

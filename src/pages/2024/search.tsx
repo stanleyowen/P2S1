@@ -1,7 +1,6 @@
 // @ts-nocheck
 import { useEffect, useState } from "react";
 import rekap from "./Rekap Final Data P2S1.json";
-import * as translation from "./Translation.json";
 
 const SearchBar = () => {
   const [search, setSearch] = useState<string>("");
@@ -15,12 +14,16 @@ const SearchBar = () => {
     }
     const result = rekap.filter((item: any) => {
       return (
-        item.nama.toLowerCase().includes(search.toLowerCase()) ||
-        item.INDUK.toString().toLowerCase().includes(search.toLowerCase()) ||
-        item.kelas.toLowerCase().includes(search.toLowerCase())
+        item.NAME.toLowerCase().includes(search.toLowerCase()) ||
+        item["STUDENT ID"]
+          .toString()
+          .toLowerCase()
+          .includes(search.toLowerCase()) ||
+        item.CLASS.toLowerCase().includes(search.toLowerCase())
       );
     });
     setResults(result);
+    console.log(result);
   };
 
   return (
@@ -50,20 +53,16 @@ const SearchBar = () => {
           </thead>
         )}
         <tbody>
-          {results.map((item: any) => {
-            return item.perlombaan.map((i: any, idx: string) => {
-              return (
-                <tr key={item.nama + idx}>
-                  <td>{item.INDUK}</td>
-                  <td>{item.nama}</td>
-                  <td>{item.kelas}</td>
-                  <td key={item}>
-                    {translation[i["nama perlombaan"]] ?? i["nama perlombaan"]}
-                  </td>
-                  <td key={item}>{i["keterangan"]}</td>
-                </tr>
-              );
-            });
+          {results.map((item: any, idx: number) => {
+            return (
+              <tr key={item.CLASS + idx}>
+                <td>{item["STUDENT ID"]}</td>
+                <td>{item.NAME}</td>
+                <td>{item.CLASS}</td>
+                <td key={item}>{item["COMPETITION"]}</td>
+                <td key={item}>{item["STATUS"]}</td>
+              </tr>
+            );
           })}
         </tbody>
       </table>
