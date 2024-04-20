@@ -12,15 +12,15 @@ const Statistics: React.FC<{
   return (
     <div className="statistic">
       <div className="statistic-item">
-        <h1>{value.participants}</h1>
+        <h1>{value?.participants}</h1>
         <p>Participants</p>
       </div>
       <div className="statistic-item">
-        <h1>{value.competitions}</h1>
+        <h1>{value?.competitions}</h1>
         <p>Competitions</p>
       </div>
       <div className="statistic-item">
-        <h1>{value.participations}</h1>
+        <h1>{value?.participations}</h1>
         <p>Participations</p>
       </div>
     </div>
