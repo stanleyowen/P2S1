@@ -133,7 +133,13 @@ const twothousandtwentythree = () => {
         ]}
       />
       <About2023P2S1 />
-      <Statistic />
+      <Statistic
+        value={{
+          participants: 1609,
+          competitions: 48,
+          participations: 3197,
+        }}
+      />
       <SearchBar />
     </>
   );
