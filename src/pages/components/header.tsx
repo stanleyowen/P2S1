@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -26,9 +26,9 @@ const Header = () => {
           <Image
             src="https://p2s1-cdn.netlify.app/.netlify/images?url=2024//Logo%20P2S1.png"
             alt="P2S1 logo"
-            layout="fill"
             unoptimized
-          />
+            fill
+            sizes="100vw" />
         </div>
         <Link href="/" className="header-name">
           Pekan Prestasi Sutomo 1
