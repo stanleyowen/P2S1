@@ -7,7 +7,7 @@ const Cards = () => {
       <div className="card">
         <div className="card-image">
           <Image
-            src="./Documentation - 2024/Logo P2S1.png"
+            src="https://p2s1-cdn.netlify.app/.netlify/images?url=2024/Logo P2S1.png"
             alt="P2S1 Logo"
             layout="fill"
             unoptimized
@@ -28,7 +28,7 @@ const Cards = () => {
       <div className="card">
         <div className="card-image">
           <Image
-            src="./Documentation - 2023/Logo P2S1.png"
+            src="https://p2s1-cdn.netlify.app/.netlify/images?url=2023/Logo P2S1.png"
             alt="P2S1 Logo"
             layout="fill"
             unoptimized
