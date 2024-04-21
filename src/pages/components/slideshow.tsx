@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const SLIDE_INTERVAL = 5000;
@@ -49,7 +49,7 @@ const Slideshow: React.FC<{
                 <div className="slide-numbertext">
                   {i + 1} / {slides.length}
                 </div>
-                <Image src={e.src} alt={e.alt} layout="fill" unoptimized />
+                <Image src={e.src} alt={e.alt} unoptimized fill sizes="100vw" />
                 <p className="slide-caption">{e.name}</p>
               </div>
             ))

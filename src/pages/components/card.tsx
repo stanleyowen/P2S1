@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 const Cards = () => {
   return (
@@ -9,9 +9,9 @@ const Cards = () => {
           <Image
             src="https://p2s1-cdn.netlify.app/.netlify/images?url=2024/Logo P2S1.png"
             alt="P2S1 Logo"
-            layout="fill"
             unoptimized
-          />
+            fill
+            sizes="100vw" />
         </div>
         <div className="card-text">
           <h1>P2S1 XXVII</h1>
@@ -30,9 +30,9 @@ const Cards = () => {
           <Image
             src="https://p2s1-cdn.netlify.app/.netlify/images?url=2023/Logo P2S1.png"
             alt="P2S1 Logo"
-            layout="fill"
             unoptimized
-          />
+            fill
+            sizes="100vw" />
         </div>
         <div className="card-text">
           <h1>P2S1 XXVI</h1>
