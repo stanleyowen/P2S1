@@ -1,0 +1,87 @@
+[
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/basket.jpg",
+        "name": "Basketball",
+        "alt": "Basketball"
+    },
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/bob.JPG",
+        "name": "Battle of Brains",
+        "alt": "Battle of Brains"
+    },
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/business%20idea.JPG",
+        "name": "Business Idea",
+        "alt": "Business Idea"
+    },
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/class%20choir.JPG",
+        "name": "Class Choir Battle",
+        "alt": "Class Choir Battle"
+    },
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/dance%20solo.JPG",
+        "name": "Dance Solo",
+        "alt": "Dance Solo"
+    },
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/debat%20inggris.JPG",
+        "name": "English Debate",
+        "alt": "English Debate"
+    },
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/debat%20mandarin.JPG",
+        "name": "Mandarin Debate",
+        "alt": "Mandarin Debate"
+    },
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/e-sport.JPG",
+        "name": "Esports",
+        "alt": "Esports"
+    },
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/fashion%20design.JPG",
+        "name": "Fashion Design",
+        "alt": "Fashion Design"
+    },
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/interior%20design.JPG",
+        "name": "Interior Design",
+        "alt": "Interior Design"
+    },
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/olimpiade%20mate.JPG",
+        "name": "Olympiad",
+        "alt": "Olympiad"
+    },
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/photography.JPG",
+        "name": "Photography",
+        "alt": "Photography"
+    },
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/rubik.JPG",
+        "name": "Rubik's Cube",
+        "alt": "Rubik's Cube"
+    },
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/tarik%20tambang.JPG",
+        "name": "Tug of War",
+        "alt": "Tug of War"
+    },
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/terompah.JPG",
+        "name": "Terompah",
+        "alt": "Terompah"
+    },
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/vocal%20solo.JPG",
+        "name": "Vocal Solo",
+        "alt": "Vocal Solo"
+    },
+    {
+        "src": "https://p2s1-cdn.netlify.app/.netlify/images?url=2024/watercolor.JPG",
+        "name": "Watercolor",
+        "alt": "Watercolor"
+    }
+]

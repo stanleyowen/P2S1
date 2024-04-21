@@ -5,7 +5,6 @@ import Slideshow from "../components/slideshow";
 import Statistic from "../components/statistics";
 import About2023P2S1 from "./about";
 import SearchBar from "./search";
-// import json to be used in the slides variable
 import slides from "./slideshow.json";
 
 const twothousandtwentythree = () => {
