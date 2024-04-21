@@ -24,7 +24,7 @@ const Header = () => {
       <div className="header-main">
         <div className="header-logo">
           <Image
-            src="https://p2s1-cdn.netlify.app/.netlify/images?url=2024//Logo P2S1.png"
+            src="https://p2s1-cdn.netlify.app/.netlify/images?url=2024//Logo%20P2S1.png"
             alt="P2S1 logo"
             layout="fill"
             unoptimized
