@@ -49,7 +49,16 @@ const Slideshow: React.FC<{
                 <div className="slide-numbertext">
                   {i + 1} / {slides.length}
                 </div>
-                <Image src={e.src} alt={e.alt} unoptimized fill sizes="100vw" />
+                <Image
+                  src={e.src}
+                  alt={e.alt}
+                  unoptimized
+                  fill
+                  sizes="100vw"
+                  priority={false}
+                  placeholder="blur"
+                  blurDataURL={e.src}
+                />
                 <p className="slide-caption">{e.name}</p>
               </div>
             ))
