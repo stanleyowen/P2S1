@@ -23,7 +23,6 @@ const SearchBar = () => {
       );
     });
     setResults(result);
-    console.log(result);
   };
 
   return (
