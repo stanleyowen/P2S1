@@ -16,7 +16,7 @@ const About2024P2S1 = () => {
         ended on the last week of February 2024. 51 competitions were held this
         year, ranging from academics, arts, sports, and content creation. The 27
         <sup>th</sup> P2S1 was grateful to have been supported by the presence
-        of the 1292 participants. To conclude, we send special thanks to all
+        of the 1319 participants. To conclude, we send special thanks to all
         participants of the 27<sup>th</sup> P2S1 for making this event a
         success. Lastly, congratulations to all the winners of this year's P2S1
         and commiserations to those who have not entered the top 3. Do not feel
