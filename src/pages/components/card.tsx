@@ -18,9 +18,9 @@ const Cards = () => {
           <h1>P2S1 XXVII</h1>
           <h1>2024</h1>
           <p className="text-justify">
-            The 26th P2S1 started on the first week of January and ended on the
-            first week of March. A total of 48 competitions were held in this
-            event involving a whopping 1609 participants.
+            The 27<sup>th</sup> P2S1 started on the first week of January and
+            ended on the last week of March. A total of 51 competitions were
+            held in this event with a whopping total of 1292 participants.
           </p>
           <a href="2024">Participations Information</a>
         </div>
