@@ -5,7 +5,7 @@ import Header from "./components/header";
 import Slideshow from "./components/slideshow";
 import About from "./components/about";
 import Cards from "./components/card";
-import slides from "./2023/slideshow.json";
+import slides from "./2024/slideshow.json";
 
 // const inter = Inter({ subsets: ['latin'] })
 
