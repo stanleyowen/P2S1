@@ -4,7 +4,7 @@ import Link from "next/link";
 const About2024P2S1 = () => {
   return (
     <div className="about">
-      <h1>The 26th Pekan Prestasi Sutomo 1</h1>
+      <h1>The 27th Pekan Prestasi Sutomo 1</h1>
       <p className="text-justify">
         Our school has been celebrating P2S1 (<Link href="/">see more</Link>)
         for long time but due to the pandemic in the last 2 years, we were not
