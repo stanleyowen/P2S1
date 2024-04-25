@@ -46,7 +46,7 @@ const Header = () => {
           className="header-exit-menu"
           onClick={() => setheaderExpanded(false)}
         >
-          ×
+          x
         </span>
         <Link href="/">About</Link>
         <Link href="/2024">P2S1 XXVII - 2024</Link>
