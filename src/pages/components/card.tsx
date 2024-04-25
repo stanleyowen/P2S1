@@ -20,7 +20,7 @@ const Cards = () => {
           <p className="text-justify">
             The 27<sup>th</sup> P2S1 started on the first week of January and
             ended on the last week of March. A total of 51 competitions were
-            held in this event with a whopping total of 1292 participants.
+            held in this event with a whopping total of 1319 participants.
           </p>
           <a href="2024">Participations Information</a>
         </div>
