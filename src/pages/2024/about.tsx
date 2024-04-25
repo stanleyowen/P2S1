@@ -4,24 +4,24 @@ import Link from "next/link";
 const About2024P2S1 = () => {
   return (
     <div className="about">
-      <h1>The 27th Pekan Prestasi Sutomo 1</h1>
+      <h1>
+        The 27<sup>th</sup> Pekan Prestasi Sutomo 1
+      </h1>
       <p className="text-justify">
-        Our school has been celebrating P2S1 (<Link href="/">see more</Link>)
-        for long time but due to the pandemic in the last 2 years, we were not
-        able to hold the P2S1 event offline. However, we could celebrate the
-        26th P2S1 this year! It commenced on the first week of January 2023, and
-        ended on the first week of March. A total of 48 types of competitions
-        were held in this event involving a large number of students, 1,609
-        participants to be exact. Not to mention the fact that as many as 3,197
-        participants were registered.
-      </p>
-      <br />
-      <p className="text-justify">
-        We were able to hold such a great event this year thanks to the students
-        who had participated. Congratulations to all of the champions. Keep up
-        the great work! For those who haven‘t achieved the top 3, do not feel
-        discouraged because there is always room to grow. See you on the 27th
-        P2S1 next year.
+        SMA Sutomo 1 has had the great honor of celebrating the 27
+        <sup>th</sup> P2S1 this year. The P2S1 event has been held throughout
+        the years with different themes and this year we were proud to present
+        the theme of Amelioration, meaning "to improve or make something
+        better". The event kicked off on the first week of January 2024 and
+        ended on the last week of February 2024. 51 competitions were held this
+        year, ranging from academics, arts, sports, and content creation. The 27
+        <sup>th</sup> P2S1 was grateful to have been supported by the presence
+        of the 1292 participants. To conclude, we send special thanks to all
+        participants of the 27<sup>th</sup> P2S1 for making this event a
+        success. Lastly, congratulations to all the winners of this year's P2S1
+        and commiserations to those who have not entered the top 3. Do not feel
+        discouraged, there are many fish in the sea and your future does not end
+        here. Work hard and never give up!
       </p>
     </div>
   );
