@@ -28,7 +28,8 @@ const Header = () => {
             alt="P2S1 logo"
             unoptimized
             fill
-            sizes="100vw" />
+            sizes="100vw"
+          />
         </div>
         <Link href="/" className="header-name">
           Pekan Prestasi Sutomo 1
