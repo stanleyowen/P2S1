@@ -39,7 +39,8 @@ Keep the folder named `p2s1-api`: Compose derives the project name (and so the c
 ```bash
 # on your laptop, from the repo root
 cd server && npm run normalize            # data/raw/*.json → data/2023.json, data/2024.json (IDs removed)
-rsync -a --exclude data/raw/ --exclude .env --exclude test/ ./ stanley@192.168.1.100:~/server/p2s1-api/
+rsync -a --exclude data/raw/ --exclude .env --exclude test/ --exclude .DS_Store \
+  --chmod=D700,F600 ./ stanley@192.168.1.100:~/server/p2s1-api/
 ```
 
 **3. Start it:**
@@ -48,7 +49,7 @@ rsync -a --exclude data/raw/ --exclude .env --exclude test/ ./ stanley@192.168.1
 # on the server
 cd ~/server/p2s1-api
 umask 077; printf "CLOUDFLARE_TUNNEL_TOKEN=%s\n" "$(cloudflared tunnel token p2s1-api)" > .env
-chmod 644 data/*.json
+chmod 700 . data && chmod 600 data/*.json   # owner-only; the container's user (uid 1000) is the owner
 docker compose --profile tunnel up -d --build
 curl -s localhost:8787/healthz            # → ok
 curl -s https://p2s1-cdn.stanleyowen.com/v1/editions
@@ -63,6 +64,14 @@ curl -s https://p2s1-cdn.stanleyowen.com/v1/editions
 docker compose --profile tunnel pull && docker compose --profile tunnel up -d --build   # code / base image
 docker compose restart api                                                               # after changing data/*.json
 ```
+
+### Keeping the data private
+
+- On the server, `~/server/p2s1-api` and `data/` are `700` and the JSON files `600`, so only the owner (and the
+  container, which runs as the same uid 1000) can read them. Sync with `--chmod=D700,F600` so rsync never widens them.
+- The data holds only name, class, competition and result. Student IDs and phone numbers stay in the private source
+  files on the laptop (`data/raw/`, also owner-only) and never reach the server.
+- Only port 8787 on `127.0.0.1` serves the API; the tunnel is the only way in. SSH is key-only with root login off.
 
 ### Local development
 
