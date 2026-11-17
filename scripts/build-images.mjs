@@ -123,15 +123,28 @@ const entries = Object.fromEntries(await pool(sources, parallel, build));
 const keep = new Set(Object.values(entries).flatMap((e) => e.files.map((f) => path.join(ROOT, "public", f))));
 if (fs.existsSync(OUT)) for (const f of walk(OUT)) if (!keep.has(f)) fs.rmSync(f);
 
-// Social cards.
+// Social cards. Rebuilt when the chosen photo changes (not just when its file is edited), since
+// public/og survives between Netlify builds and an older source would otherwise look up to date.
 fs.mkdirSync(OG_OUT, { recursive: true });
+const OG_CACHE = path.join(ROOT, ".cache/og.json");
+const ogPrev = (() => {
+  try {
+    return JSON.parse(fs.readFileSync(OG_CACHE, "utf8"));
+  } catch {
+    return {};
+  }
+})();
+const ogNext = {};
 for (const [name, key] of Object.entries(OG)) {
   const dest = path.join(OG_OUT, `${name}.jpg`);
   const src = sources.find((f) => f.includes(`${key}.`));
   if (!src) throw new Error(`OG source ${key} not found`);
-  if (!fs.existsSync(dest) || fs.statSync(dest).mtimeMs < fs.statSync(src).mtimeMs)
+  ogNext[name] = `${key}@${fs.statSync(src).mtimeMs}`;
+  if (!fs.existsSync(dest) || ogPrev[name] !== ogNext[name])
     await sharp(src).rotate().resize(1200, 630, { fit: "cover", position: "attention" }).jpeg({ quality: 82, mozjpeg: true }).toFile(dest);
 }
+fs.mkdirSync(path.dirname(OG_CACHE), { recursive: true });
+fs.writeFileSync(OG_CACHE, JSON.stringify(ogNext));
 
 const manifest = Object.fromEntries(
   Object.entries(entries).map(([k, { width, height, color, blur, avif, webp }]) => [k, { width, height, color, blur, avif, webp }]),
