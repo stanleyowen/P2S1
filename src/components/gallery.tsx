@@ -3,11 +3,14 @@
 import { useCallback, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import { ArrowLeft, ArrowRight, Close, Expand } from "./icons";
 import { Picture } from "./picture";
+import type { Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 import type { Img } from "@/lib/images";
 
 export type GalleryPhoto = { key: string; img: Img; caption: string; alt: string; wide?: boolean; tall?: boolean };
 
-export function Gallery({ photos, label }: { photos: GalleryPhoto[]; label: string }) {
+export function Gallery({ photos, label, locale }: { photos: GalleryPhoto[]; label: string; locale: Locale }) {
+  const t = getDictionary(locale).gallery;
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLButtonElement | null>(null);
   const swipeX = useRef<number | null>(null);
@@ -45,7 +48,7 @@ export function Gallery({ photos, label }: { photos: GalleryPhoto[]; label: stri
               type="button"
               onClick={(e) => open(i, e.currentTarget)}
               className="group relative block size-full overflow-hidden rounded-2xl bg-surface-2"
-              aria-label={`${p.caption} — open photo ${i + 1} of ${photos.length}`}
+              aria-label={t.open(p.caption, i + 1, photos.length)}
             >
               <Picture
                 img={p.img}
@@ -64,7 +67,7 @@ export function Gallery({ photos, label }: { photos: GalleryPhoto[]; label: stri
 
       <dialog
         ref={dialog}
-        aria-label={`${label} — photo viewer`}
+        aria-label={t.viewer(label)}
         onKeyDown={onKey}
         onClose={() => opener.current?.focus()}
         onClick={(e) => e.target === e.currentTarget && dialog.current?.close()}
@@ -76,7 +79,7 @@ export function Gallery({ photos, label }: { photos: GalleryPhoto[]; label: stri
               <p className="text-sm tabular-nums text-white/70" aria-live="polite">
                 {index + 1} / {photos.length}
               </p>
-              <button type="button" onClick={() => dialog.current?.close()} className="grid size-11 place-items-center rounded-full hover:bg-white/10" aria-label="Close photo viewer" autoFocus>
+              <button type="button" onClick={() => dialog.current?.close()} className="grid size-11 place-items-center rounded-full hover:bg-white/10" aria-label={t.close} autoFocus>
                 <Close />
               </button>
             </div>
@@ -85,18 +88,18 @@ export function Gallery({ photos, label }: { photos: GalleryPhoto[]; label: stri
               <figcaption className="text-center text-base font-semibold">{current.caption}</figcaption>
             </figure>
             <div className="pointer-events-none absolute inset-y-0 left-0 right-0 hidden items-center justify-between px-3 sm:flex">
-              <button type="button" onClick={() => step(-1)} className="pointer-events-auto grid size-12 place-items-center rounded-full bg-white/10 hover:bg-white/20" aria-label="Previous photo">
+              <button type="button" onClick={() => step(-1)} className="pointer-events-auto grid size-12 place-items-center rounded-full bg-white/10 hover:bg-white/20" aria-label={t.previous}>
                 <ArrowLeft />
               </button>
-              <button type="button" onClick={() => step(1)} className="pointer-events-auto grid size-12 place-items-center rounded-full bg-white/10 hover:bg-white/20" aria-label="Next photo">
+              <button type="button" onClick={() => step(1)} className="pointer-events-auto grid size-12 place-items-center rounded-full bg-white/10 hover:bg-white/20" aria-label={t.next}>
                 <ArrowRight />
               </button>
             </div>
             <div className="flex justify-center gap-3 pb-6 sm:hidden">
-              <button type="button" onClick={() => step(-1)} className="grid size-12 place-items-center rounded-full bg-white/10" aria-label="Previous photo">
+              <button type="button" onClick={() => step(-1)} className="grid size-12 place-items-center rounded-full bg-white/10" aria-label={t.previous}>
                 <ArrowLeft />
               </button>
-              <button type="button" onClick={() => step(1)} className="grid size-12 place-items-center rounded-full bg-white/10" aria-label="Next photo">
+              <button type="button" onClick={() => step(1)} className="grid size-12 place-items-center rounded-full bg-white/10" aria-label={t.next}>
                 <ArrowRight />
               </button>
             </div>
