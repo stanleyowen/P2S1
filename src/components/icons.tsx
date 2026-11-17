@@ -39,3 +39,9 @@ export const Lock = (p: SVGProps<SVGSVGElement>) => (
     <path d="M8 11V8a4 4 0 118 0v3" />
   </svg>
 );
+export const Info = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base} {...p}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 11v5M12 8h.01" />
+  </svg>
+);

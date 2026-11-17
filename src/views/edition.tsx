@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Gallery } from "@/components/gallery";
-import { ArrowLeft, ArrowRight } from "@/components/icons";
+import { ArrowLeft, ArrowRight, Info } from "@/components/icons";
 import { Picture } from "@/components/picture";
 import { ChampionsBoard, ParticipantSearch } from "@/components/results";
 import { Stat } from "@/components/stat";
@@ -78,7 +78,7 @@ export async function EditionPage({ locale, params }: EditionParams & { locale: 
             {[
               ["#story", pg.story],
               ["#gallery", pg.photos],
-              ["#results", pg.results],
+              ...(e.results ? [["#results", pg.results]] : []),
             ].map(([href, label]) => (
               <a key={href} href={href} className="rounded-full border border-white/25 px-4 py-2 text-sm font-semibold backdrop-blur transition hover:bg-white/10">
                 {label}
@@ -89,17 +89,19 @@ export async function EditionPage({ locale, params }: EditionParams & { locale: 
       </section>
 
       {/* ── Numbers ──────────────────────────────────────────────── */}
-      <section aria-label={pg.inNumbers(e.year)} className="wrap py-14 sm:py-20">
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
-          <Stat locale={locale} value={e.stats.participants} label={t.stats.participants} />
-          <Stat locale={locale} value={e.stats.competitions} label={t.stats.competitions} />
-          <Stat locale={locale} value={e.stats.entries} label={t.stats.entries} />
-          <Stat locale={locale} value={e.stats.podium} label={t.stats.podium} />
-        </dl>
-      </section>
+      {e.stats && (
+        <section aria-label={pg.inNumbers(e.year)} className="wrap py-14 sm:py-20">
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
+            <Stat locale={locale} value={e.stats.participants} label={t.stats.participants} />
+            <Stat locale={locale} value={e.stats.competitions} label={t.stats.competitions} />
+            <Stat locale={locale} value={e.stats.entries} label={t.stats.entries} />
+            <Stat locale={locale} value={e.stats.podium} label={t.stats.podium} />
+          </dl>
+        </section>
+      )}
 
       {/* ── Story ────────────────────────────────────────────────── */}
-      <section id="story" className="wrap grid gap-10 pb-20 sm:pb-28 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
+      <section id="story" className={`wrap grid gap-10 pb-20 sm:pb-28 lg:grid-cols-[1fr_1.2fr] lg:gap-20 ${e.stats ? "" : "pt-14 sm:pt-20"}`}>
         <div>
           <p className="eyebrow text-accent-ink">{pg.storyEyebrow}</p>
           <h2 className="mt-4 font-display text-4xl font-bold leading-[1.05] sm:text-5xl">{t.edition.title(e.number)}</h2>
@@ -119,11 +121,14 @@ export async function EditionPage({ locale, params }: EditionParams & { locale: 
       </section>
 
       {/* ── Competitions ─────────────────────────────────────────── */}
+      {e.categories.length > 0 && (
       <section aria-labelledby="competitions-title" className="bg-surface py-20 sm:py-24">
         <div className="wrap">
           <p className="eyebrow text-accent-ink">{pg.whatWasOn}</p>
           <h2 id="competitions-title" className="mt-3 font-display text-4xl font-bold sm:text-5xl">
-            {pg.competitions(e.stats.competitions)}
+            {e.winnersOnly
+              ? pg.announcedCompetitions(e.categories.reduce((n, cat) => n + cat.items.length, 0))
+              : pg.competitions(e.stats?.competitions ?? e.categories.reduce((n, cat) => n + cat.items.length, 0))}
           </h2>
           <div className="mt-12 grid gap-x-10 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
             {e.categories.map((cat) => (
@@ -141,6 +146,7 @@ export async function EditionPage({ locale, params }: EditionParams & { locale: 
           </div>
         </div>
       </section>
+      )}
 
       {/* ── Gallery ──────────────────────────────────────────────── */}
       <section id="gallery" aria-label={pg.photos} className="wrap space-y-20 py-20 sm:py-28">
@@ -162,6 +168,7 @@ export async function EditionPage({ locale, params }: EditionParams & { locale: 
       </section>
 
       {/* ── Results ──────────────────────────────────────────────── */}
+      {e.results ? (
       <section id="results" aria-labelledby="results-title" className="border-t border-line bg-surface py-20 sm:py-28">
         <div className="wrap">
           <div className="mx-auto max-w-3xl text-center">
@@ -169,8 +176,17 @@ export async function EditionPage({ locale, params }: EditionParams & { locale: 
             <h2 id="results-title" className="mt-3 font-display text-4xl font-bold sm:text-5xl">
               {pg.findTitle}
             </h2>
-            <p className="mt-4 text-lg text-muted">{pg.findText(e.year)}</p>
+            <p className="mt-4 text-lg text-muted">{e.winnersOnly ? pg.findWinnersText(e.year) : pg.findText(e.year)}</p>
           </div>
+          {e.winnersOnly && (
+            <aside role="note" aria-label={pg.winnersOnlyTitle} className="mx-auto mt-8 flex max-w-3xl gap-3 rounded-2xl border border-gold/40 bg-gold/10 p-5 text-left text-sm leading-relaxed">
+              <Info className="mt-0.5 size-5 shrink-0 text-gold-ink" />
+              <span>
+                <strong className="block font-semibold text-fg">{pg.winnersOnlyTitle}</strong>
+                <span className="text-muted">{pg.winnersOnly(e.roman, e.year)}</span>
+              </span>
+            </aside>
+          )}
           <div className="mx-auto mt-10 max-w-3xl">
             <ParticipantSearch year={e.year} locale={locale} />
           </div>
@@ -182,6 +198,17 @@ export async function EditionPage({ locale, params }: EditionParams & { locale: 
           </div>
         </div>
       </section>
+      ) : (
+        <section id="results" aria-labelledby="results-title" className="border-t border-line bg-surface py-16 sm:py-20">
+          <div className="wrap mx-auto max-w-3xl text-center">
+            <p className="eyebrow text-accent-ink">{pg.results}</p>
+            <h2 id="results-title" className="mt-3 font-display text-3xl font-bold sm:text-4xl">
+              {pg.noResultsTitle}
+            </h2>
+            <p className="mt-4 text-lg text-muted">{pg.noResultsText(e.roman)}</p>
+          </div>
+        </section>
+      )}
 
       {/* ── Prev / next ──────────────────────────────────────────── */}
       <nav aria-label={pg.otherEditions} className="wrap grid gap-4 py-16 sm:grid-cols-2">

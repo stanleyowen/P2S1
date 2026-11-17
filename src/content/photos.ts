@@ -8,6 +8,230 @@ export type PhotoEntry = { key: string; caption: Localized; alt: Localized; wide
 export type GallerySection = { id: string; title: Localized; intro?: Localized; photos: PhotoEntry[] };
 
 export const GALLERIES: Record<number, GallerySection[]> = {
+  2025: [
+    {
+      id: "finale",
+      title: { en: "Puncak P2S1 — the finale", id: "Puncak P2S1 — malam puncak" },
+      intro: {
+        en: "Two days in the school auditorium on 10 and 11 March 2025, under a stage dressed with Greek columns.",
+        id: "Dua hari di auditorium sekolah pada 10 dan 11 Maret 2025, di bawah panggung berhias pilar Yunani.",
+      },
+      photos: [
+        {
+          key: "2025/finale-juara-umum",
+          caption: { en: "The overall champions", id: "Juara umum" },
+          alt: { en: "The overall winning class crowds the stage with trophies under a screen reading Pemenang P2S1 Juara Umum", id: "Kelas juara umum memenuhi panggung dengan trofi di bawah layar bertuliskan Pemenang P2S1 Juara Umum" },
+          wide: true,
+        },
+        {
+          key: "2025/finale-duet",
+          caption: { en: "Singer and guitarist", id: "Penyanyi dan gitaris" },
+          alt: { en: "A singer in a red blazer and a guitarist perform in front of the P2S1 XXVIII screen", id: "Seorang penyanyi berblazer merah dan seorang gitaris tampil di depan layar P2S1 XXVIII" },
+          tall: true,
+        },
+        {
+          key: "2025/finale-dance",
+          caption: { en: "Dance", id: "Tari" },
+          alt: { en: "Four dancers in white shirts and black trousers hit a pose on stage", id: "Empat penari berkemeja putih dan bercelana hitam berpose di panggung" },
+        },
+        {
+          key: "2025/finale-blue-stage",
+          caption: { en: "Under the blue lights", id: "Di bawah lampu biru" },
+          alt: { en: "A class choir performs on a stage washed in blue light", id: "Paduan suara kelas tampil di panggung yang disinari lampu biru" },
+        },
+        {
+          key: "2025/finale-drums",
+          caption: { en: "On the drums", id: "Bermain drum" },
+          alt: { en: "A student plays a drum kit on stage", id: "Seorang siswi bermain drum di panggung" },
+          tall: true,
+        },
+        {
+          key: "2025/finale-colour",
+          caption: { en: "A colourful finale", id: "Penampilan penuh warna" },
+          alt: { en: "Performers in colourful outfits sing together on stage", id: "Para penampil berpakaian warna-warni bernyanyi bersama di panggung" },
+          wide: true,
+        },
+        {
+          key: "2025/finale-dance-group",
+          caption: { en: "Dance group", id: "Tari kelompok" },
+          alt: { en: "Dancers in red and white jerseys perform in front of a drum kit", id: "Para penari berjersei merah dan putih tampil di depan seperangkat drum" },
+        },
+        {
+          key: "2025/finale-vocal",
+          caption: { en: "Vocal performance", id: "Penampilan vokal" },
+          alt: { en: "A student sings in front of the P2S1 XXVIII 2025 screen", id: "Seorang siswi bernyanyi di depan layar P2S1 XXVIII 2025" },
+          tall: true,
+        },
+        {
+          key: "2025/finale-band",
+          caption: { en: "Band", id: "Band" },
+          alt: { en: "A band with guitars and a singer performs on stage", id: "Sebuah band dengan gitar dan vokalis tampil di panggung" },
+        },
+        {
+          key: "2025/finale-guitar",
+          caption: { en: "Electric guitar", id: "Gitar listrik" },
+          alt: { en: "A student plays an electric guitar on stage", id: "Seorang siswi memainkan gitar listrik di panggung" },
+          tall: true,
+        },
+        {
+          key: "2025/finale-piano",
+          caption: { en: "Keyboard", id: "Keyboard" },
+          alt: { en: "A student plays the keyboard on stage", id: "Seorang siswa memainkan keyboard di panggung" },
+        },
+        {
+          key: "2025/finale-mcs",
+          caption: { en: "Hosting the finale", id: "Membawakan malam puncak" },
+          alt: { en: "Two masters of ceremony read from cue cards", id: "Dua pembawa acara membaca dari kartu panduan" },
+          tall: true,
+        },
+        {
+          key: "2025/finale-medal",
+          caption: { en: "Medal ceremony", id: "Pengalungan medali" },
+          alt: { en: "A teacher places a medal around a student's neck", id: "Seorang guru mengalungkan medali kepada seorang siswa" },
+        },
+        {
+          key: "2025/finale-winners",
+          caption: { en: "Winners on stage", id: "Para pemenang di panggung" },
+          alt: { en: "Winners with guitars and a trophy pose on stage", id: "Para pemenang dengan gitar dan trofi berpose di panggung" },
+        },
+        {
+          key: "2025/finale-group",
+          caption: { en: "The whole class on stage", id: "Satu kelas di panggung" },
+          alt: { en: "A class kneels and stands together under the P2S1 XXVIII 2025 backdrop", id: "Satu kelas berlutut dan berdiri bersama di bawah latar P2S1 XXVIII 2025" },
+          wide: true,
+        },
+      ],
+    },
+    {
+      id: "competitions",
+      title: { en: "The competitions", id: "Perlombaan" },
+      intro: {
+        en: "Seven weeks in classrooms, on the courts and in the courtyard.",
+        id: "Tujuh minggu di ruang kelas, di lapangan, dan di halaman sekolah.",
+      },
+      photos: [
+        {
+          key: "2025/tug-of-war",
+          caption: { en: "Tug of war", id: "Tarik tambang" },
+          alt: { en: "Two teams lean back on the rope in the school courtyard", id: "Dua tim condong ke belakang menarik tambang di halaman sekolah" },
+          wide: true,
+        },
+        {
+          key: "2025/basketball-jump",
+          caption: { en: "Basketball", id: "Bola basket" },
+          alt: { en: "Two players leap for the ball on an outdoor court", id: "Dua pemain melompat merebut bola di lapangan terbuka" },
+          tall: true,
+        },
+        {
+          key: "2025/storytelling",
+          caption: { en: "Storytelling", id: "Storytelling" },
+          alt: { en: "A student in a red-lined cape tells a story at the front of a classroom", id: "Seorang siswi berjubah merah bercerita di depan kelas" },
+          tall: true,
+        },
+        {
+          key: "2025/olympiad",
+          caption: { en: "Olympiad", id: "Olimpiade" },
+          alt: { en: "A student works through an olympiad paper", id: "Seorang siswi mengerjakan soal olimpiade" },
+        },
+        {
+          key: "2025/battle-of-brains",
+          caption: { en: "Battle of Brains", id: "Battle of Brains" },
+          alt: { en: "A contestant raises a hand to answer while teammates look on", id: "Seorang peserta mengangkat tangan untuk menjawab sementara rekan setimnya memperhatikan" },
+        },
+        {
+          key: "2025/terompah",
+          caption: { en: "Terompah", id: "Terompah" },
+          alt: { en: "A team lines up in matching jerseys, hands on each other's shoulders, ready to race", id: "Satu tim berjersei sama berbaris dengan tangan di bahu teman, siap berlomba" },
+          tall: true,
+        },
+        {
+          key: "2025/team-spirit",
+          caption: { en: "Team spirit", id: "Semangat tim" },
+          alt: { en: "Students in matching red shirts hold hands and laugh outdoors", id: "Siswi berkaos merah seragam bergandengan tangan dan tertawa di luar ruangan" },
+        },
+        {
+          key: "2025/table-tennis",
+          caption: { en: "Table tennis", id: "Tenis meja" },
+          alt: { en: "A player reaches for a return at the table", id: "Seorang pemain menjangkau bola di meja tenis" },
+        },
+        {
+          key: "2025/chess",
+          caption: { en: "Chess", id: "Catur" },
+          alt: { en: "Two players face each other over a chessboard", id: "Dua pemain berhadapan di depan papan catur" },
+        },
+        {
+          key: "2025/scrabble",
+          caption: { en: "Scrabble", id: "Scrabble" },
+          alt: { en: "A student places a tile on a Scrabble board as another watches", id: "Seorang siswi meletakkan kepingan di papan Scrabble sementara yang lain memperhatikan" },
+          tall: true,
+        },
+        {
+          key: "2025/competitive-programming",
+          caption: { en: "Competitive programming", id: "Competitive programming" },
+          alt: { en: "Code fills a monitor during the programming contest", id: "Kode memenuhi layar monitor saat lomba pemrograman" },
+        },
+        {
+          key: "2025/photography",
+          caption: { en: "Photography", id: "Fotografi" },
+          alt: { en: "Students set up a shot with a camera and a lamp in a darkened room", id: "Siswa menyiapkan foto dengan kamera dan lampu di ruangan yang gelap" },
+        },
+        {
+          key: "2025/badminton",
+          caption: { en: "Badminton", id: "Bulu tangkis" },
+          alt: { en: "A player in pink lunges for the shuttle in the school hall", id: "Seorang pemain berbaju merah muda menjangkau kok di aula sekolah" },
+          tall: true,
+        },
+        {
+          key: "2025/basketball",
+          caption: { en: "Basketball", id: "Bola basket" },
+          alt: { en: "A player dribbles across an outdoor court", id: "Seorang pemain menggiring bola di lapangan terbuka" },
+        },
+        {
+          key: "2025/watercolor",
+          caption: { en: "Watercolor", id: "Cat air" },
+          alt: { en: "A student paints with a watercolour palette at her desk", id: "Seorang siswi melukis dengan palet cat air di mejanya" },
+        },
+        {
+          key: "2025/manga",
+          caption: { en: "Manga", id: "Manga" },
+          alt: { en: "A student inks a manga page", id: "Seorang siswi menebalkan halaman manga dengan tinta" },
+        },
+        {
+          key: "2025/dance-solo",
+          caption: { en: "Dance solo", id: "Tari solo" },
+          alt: { en: "A dancer in a black jacket performs in an empty classroom", id: "Seorang penari berjaket hitam tampil di ruang kelas yang kosong" },
+          tall: true,
+        },
+        {
+          key: "2025/violin",
+          caption: { en: "Musical instrument", id: "Alat musik" },
+          alt: { en: "A student plays the violin", id: "Seorang siswi memainkan biola" },
+          tall: true,
+        },
+        {
+          key: "2025/newscasting",
+          caption: { en: "Newscasting", id: "Membaca berita" },
+          alt: { en: "Two students read the news in front of a projected world map", id: "Dua siswa membacakan berita di depan peta dunia yang diproyeksikan" },
+        },
+        {
+          key: "2025/esports",
+          caption: { en: "Esports", id: "Esports" },
+          alt: { en: "Hands grip a phone mid-match in a mobile game", id: "Tangan menggenggam ponsel di tengah pertandingan gim seluler" },
+        },
+        {
+          key: "2025/band",
+          caption: { en: "Band", id: "Band" },
+          alt: { en: "A singer performs with a keyboard player behind her", id: "Seorang penyanyi tampil dengan pemain keyboard di belakangnya" },
+        },
+        {
+          key: "2025/class-choir",
+          caption: { en: "Class Choir Battle", id: "Class Choir Battle" },
+          alt: { en: "A whole class poses together after their choir performance", id: "Satu kelas berfoto bersama setelah penampilan paduan suara" },
+          wide: true,
+        },
+      ],
+    },
+  ],
   2023: [
     {
       id: "finale",
@@ -444,13 +668,16 @@ export const GALLERIES: Record<number, GallerySection[]> = {
 
 /** A cross-edition selection for the home page strip. */
 export const MOMENTS: { key: string; caption: Localized; alt: Localized; year: number }[] = [
+  { key: "2025/finale-juara-umum", caption: { en: "Juara umum", id: "Juara umum" }, alt: { en: "The overall champions crowd the stage with their trophies", id: "Kelas juara umum memenuhi panggung dengan trofi" }, year: 2025 },
   { key: "2023/guzheng", caption: { en: "Guzheng", id: "Guzheng" }, alt: { en: "A student plays a red guzheng on stage", id: "Seorang siswa memainkan guzheng merah di panggung" }, year: 2023 },
   { key: "2024/tug-of-war", caption: { en: "Tug of war", id: "Tarik tambang" }, alt: { en: "Two teams pull on a rope in the school courtyard", id: "Dua tim saling menarik tambang di halaman sekolah" }, year: 2024 },
   { key: "2023/vocal-solo-portrait", caption: { en: "Vocal solo", id: "Solo vokal" }, alt: { en: "A student in a pale blue gown sings on stage", id: "Seorang siswi bergaun biru muda bernyanyi di panggung" }, year: 2023 },
+  { key: "2025/storytelling", caption: { en: "Storytelling", id: "Storytelling" }, alt: { en: "A student in a cape tells a story in a classroom", id: "Seorang siswi berjubah bercerita di dalam kelas" }, year: 2025 },
   { key: "2024/basketball", caption: { en: "Basketball", id: "Bola basket" }, alt: { en: "Players contest a rebound under the hoop", id: "Para pemain berebut bola pantul di bawah ring" }, year: 2024 },
   { key: "2023/medals", caption: { en: "The medals", id: "Medali" }, alt: { en: "P2S1 medals with red and white ribbons", id: "Medali P2S1 berpita merah putih" }, year: 2023 },
   { key: "2024/class-choir-battle", caption: { en: "Class Choir Battle", id: "Class Choir Battle" }, alt: { en: "A class choir in white shirts sings", id: "Paduan suara kelas berkemeja putih bernyanyi" }, year: 2024 },
   { key: "2023/badminton", caption: { en: "Badminton", id: "Bulu tangkis" }, alt: { en: "A badminton player leaps for a smash", id: "Seorang pemain bulu tangkis melompat untuk melakukan smes" }, year: 2023 },
+  { key: "2025/finale-drums", caption: { en: "On the drums", id: "Bermain drum" }, alt: { en: "A student plays the drums on stage", id: "Seorang siswi bermain drum di panggung" }, year: 2025 },
   { key: "2024/dance-solo", caption: { en: "Dance solo", id: "Tari solo" }, alt: { en: "A dancer stretches her arms overhead", id: "Seorang penari merentangkan kedua tangannya ke atas" }, year: 2024 },
   { key: "2023/esports-closeup", caption: { en: "Esports", id: "Esports" }, alt: { en: "Hands holding a phone mid-match", id: "Tangan memegang ponsel di tengah pertandingan" }, year: 2023 },
   { key: "2024/watercolor", caption: { en: "Watercolor", id: "Cat air" }, alt: { en: "A student adds colour to a painting", id: "Seorang siswa mewarnai sebuah lukisan" }, year: 2024 },

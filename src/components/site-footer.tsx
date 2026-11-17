@@ -30,7 +30,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         <div>
           <p className="eyebrow text-gold">{t.footer.results}</p>
           <ul className="mt-4 space-y-2 text-sm">
-            {EDITIONS.map((e) => (
+            {EDITIONS.filter((e) => e.results).map((e) => (
               <li key={e.slug}>
                 <Link href={href(locale, `/${e.slug}#results`)} className="text-on-ink-muted hover:text-on-ink">
                   {t.footer.findParticipant} · {e.year}

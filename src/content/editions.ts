@@ -30,10 +30,18 @@ export type Edition = {
   heroPosition?: string;
   logo: string;
   og: string;
-  stats: { participants: number; competitions: number; entries: number; podium: number };
+  /** Headline numbers. Left out until an edition's official figures are known. */
+  stats?: Stats;
+  /** Whether the results API has this year's data (participant search + champions board). */
+  results: boolean;
+  /** Results cover only the publicly announced winners, not every participant (shows a disclaimer). */
+  winnersOnly?: boolean;
   copy: Localized<EditionCopy>;
+  /** The official competition list; empty hides the section. */
   categories: Category[];
 };
+
+export type Stats = { participants: number; competitions: number; entries: number; podium: number };
 
 export const SITE = {
   name: "Pekan Prestasi Sutomo 1",
@@ -53,6 +61,65 @@ const CATEGORY = {
 
 export const EDITIONS: Edition[] = [
   {
+    year: 2025,
+    slug: "2025",
+    number: 28,
+    roman: "XXVIII",
+    hero: "2025/finale-group",
+    heroPosition: "50% 30%",
+    logo: "logos/2025",
+    og: "/og/og-2025.jpg",
+    // Rebuilt from the winners OSIS announced on Instagram; the full participant list was never published.
+    results: true,
+    winnersOnly: true,
+    copy: {
+      en: {
+        tagline: "Seven weeks of competitions, crowned on the auditorium stage.",
+        period: "Seven weeks of competitions · March 2025",
+        finale: "10 & 11 March 2025 · Auditorium Yayasan Perguruan Sutomo",
+        summary:
+          "The 28th P2S1 ran seven weeks of competitions across academics, language, the arts and sport, and closed with a two-day Puncak P2S1 on 10 and 11 March 2025.",
+        story: [
+          "The 28th Pekan Prestasi Sutomo 1 took its look from Greek myth: marble columns on the stage, a laurel-wreathed logo, and weekly recaps that travelled from the depths of the underworld, through the sea and the mountains, up to Olympus.",
+          "Over seven weeks, students sat olympiads, debated, told stories, coded, sketched and painted, and competed on the court, at the table and in the courtyard, from basketball and badminton to chess, Scrabble and tug of war.",
+          "It all came together at Puncak P2S1 on 10 and 11 March 2025 in the Auditorium Yayasan Perguruan Sutomo: two evenings of class choirs, dance, bands and solo performances, medals and trophies for the winners, and the overall champions (juara umum) crowned on stage.",
+        ],
+      },
+      id: {
+        tagline: "Tujuh minggu perlombaan, dimahkotai di panggung auditorium.",
+        period: "Tujuh minggu perlombaan · Maret 2025",
+        finale: "10 & 11 Maret 2025 · Auditorium Yayasan Perguruan Sutomo",
+        summary:
+          "P2S1 ke-28 menghadirkan tujuh minggu perlombaan di bidang akademik, bahasa, seni, dan olahraga, lalu ditutup dengan Puncak P2S1 selama dua hari pada 10 dan 11 Maret 2025.",
+        story: [
+          "Pekan Prestasi Sutomo 1 ke-28 mengambil inspirasi dari mitologi Yunani: pilar marmer di panggung, logo berhias karangan daun salam, serta rangkuman mingguan yang berkelana dari dasar dunia bawah, melintasi laut dan pegunungan, hingga ke Olympus.",
+          "Selama tujuh minggu, siswa mengerjakan olimpiade, berdebat, bercerita, menulis kode, membuat sketsa dan melukis, serta bertanding di lapangan, di meja, dan di halaman sekolah — mulai dari basket dan bulu tangkis hingga catur, Scrabble, dan tarik tambang.",
+          "Semuanya berpuncak pada Puncak P2S1 tanggal 10 dan 11 Maret 2025 di Auditorium Yayasan Perguruan Sutomo: dua malam penuh paduan suara kelas, tari, band, dan penampilan solo, medali dan trofi untuk para pemenang, serta penobatan juara umum di atas panggung.",
+        ],
+      },
+    },
+    // Competitions whose winners were announced publicly (olympiads were also split by grade).
+    categories: [
+      {
+        name: CATEGORY.academic,
+        items: ["Math Olympiad", "Physics Olympiad", "Chemistry Olympiad", "Biology Olympiad", "Economics Olympiad", "Geography Olympiad", "English Olympiad", "Battle of Brains", "Competitive Programming", "Web Design", "Business Idea", "Spelling Bee"],
+      },
+      {
+        name: CATEGORY.language,
+        items: ["English Debate", "Mandarin Debate", "English Storytelling", "Indonesian Writing", "English Writing", "Mandarin Writing", "Public Speaking", "English Newscasting", "Indonesian Newscasting"],
+      },
+      {
+        name: CATEGORY.art,
+        items: ["Object Sketch", "Crayon", "Manga", "Graphic Design", "Interior Design", "Fashion Design", "Photography"],
+      },
+      { name: CATEGORY.performing, items: ["Vocal Solo", "Dance Solo", "Class Choir Battle", "Musical Instrument", "Band"] },
+      {
+        name: CATEGORY.sports,
+        items: ["Basketball", "Badminton", "Table Tennis", "Tug of War", "Terompah", "Esports", "Chess", "Scrabble", "Rubik's Cube"],
+      },
+    ],
+  },
+  {
     year: 2024,
     slug: "2024",
     number: 27,
@@ -63,6 +130,7 @@ export const EDITIONS: Edition[] = [
     logo: "logos/2024",
     og: "/og/og-2024.jpg",
     stats: { participants: 1319, competitions: 51, entries: 2563, podium: 339 },
+    results: true,
     copy: {
       en: {
         tagline: "Fifty-one competitions, one idea: get better.",
@@ -121,6 +189,7 @@ export const EDITIONS: Edition[] = [
     logo: "logos/2023",
     og: "/og/og-2023.jpg",
     stats: { participants: 1609, competitions: 48, entries: 3197, podium: 359 },
+    results: true,
     copy: {
       en: {
         tagline: "Back on stage after two years online.",
@@ -171,7 +240,10 @@ export const EDITIONS: Edition[] = [
 
 export const getEdition = (slug: string) => EDITIONS.find((e) => e.slug === slug);
 
-export const TOTALS = EDITIONS.reduce(
+/** Editions whose official figures are known — the only ones the totals add up. */
+export const COUNTED = EDITIONS.filter((e): e is Edition & { stats: Stats } => !!e.stats);
+
+export const TOTALS = COUNTED.reduce(
   (t, e) => ({
     competitions: t.competitions + e.stats.competitions,
     entries: t.entries + e.stats.entries,
@@ -180,3 +252,7 @@ export const TOTALS = EDITIONS.reduce(
   }),
   { competitions: 0, entries: 0, podium: 0, participants: 0 },
 );
+
+/** The newest edition, and the newest one with searchable results. */
+export const LATEST = EDITIONS[0]!;
+export const LATEST_WITH_RESULTS = EDITIONS.find((e) => e.results)!;

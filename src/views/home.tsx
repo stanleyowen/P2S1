@@ -3,9 +3,9 @@ import Link from "next/link";
 import { ArrowRight } from "@/components/icons";
 import { Picture } from "@/components/picture";
 import { Stat } from "@/components/stat";
-import { EDITIONS, SITE, TOTALS } from "@/content/editions";
+import { COUNTED, EDITIONS, LATEST, LATEST_WITH_RESULTS, SITE, TOTALS } from "@/content/editions";
 import { MOMENTS } from "@/content/photos";
-import { href, languageAlternates, type Locale } from "@/i18n/config";
+import { LOCALE_META, href, languageAlternates, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getImage } from "@/lib/images";
 
@@ -18,6 +18,9 @@ export function HomePage({ locale }: { locale: Locale }) {
   const t = getDictionary(locale);
   const h = t.home;
   const to = (path: string) => href(locale, path);
+  const counted = new Intl.ListFormat(LOCALE_META[locale].intl, { type: "conjunction" }).format(
+    [...COUNTED].reverse().map((e) => `P2S1 ${e.roman} (${e.year})`),
+  );
 
   return (
     <>
@@ -41,10 +44,10 @@ export function HomePage({ locale }: { locale: Locale }) {
           </h1>
           <p className="mt-6 max-w-xl animate-rise text-lg leading-relaxed text-on-ink/85 [animation-delay:160ms] sm:text-xl">{h.intro}</p>
           <div className="mt-9 flex animate-rise flex-wrap gap-3 [animation-delay:240ms]">
-            <Link href={to("/2024")} className="inline-flex h-12 items-center gap-2 rounded-full bg-gold px-6 font-bold text-black transition hover:brightness-110">
-              {h.explore(2024)} <ArrowRight className="size-4" />
+            <Link href={to(`/${LATEST.slug}`)} className="inline-flex h-12 items-center gap-2 rounded-full bg-gold px-6 font-bold text-black transition hover:brightness-110">
+              {h.explore(LATEST.year)} <ArrowRight className="size-4" />
             </Link>
-            <Link href={to("/2024#results")} className="inline-flex h-12 items-center rounded-full border border-white/30 px-6 font-bold text-white backdrop-blur transition hover:bg-white/10">
+            <Link href={to(`/${LATEST_WITH_RESULTS.slug}#results`)} className="inline-flex h-12 items-center rounded-full border border-white/30 px-6 font-bold text-white backdrop-blur transition hover:bg-white/10">
               {h.find}
             </Link>
           </div>
@@ -68,7 +71,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             <Stat locale={locale} value={TOTALS.podium} label={t.stats.podium} />
             <Stat locale={locale} value={EDITIONS.length} label={t.stats.editions} />
           </dl>
-          <p className="text-sm">{h.figures}</p>
+          <p className="text-sm">{h.figures(counted)}</p>
         </div>
       </section>
 
@@ -124,10 +127,14 @@ export function HomePage({ locale }: { locale: Locale }) {
                         <p className="mt-4 leading-relaxed text-muted">{c.summary}</p>
                       </div>
                       <div className="flex flex-wrap items-end justify-between gap-6">
-                        <dl className="flex gap-8">
-                          <Stat locale={locale} size="md" value={e.stats.participants} label={t.stats.participants} />
-                          <Stat locale={locale} size="md" value={e.stats.competitions} label={t.stats.competitions} />
-                        </dl>
+                        {e.stats ? (
+                          <dl className="flex gap-8">
+                            <Stat locale={locale} size="md" value={e.stats.participants} label={t.stats.participants} />
+                            <Stat locale={locale} size="md" value={e.stats.competitions} label={t.stats.competitions} />
+                          </dl>
+                        ) : (
+                          <span />
+                        )}
                         <span className="inline-flex items-center gap-2 font-bold text-accent-ink">
                           {t.edition.explore(e.year)} <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                         </span>
@@ -178,7 +185,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           <h2 className="mt-3 max-w-2xl font-display text-4xl font-bold sm:text-5xl">{h.resultsTitle}</h2>
           <p className="mt-4 max-w-xl text-on-ink-muted">{h.resultsText}</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            {EDITIONS.map((e) => (
+            {EDITIONS.filter((e) => e.results).map((e) => (
               <Link key={e.slug} href={to(`/${e.slug}#results`)} className="inline-flex h-12 items-center gap-2 rounded-full bg-white px-6 font-bold text-black transition hover:bg-gold">
                 {h.resultsLink(e.year)} <ArrowRight className="size-4" />
               </Link>
