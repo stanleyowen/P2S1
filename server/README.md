@@ -5,7 +5,7 @@ It exists so the participant list never has to live in the public repo or the si
 
 - **Zero dependencies** — just Node's `http` module. Nothing to `npm install`, nothing to patch.
 - **Minimal data** — `{ name, class, competition, result }` only. Student ID numbers are dropped before the data reaches the server.
-- **Hard to scrape** — ≥3-character queries, max 50 results per call, per-IP token bucket (60/min, burst 20).
+- **Hard to scrape** — ≥3-character queries, max 10 results per call (all of one student's entries when every match is the same name), per-IP token bucket (60/min, burst 20).
 - **Locked down** — GET/HEAD/OPTIONS only, CORS allow-list, strict response headers, 5-second timeouts, queries never logged.
 - **Container hardening** — non-root, read-only filesystem, all capabilities dropped, `no-new-privileges`, memory/PID/CPU limits,
   data mounted read-only, port bound to `127.0.0.1` only.

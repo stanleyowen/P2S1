@@ -11,6 +11,7 @@ const rows = [
   { name: "BOB EXAMPLE", class: "XII MIA-01", competition: "Chess", result: "2nd Place" },
   { name: "CÉLINE ÀCCENT", class: "X IS-02", competition: "Vocal Solo", result: "Participant" },
   ...Array.from({ length: 80 }, (_, i) => ({ name: `FILLER ${i}`, class: "XI MIA-09", competition: "Sketch", result: "Participant" })),
+  ...Array.from({ length: 14 }, (_, i) => ({ name: "DAVID BUSYBODY", class: "XI IS-03", competition: `Event ${i}`, result: "Participant" })),
 ];
 fs.writeFileSync(path.join(dir, "2099.json"), JSON.stringify(rows));
 process.env.DATA_DIR = dir;
@@ -41,11 +42,24 @@ test("search by class, winners first", async () => {
   assert.deepEqual(body.results.map((r) => r.result), ["1st Place", "2nd Place"]);
 });
 
-test("results are capped so the dataset cannot be dumped in one call", async () => {
+test("results are capped at 10 so the dataset cannot be dumped in one call", async () => {
   const body = await (await get("/v1/editions/2099/search?q=filler")).json();
   assert.equal(body.total, 80);
-  assert.equal(body.results.length, 50);
+  assert.equal(body.results.length, 10);
   assert.equal(body.truncated, true);
+});
+
+test("a class search is capped at 10 too", async () => {
+  const body = await (await get("/v1/editions/2099/search?q=xi%20mia-09")).json();
+  assert.equal(body.results.length, 10);
+  assert.equal(body.truncated, true);
+});
+
+test("one student's entries are all returned, even beyond 10", async () => {
+  const body = await (await get("/v1/editions/2099/search?q=busybody")).json();
+  assert.equal(body.total, 14);
+  assert.equal(body.results.length, 14);
+  assert.equal(body.truncated, false);
 });
 
 test("rejects short, long and odd queries", async () => {

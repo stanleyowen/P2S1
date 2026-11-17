@@ -10,6 +10,8 @@
 //   • Student IDs are not present in the dataset at all (see scripts/normalize.mjs).
 //   • Search requires ≥3 characters and returns at most MAX_RESULTS rows, so the full
 //     list cannot be pulled in one request; a per-IP token bucket slows enumeration.
+//     The one exception: when every match belongs to the same student name, all of that
+//     student's entries are returned (up to MAX_ONE_STUDENT), so nobody's record is cut off.
 //   • Only GET/HEAD/OPTIONS. No request bodies are read. Strict timeouts.
 //   • CORS is an allow-list (ALLOWED_ORIGINS). Queries are never logged.
 
@@ -31,7 +33,8 @@ const ALLOWED_ORIGINS = new Set(
 const TRUST_PROXY = env("TRUST_PROXY", "none");
 const RATE_PER_MIN = Number(env("RATE_LIMIT_PER_MIN", 60));
 const RATE_BURST = Number(env("RATE_LIMIT_BURST", 20));
-const MAX_RESULTS = 50;
+const MAX_RESULTS = 10;
+const MAX_ONE_STUDENT = 100;
 const MIN_QUERY = 3;
 const MAX_QUERY = 64;
 
@@ -59,6 +62,7 @@ function loadEditions() {
       competition: String(r.competition),
       result: String(r.result),
       _key: fold(`${r.name} ${r.class}`),
+      _name: fold(r.name),
       _class: fold(r.class).replace(/[\s-]/g, ""),
     }));
     editions.set(Number(m[1]), { entries, champions: buildChampions(entries) });
@@ -97,7 +101,9 @@ function search(edition, rawQuery) {
     (e) => terms.every((t) => e._key.includes(t)) || (qClass.length >= MIN_QUERY && e._class === qClass),
   );
   hits.sort((a, b) => rank(a.result) - rank(b.result) || a.name.localeCompare(b.name) || a.competition.localeCompare(b.competition));
-  return { query: rawQuery, total: hits.length, truncated: hits.length > MAX_RESULTS, results: hits.slice(0, MAX_RESULTS).map(strip) };
+  const oneStudent = hits.length > 0 && hits.every((h) => h._name === hits[0]._name);
+  const limit = oneStudent ? MAX_ONE_STUDENT : MAX_RESULTS;
+  return { query: rawQuery, total: hits.length, truncated: hits.length > limit, results: hits.slice(0, limit).map(strip) };
 }
 
 // ── Rate limiting (token bucket per client IP) ─────────────────────────────
