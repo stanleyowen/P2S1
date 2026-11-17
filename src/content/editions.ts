@@ -132,7 +132,7 @@ export const EDITIONS: Edition[] = [
     og: "/og/og-2025.jpg",
     // Participants from the registration forms; podium from the official OSIS winners' recap.
     // `competitions` counts the recap's 63 podium events (olympiads split by grade).
-    stats: { participants: 1257, competitions: 63, entries: 2684, podium: 295 },
+    stats: { participants: 1255, competitions: 63, entries: 2682, podium: 297 },
     results: true,
     partialEntries: true,
     copy: {
