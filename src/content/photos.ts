@@ -328,31 +328,6 @@ export const GALLERIES: Record<number, GallerySection[]> = {
         },
       ],
     },
-    {
-      id: "team",
-      title: { en: "Behind the scenes", id: "Di balik layar" },
-      intro: {
-        en: "OSIS SMA Sutomo 1, the student council that organises P2S1 every year.",
-        id: "OSIS SMA Sutomo 1, organisasi siswa yang menyelenggarakan P2S1 setiap tahun.",
-      },
-      photos: [
-        {
-          key: "2024/osis-committee",
-          caption: { en: "OSIS SMA Sutomo 1 · January 2024", id: "OSIS SMA Sutomo 1 · Januari 2024" },
-          alt: { en: "The OSIS team in red shirts poses in the school courtyard", id: "Tim OSIS berbaju merah berfoto di halaman sekolah" },
-          wide: true,
-        },
-        {
-          key: "2024/osis-auditorium",
-          caption: { en: "In the auditorium · January 2024", id: "Di auditorium · Januari 2024" },
-          alt: {
-            en: "Students fill the auditorium seats for a group photo with OSIS members and teachers in front",
-            id: "Siswa memenuhi kursi auditorium untuk foto bersama, dengan anggota OSIS dan guru di barisan depan",
-          },
-          wide: true,
-        },
-      ],
-    },
   ],
 };
 
