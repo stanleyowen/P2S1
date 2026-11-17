@@ -1,0 +1,269 @@
+// Interface strings for each language. Edition copy and photo captions live with their data
+// in src/content/. Client components import this module directly, so keep it free of server-only code.
+
+import { LOCALE_META, type Locale } from "./config";
+
+const en = {
+  site: {
+    description:
+      "Pekan Prestasi Sutomo 1 (P2S1) is the annual competition week of SMA Sutomo 1 Medan, organised by the student council (OSIS). Explore every edition, the photos and the results.",
+    tagline: "the annual competition week of SMA Sutomo 1 Medan, organised by the student council (OSIS).",
+  },
+  archive: {
+    badge: "Archived",
+    label: "Archive notice",
+    notice: "This site is an archive of P2S1 XXVI (2023) and XXVII (2024) and is no longer updated.",
+  },
+  header: {
+    skip: "Skip to content",
+    home: "Home",
+    homeLabel: "P2S1 — home",
+    mainNav: "Main",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    language: "Language",
+  },
+  footer: {
+    editions: "Editions",
+    results: "Results",
+    findParticipant: "Find a participant",
+    archived: "Archived.",
+    photos: (org: string) => `Photos © ${org}. Shared for the school community — please ask before reusing.`,
+    source: "Source on GitHub",
+  },
+  stats: {
+    participants: "Participants",
+    competitions: "Competitions",
+    competitionsHeld: "Competitions held",
+    entries: "Entries",
+    podium: "Podium finishes",
+    editions: "Editions archived",
+  },
+  edition: {
+    label: (n: number) => `${ordinal(n)} edition`,
+    title: (n: number) => `The ${ordinal(n)} Pekan Prestasi Sutomo 1`,
+    logoAlt: (roman: string) => `P2S1 ${roman} logo`,
+    theme: "Theme",
+    explore: (year: number) => `Explore ${year}`,
+  },
+  home: {
+    heroAlt: "Students in traditional costume cheer as a trophy is lifted on stage at the P2S1 finale",
+    eyebrow: "The annual competition week of SMA Sutomo 1 Medan",
+    intro: "Students competing in olympiads, debates, the arts and sport. This archive keeps the photos, the numbers and the results of the 2023 and 2024 editions.",
+    explore: (year: number) => `Explore P2S1 ${year}`,
+    find: "Find a participant",
+    aboutEyebrow: "About P2S1",
+    aboutTitle: "Show what you can do — in class, on stage, on the court.",
+    about1: "often called P2S1, is an annual competition event held by the student council of SMA Sutomo 1 for students from grade 10 to 12.",
+    about2: "Students are encouraged to show and develop their potential in both academic and non-academic fields — building creativity and the skills they’ll need for the future.",
+    figures: "Figures cover P2S1 XXVI (2023) and XXVII (2024).",
+    editionsEyebrow: "Editions",
+    editionsTitle: "Every year, a new chapter",
+    momentsEyebrow: "Moments",
+    momentsTitle: "From the court to the stage",
+    resultsEyebrow: "Results",
+    resultsTitle: "Took part? Find your results.",
+    resultsText: "Search by name or class, and browse the champions of every competition.",
+    resultsLink: (year: number) => `${year} results`,
+  },
+  page: {
+    onThisPage: "On this page",
+    story: "Story",
+    photos: "Photos",
+    results: "Results",
+    inNumbers: (year: number) => `${year} in numbers`,
+    storyEyebrow: "The story",
+    finale: "Finale",
+    whatWasOn: "What was on",
+    competitions: (n: number) => `${n} competitions`,
+    findTitle: "Find a participant",
+    findText: (year: number) => `Search the ${year} entries by name or class.`,
+    championsTitle: (year: number) => `Champions of ${year}`,
+    championsText: "The top three of every competition.",
+    otherEditions: "Other editions",
+    previous: "Previous edition",
+    next: "Next edition",
+  },
+  results: {
+    searching: "Searching…",
+    noMatch: (q: string) => `No entries match “${q}”.`,
+    truncated: (shown: number, total: number) => `Showing the first ${shown} of ${total} entries — add more of the name to narrow it down.`,
+    found: (n: number) => `${n} ${n === 1 ? "entry" : "entries"} found.`,
+    minChars: (n: number) => `Type at least ${n} characters.`,
+    searchLabel: (year: number) => `Search ${year} participants by name or class`,
+    placeholder: "Name or class, e.g. “XII MIA-03”",
+    search: "Search",
+    caption: (q: string) => `Search results for “${q}”`,
+    name: "Name",
+    class: "Class",
+    competition: "Competition",
+    result: "Result",
+    place: (n: 1 | 2 | 3) => `${ordinal(n)} place`,
+    privacy:
+      "Results are looked up on a private server, one search at a time. Student ID numbers are no longer published, and the full participant list is not downloadable.",
+    loadingChampions: "Loading champions",
+    filterLabel: "Filter competitions",
+    filterPlaceholder: "Filter competitions…",
+    withPodium: (n: number) => `${n} competitions with podium results`,
+    team: (n: number) => `team of ${n}`,
+    showMembers: "Show members",
+    showFewer: "Show fewer",
+    showAll: (n: number) => `Show all ${n} competitions`,
+  },
+  errors: {
+    unavailable: "Results are not available right now.",
+    network: "Couldn't reach the results server. Check your connection and try again.",
+    rate: "Too many searches in a short time — wait a moment and try again.",
+    server: "Something went wrong. Please try again.",
+    champions: "Couldn't load the champions.",
+  },
+  gallery: {
+    open: (caption: string, i: number, n: number) => `${caption} — open photo ${i} of ${n}`,
+    viewer: (label: string) => `${label} — photo viewer`,
+    close: "Close photo viewer",
+    previous: "Previous photo",
+    next: "Next photo",
+  },
+};
+
+export type Dictionary = typeof en;
+
+const id: Dictionary = {
+  site: {
+    description:
+      "Pekan Prestasi Sutomo 1 (P2S1) adalah pekan lomba tahunan SMA Sutomo 1 Medan yang diselenggarakan oleh OSIS. Jelajahi setiap edisi, foto, dan hasil lombanya.",
+    tagline: "pekan lomba tahunan SMA Sutomo 1 Medan yang diselenggarakan oleh OSIS.",
+  },
+  archive: {
+    badge: "Arsip",
+    label: "Pemberitahuan arsip",
+    notice: "Situs ini adalah arsip P2S1 XXVI (2023) dan XXVII (2024) dan tidak lagi diperbarui.",
+  },
+  header: {
+    skip: "Langsung ke konten",
+    home: "Beranda",
+    homeLabel: "P2S1 — beranda",
+    mainNav: "Utama",
+    openMenu: "Buka menu",
+    closeMenu: "Tutup menu",
+    language: "Bahasa",
+  },
+  footer: {
+    editions: "Edisi",
+    results: "Hasil",
+    findParticipant: "Cari peserta",
+    archived: "Arsip.",
+    photos: (org) => `Foto © ${org}. Dibagikan untuk komunitas sekolah — mohon minta izin sebelum menggunakannya kembali.`,
+    source: "Kode sumber di GitHub",
+  },
+  stats: {
+    participants: "Peserta",
+    competitions: "Lomba",
+    competitionsHeld: "Lomba diselenggarakan",
+    entries: "Pendaftaran",
+    podium: "Juara 1–3",
+    editions: "Edisi diarsipkan",
+  },
+  edition: {
+    label: (n) => `Edisi ke-${n}`,
+    title: (n) => `Pekan Prestasi Sutomo 1 ke-${n}`,
+    logoAlt: (roman) => `Logo P2S1 ${roman}`,
+    theme: "Tema",
+    explore: (year) => `Jelajahi ${year}`,
+  },
+  home: {
+    heroAlt: "Siswa berpakaian adat bersorak saat sebuah trofi diangkat di panggung puncak P2S1",
+    eyebrow: "Pekan lomba tahunan SMA Sutomo 1 Medan",
+    intro: "Siswa berlomba dalam olimpiade, debat, seni, dan olahraga. Arsip ini menyimpan foto, angka, dan hasil lomba edisi 2023 dan 2024.",
+    explore: (year) => `Jelajahi P2S1 ${year}`,
+    find: "Cari peserta",
+    aboutEyebrow: "Tentang P2S1",
+    aboutTitle: "Tunjukkan kemampuanmu — di kelas, di panggung, di lapangan.",
+    about1: "atau yang biasa disebut P2S1, adalah ajang lomba tahunan yang diselenggarakan oleh OSIS SMA Sutomo 1 untuk siswa kelas 10 hingga 12.",
+    about2: "Siswa didorong untuk menunjukkan dan mengembangkan potensi mereka di bidang akademik maupun nonakademik — melatih kreativitas dan keterampilan yang dibutuhkan untuk masa depan.",
+    figures: "Angka mencakup P2S1 XXVI (2023) dan XXVII (2024).",
+    editionsEyebrow: "Edisi",
+    editionsTitle: "Setiap tahun, babak baru",
+    momentsEyebrow: "Momen",
+    momentsTitle: "Dari lapangan hingga panggung",
+    resultsEyebrow: "Hasil",
+    resultsTitle: "Ikut berlomba? Temukan hasilmu.",
+    resultsText: "Cari berdasarkan nama atau kelas, dan lihat para juara setiap lomba.",
+    resultsLink: (year) => `Hasil ${year}`,
+  },
+  page: {
+    onThisPage: "Di halaman ini",
+    story: "Cerita",
+    photos: "Foto",
+    results: "Hasil",
+    inNumbers: (year) => `${year} dalam angka`,
+    storyEyebrow: "Ceritanya",
+    finale: "Puncak acara",
+    whatWasOn: "Yang dilombakan",
+    competitions: (n) => `${n} lomba`,
+    findTitle: "Cari peserta",
+    findText: (year) => `Cari pendaftaran ${year} berdasarkan nama atau kelas.`,
+    championsTitle: (year) => `Para juara ${year}`,
+    championsText: "Tiga besar dari setiap lomba.",
+    otherEditions: "Edisi lainnya",
+    previous: "Edisi sebelumnya",
+    next: "Edisi berikutnya",
+  },
+  results: {
+    searching: "Mencari…",
+    noMatch: (q) => `Tidak ada pendaftaran yang cocok dengan “${q}”.`,
+    truncated: (shown, total) => `Menampilkan ${shown} pendaftaran pertama dari ${total} — ketik nama lebih lengkap untuk mempersempit hasil.`,
+    found: (n) => `${n} pendaftaran ditemukan.`,
+    minChars: (n) => `Ketik minimal ${n} karakter.`,
+    searchLabel: (year) => `Cari peserta ${year} berdasarkan nama atau kelas`,
+    placeholder: "Nama atau kelas, mis. “XII MIA-03”",
+    search: "Cari",
+    caption: (q) => `Hasil pencarian untuk “${q}”`,
+    name: "Nama",
+    class: "Kelas",
+    competition: "Lomba",
+    result: "Hasil",
+    place: (n) => `Juara ${n}`,
+    privacy:
+      "Hasil dicari di server pribadi, satu pencarian setiap kali. Nomor induk siswa tidak lagi dipublikasikan, dan daftar lengkap peserta tidak dapat diunduh.",
+    loadingChampions: "Memuat para juara",
+    filterLabel: "Saring lomba",
+    filterPlaceholder: "Saring lomba…",
+    withPodium: (n) => `${n} lomba dengan hasil juara`,
+    team: (n) => `tim ${n} orang`,
+    showMembers: "Lihat anggota",
+    showFewer: "Tampilkan lebih sedikit",
+    showAll: (n) => `Tampilkan semua ${n} lomba`,
+  },
+  errors: {
+    unavailable: "Hasil lomba sedang tidak tersedia.",
+    network: "Tidak dapat menghubungi server hasil. Periksa koneksimu lalu coba lagi.",
+    rate: "Terlalu banyak pencarian dalam waktu singkat — tunggu sebentar lalu coba lagi.",
+    server: "Terjadi kesalahan. Silakan coba lagi.",
+    champions: "Tidak dapat memuat para juara.",
+  },
+  gallery: {
+    open: (caption, i, n) => `${caption} — buka foto ${i} dari ${n}`,
+    viewer: (label) => `${label} — penampil foto`,
+    close: "Tutup penampil foto",
+    previous: "Foto sebelumnya",
+    next: "Foto berikutnya",
+  },
+};
+
+function ordinal(n: number) {
+  const s = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  return n + (s[(v - 20) % 10] ?? s[v] ?? s[0]!);
+}
+
+const DICTIONARIES: Record<Locale, Dictionary> = { en, id };
+
+export const getDictionary = (locale: Locale) => DICTIONARIES[locale];
+
+const formatters = new Map<Locale, Intl.NumberFormat>();
+export function formatNumber(locale: Locale, n: number) {
+  let f = formatters.get(locale);
+  if (!f) formatters.set(locale, (f = new Intl.NumberFormat(LOCALE_META[locale].intl)));
+  return f.format(n);
+}
