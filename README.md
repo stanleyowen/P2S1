@@ -3,7 +3,7 @@
 The archive site for **Pekan Prestasi Sutomo 1**, the annual competition week of SMA Sutomo 1 Medan organised by OSIS.
 Live at **https://p2s1.netlify.app**.
 
-> **Archived.** This site is a read-only archive of P2S1 XXVI (2023) and XXVII (2024) and is no longer updated.
+> **Archive.** This site archives P2S1 XXVI (2023), XXVII (2024) and XXVIII (2025).
 
 ```
 .
@@ -42,7 +42,8 @@ Other scripts: `npm run build` (static export to `out/` + CSP), `npm run lint`, 
 1. Drop a JPEG into `content/photos/<year>/<slug>.jpg`. Any size is fine; keep it ≤2400px wide to keep the repo small.
    EXIF/GPS metadata is stripped from everything the site serves.
 2. Reference it in `src/content/photos.ts` with a caption and descriptive `alt` text, each in English and Indonesian (`{ en, id }`).
-3. For a new year, add an entry to `EDITIONS` in `src/content/editions.ts` (with `copy.en` and `copy.id`), a logo at `content/photos/logos/<year>.png`,
+3. For a new year, add an entry to `EDITIONS` in `src/content/editions.ts` (with `copy.en` and `copy.id`; leave out `stats`
+   and set `results: false` until the official figures and the results file exist), a logo at `content/photos/logos/<year>.png`,
    and the year's data file on the API server.
 
 ## Security & privacy
