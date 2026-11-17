@@ -1,0 +1,1023 @@
+{
+ "2023": [
+  {
+   "class": "XI MIA-02",
+   "gold": 4,
+   "silver": 5,
+   "bronze": 4,
+   "score": 130
+  },
+  {
+   "class": "XII MIA-02",
+   "gold": 3,
+   "silver": 7,
+   "bronze": 3,
+   "score": 130
+  },
+  {
+   "class": "XII MIA-01",
+   "gold": 2,
+   "silver": 7,
+   "bronze": 5,
+   "score": 125
+  },
+  {
+   "class": "XI MIA-03",
+   "gold": 5,
+   "silver": 1,
+   "bronze": 5,
+   "score": 110
+  },
+  {
+   "class": "XI MIA-01",
+   "gold": 5,
+   "silver": 2,
+   "bronze": 1,
+   "score": 100
+  },
+  {
+   "class": "XII MIA-05",
+   "gold": 4,
+   "silver": 1,
+   "bronze": 4,
+   "score": 90
+  },
+  {
+   "class": "X MIA-04",
+   "gold": 4,
+   "silver": 1,
+   "bronze": 3,
+   "score": 85
+  },
+  {
+   "class": "X MIA-03",
+   "gold": 2,
+   "silver": 4,
+   "bronze": 2,
+   "score": 80
+  },
+  {
+   "class": "XI MIA-04",
+   "gold": 2,
+   "silver": 4,
+   "bronze": 1,
+   "score": 75
+  },
+  {
+   "class": "XII MIA-07",
+   "gold": 3,
+   "silver": 1,
+   "bronze": 2,
+   "score": 65
+  },
+  {
+   "class": "X MIA-01",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 5,
+   "score": 50
+  },
+  {
+   "class": "XII MIA-03",
+   "gold": 3,
+   "silver": 0,
+   "bronze": 0,
+   "score": 45
+  },
+  {
+   "class": "XII MIA-12",
+   "gold": 3,
+   "silver": 0,
+   "bronze": 0,
+   "score": 45
+  },
+  {
+   "class": "XII IS-05",
+   "gold": 2,
+   "silver": 1,
+   "bronze": 1,
+   "score": 45
+  },
+  {
+   "class": "X IS-07",
+   "gold": 2,
+   "silver": 0,
+   "bronze": 2,
+   "score": 40
+  },
+  {
+   "class": "XI IS-01",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 1,
+   "score": 30
+  },
+  {
+   "class": "XI MIA-14",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 1,
+   "score": 30
+  },
+  {
+   "class": "XII MIA-04",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 1,
+   "score": 30
+  },
+  {
+   "class": "XII MIA-09",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 1,
+   "score": 30
+  },
+  {
+   "class": "XII MIA-14",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 1,
+   "score": 30
+  },
+  {
+   "class": "X MIA-10",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 0,
+   "score": 25
+  },
+  {
+   "class": "XI IS-07",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 0,
+   "score": 25
+  },
+  {
+   "class": "XI MIA-10",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 0,
+   "score": 25
+  },
+  {
+   "class": "X IS-01",
+   "gold": 1,
+   "silver": 0,
+   "bronze": 1,
+   "score": 20
+  },
+  {
+   "class": "XI IS-03",
+   "gold": 1,
+   "silver": 0,
+   "bronze": 1,
+   "score": 20
+  },
+  {
+   "class": "XI MIA-12",
+   "gold": 0,
+   "silver": 2,
+   "bronze": 0,
+   "score": 20
+  },
+  {
+   "class": "XII IS-02",
+   "gold": 0,
+   "silver": 2,
+   "bronze": 0,
+   "score": 20
+  },
+  {
+   "class": "XII MIA-11",
+   "gold": 0,
+   "silver": 2,
+   "bronze": 0,
+   "score": 20
+  },
+  {
+   "class": "X MIA-02",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 2,
+   "score": 20
+  },
+  {
+   "class": "X MIA-06",
+   "gold": 1,
+   "silver": 0,
+   "bronze": 0,
+   "score": 15
+  },
+  {
+   "class": "XI IS-05",
+   "gold": 1,
+   "silver": 0,
+   "bronze": 0,
+   "score": 15
+  },
+  {
+   "class": "XII IS-06",
+   "gold": 1,
+   "silver": 0,
+   "bronze": 0,
+   "score": 15
+  },
+  {
+   "class": "XII MIA-08",
+   "gold": 1,
+   "silver": 0,
+   "bronze": 0,
+   "score": 15
+  },
+  {
+   "class": "X MIA-12",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 1,
+   "score": 15
+  },
+  {
+   "class": "X MIA-13",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 1,
+   "score": 15
+  },
+  {
+   "class": "XI IS-02",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 1,
+   "score": 15
+  },
+  {
+   "class": "XII MIA-06",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 1,
+   "score": 15
+  },
+  {
+   "class": "X IS-04",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 0,
+   "score": 10
+  },
+  {
+   "class": "X IS-05",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 0,
+   "score": 10
+  },
+  {
+   "class": "XII IS-04",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 0,
+   "score": 10
+  },
+  {
+   "class": "XII MIA-13",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 0,
+   "score": 10
+  },
+  {
+   "class": "X IS-02",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  },
+  {
+   "class": "X MIA-14",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  },
+  {
+   "class": "XI MIA-06",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  },
+  {
+   "class": "XI MIA-07",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  },
+  {
+   "class": "XI MIA-08",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  },
+  {
+   "class": "XI MIA-09",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  },
+  {
+   "class": "XII MIA-10",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  }
+ ],
+ "2024": [
+  {
+   "class": "XII MIA-01",
+   "gold": 9,
+   "silver": 2,
+   "bronze": 6,
+   "score": 185
+  },
+  {
+   "class": "XII MIA-03",
+   "gold": 5,
+   "silver": 5,
+   "bronze": 2,
+   "score": 135
+  },
+  {
+   "class": "XI MIA-04",
+   "gold": 2,
+   "silver": 6,
+   "bronze": 3,
+   "score": 105
+  },
+  {
+   "class": "XII IS-01",
+   "gold": 3,
+   "silver": 2,
+   "bronze": 4,
+   "score": 85
+  },
+  {
+   "class": "XI MIA-01",
+   "gold": 3,
+   "silver": 2,
+   "bronze": 3,
+   "score": 80
+  },
+  {
+   "class": "X MIA-02",
+   "gold": 2,
+   "silver": 3,
+   "bronze": 3,
+   "score": 75
+  },
+  {
+   "class": "X MIA-01",
+   "gold": 3,
+   "silver": 2,
+   "bronze": 1,
+   "score": 70
+  },
+  {
+   "class": "XII MIA-02",
+   "gold": 1,
+   "silver": 4,
+   "bronze": 3,
+   "score": 70
+  },
+  {
+   "class": "XI MIA-03",
+   "gold": 2,
+   "silver": 1,
+   "bronze": 5,
+   "score": 65
+  },
+  {
+   "class": "XII MIA-04",
+   "gold": 2,
+   "silver": 2,
+   "bronze": 2,
+   "score": 60
+  },
+  {
+   "class": "XI MIA-10",
+   "gold": 3,
+   "silver": 0,
+   "bronze": 1,
+   "score": 50
+  },
+  {
+   "class": "XII MIA-14",
+   "gold": 1,
+   "silver": 2,
+   "bronze": 2,
+   "score": 45
+  },
+  {
+   "class": "X MIA-03",
+   "gold": 2,
+   "silver": 1,
+   "bronze": 0,
+   "score": 40
+  },
+  {
+   "class": "XI MIA-02",
+   "gold": 2,
+   "silver": 0,
+   "bronze": 2,
+   "score": 40
+  },
+  {
+   "class": "X MIA-04",
+   "gold": 1,
+   "silver": 2,
+   "bronze": 1,
+   "score": 40
+  },
+  {
+   "class": "XI IS-07",
+   "gold": 1,
+   "silver": 2,
+   "bronze": 0,
+   "score": 35
+  },
+  {
+   "class": "XII IS-02",
+   "gold": 1,
+   "silver": 2,
+   "bronze": 0,
+   "score": 35
+  },
+  {
+   "class": "XI IS-01",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 2,
+   "score": 35
+  },
+  {
+   "class": "XII IS-04",
+   "gold": 2,
+   "silver": 0,
+   "bronze": 0,
+   "score": 30
+  },
+  {
+   "class": "X IS-06",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 1,
+   "score": 30
+  },
+  {
+   "class": "XI IS-06",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 1,
+   "score": 30
+  },
+  {
+   "class": "XI IS-02",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 0,
+   "score": 25
+  },
+  {
+   "class": "XII IS-03",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 0,
+   "score": 25
+  },
+  {
+   "class": "XII IS-05",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 0,
+   "score": 25
+  },
+  {
+   "class": "XII MIA-07",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 0,
+   "score": 25
+  },
+  {
+   "class": "XII MIA-13",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 0,
+   "score": 25
+  },
+  {
+   "class": "X MIA-09",
+   "gold": 1,
+   "silver": 0,
+   "bronze": 2,
+   "score": 25
+  },
+  {
+   "class": "XI IS-05",
+   "gold": 1,
+   "silver": 0,
+   "bronze": 2,
+   "score": 25
+  },
+  {
+   "class": "XI MIA-08",
+   "gold": 0,
+   "silver": 2,
+   "bronze": 1,
+   "score": 25
+  },
+  {
+   "class": "X MIA-07",
+   "gold": 0,
+   "silver": 2,
+   "bronze": 0,
+   "score": 20
+  },
+  {
+   "class": "XII MIA-08",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 2,
+   "score": 20
+  },
+  {
+   "class": "X MIA-12",
+   "gold": 1,
+   "silver": 0,
+   "bronze": 0,
+   "score": 15
+  },
+  {
+   "class": "XII MIA-05",
+   "gold": 1,
+   "silver": 0,
+   "bronze": 0,
+   "score": 15
+  },
+  {
+   "class": "X MIA-05",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 1,
+   "score": 15
+  },
+  {
+   "class": "XI MIA-13",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 1,
+   "score": 15
+  },
+  {
+   "class": "XI MIA-14",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 1,
+   "score": 15
+  },
+  {
+   "class": "XII MIA-10",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 1,
+   "score": 15
+  },
+  {
+   "class": "XII MIA-09",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 0,
+   "score": 10
+  },
+  {
+   "class": "XII MIA-11",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 0,
+   "score": 10
+  },
+  {
+   "class": "XII MIA-12",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 0,
+   "score": 10
+  },
+  {
+   "class": "X MIA-13",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 2,
+   "score": 10
+  },
+  {
+   "class": "X IS-03",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  },
+  {
+   "class": "X MIA-11",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  },
+  {
+   "class": "XI IS-03",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  },
+  {
+   "class": "XI MIA-12",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  },
+  {
+   "class": "XII MIA-06",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  }
+ ],
+ "2025": [
+  {
+   "class": "XI MIA-02",
+   "gold": 8,
+   "silver": 4,
+   "bronze": 7,
+   "score": 195
+  },
+  {
+   "class": "XII MIA-02",
+   "gold": 5,
+   "silver": 4,
+   "bronze": 1,
+   "score": 120
+  },
+  {
+   "class": "XI MIA-01",
+   "gold": 4,
+   "silver": 3,
+   "bronze": 4,
+   "score": 110
+  },
+  {
+   "class": "XII MIA-04",
+   "gold": 6,
+   "silver": 1,
+   "bronze": 1,
+   "score": 105
+  },
+  {
+   "class": "XII IS-01",
+   "gold": 3,
+   "silver": 4,
+   "bronze": 4,
+   "score": 105
+  },
+  {
+   "class": "XI MIA-03",
+   "gold": 3,
+   "silver": 2,
+   "bronze": 3,
+   "score": 80
+  },
+  {
+   "class": "XII MIA-03",
+   "gold": 3,
+   "silver": 1,
+   "bronze": 1,
+   "score": 60
+  },
+  {
+   "class": "XI MIA-05",
+   "gold": 2,
+   "silver": 1,
+   "bronze": 4,
+   "score": 60
+  },
+  {
+   "class": "XII IS-02",
+   "gold": 1,
+   "silver": 4,
+   "bronze": 1,
+   "score": 60
+  },
+  {
+   "class": "XII MIA-01",
+   "gold": 1,
+   "silver": 3,
+   "bronze": 2,
+   "score": 55
+  },
+  {
+   "class": "X-01",
+   "gold": 2,
+   "silver": 2,
+   "bronze": 0,
+   "score": 50
+  },
+  {
+   "class": "XII MIA-10",
+   "gold": 1,
+   "silver": 3,
+   "bronze": 0,
+   "score": 45
+  },
+  {
+   "class": "XI MIA-13",
+   "gold": 0,
+   "silver": 4,
+   "bronze": 1,
+   "score": 45
+  },
+  {
+   "class": "XI IS-06",
+   "gold": 2,
+   "silver": 1,
+   "bronze": 0,
+   "score": 40
+  },
+  {
+   "class": "XI MIA-08",
+   "gold": 1,
+   "silver": 2,
+   "bronze": 1,
+   "score": 40
+  },
+  {
+   "class": "X-05",
+   "gold": 2,
+   "silver": 0,
+   "bronze": 1,
+   "score": 35
+  },
+  {
+   "class": "XII IS-07",
+   "gold": 2,
+   "silver": 0,
+   "bronze": 1,
+   "score": 35
+  },
+  {
+   "class": "X-07",
+   "gold": 1,
+   "silver": 2,
+   "bronze": 0,
+   "score": 35
+  },
+  {
+   "class": "X-03",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 2,
+   "score": 35
+  },
+  {
+   "class": "XI MIA-12",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 2,
+   "score": 35
+  },
+  {
+   "class": "XII MIA-08",
+   "gold": 2,
+   "silver": 0,
+   "bronze": 0,
+   "score": 30
+  },
+  {
+   "class": "XII MIA-14",
+   "gold": 2,
+   "silver": 0,
+   "bronze": 0,
+   "score": 30
+  },
+  {
+   "class": "X-10",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 1,
+   "score": 30
+  },
+  {
+   "class": "XII MIA-12",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 1,
+   "score": 30
+  },
+  {
+   "class": "XII MIA-11",
+   "gold": 0,
+   "silver": 2,
+   "bronze": 2,
+   "score": 30
+  },
+  {
+   "class": "XI MIA-06",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 0,
+   "score": 25
+  },
+  {
+   "class": "XII IS-06",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 0,
+   "score": 25
+  },
+  {
+   "class": "XII MIA-05",
+   "gold": 1,
+   "silver": 1,
+   "bronze": 0,
+   "score": 25
+  },
+  {
+   "class": "X-02",
+   "gold": 1,
+   "silver": 0,
+   "bronze": 2,
+   "score": 25
+  },
+  {
+   "class": "XI IS-02",
+   "gold": 0,
+   "silver": 2,
+   "bronze": 1,
+   "score": 25
+  },
+  {
+   "class": "XI MIA-04",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 3,
+   "score": 25
+  },
+  {
+   "class": "XI IS-03",
+   "gold": 1,
+   "silver": 0,
+   "bronze": 1,
+   "score": 20
+  },
+  {
+   "class": "XII IS-03",
+   "gold": 1,
+   "silver": 0,
+   "bronze": 1,
+   "score": 20
+  },
+  {
+   "class": "XII IS-05",
+   "gold": 1,
+   "silver": 0,
+   "bronze": 1,
+   "score": 20
+  },
+  {
+   "class": "XI MIA-09",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 2,
+   "score": 20
+  },
+  {
+   "class": "X-09",
+   "gold": 1,
+   "silver": 0,
+   "bronze": 0,
+   "score": 15
+  },
+  {
+   "class": "X-04",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 1,
+   "score": 15
+  },
+  {
+   "class": "X-11",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 1,
+   "score": 15
+  },
+  {
+   "class": "X-15",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 1,
+   "score": 15
+  },
+  {
+   "class": "XI MIA-07",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 1,
+   "score": 15
+  },
+  {
+   "class": "XII IS-04",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 1,
+   "score": 15
+  },
+  {
+   "class": "XII MIA-07",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 1,
+   "score": 15
+  },
+  {
+   "class": "X-20",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 0,
+   "score": 10
+  },
+  {
+   "class": "XI IS-01",
+   "gold": 0,
+   "silver": 1,
+   "bronze": 0,
+   "score": 10
+  },
+  {
+   "class": "X-17",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 2,
+   "score": 10
+  },
+  {
+   "class": "X-06",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  },
+  {
+   "class": "X-12",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  },
+  {
+   "class": "X-14",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  },
+  {
+   "class": "XI MIA-10",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  },
+  {
+   "class": "XI MIA-11",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  },
+  {
+   "class": "XII MIA-09",
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "score": 5
+  }
+ ]
+}

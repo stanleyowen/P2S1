@@ -35,7 +35,8 @@ cd server && npm run dev                                # http://localhost:8787
 NEXT_PUBLIC_API_URL=http://localhost:8787 npm run dev   # in the repo root
 ```
 
-Other scripts: `npm run build` (static export to `out/` + CSP), `npm run lint`, `npm run typecheck`, `npm start` (serve `out/`).
+Other scripts: `npm run build` (static export to `out/` + CSP), `npm run lint`, `npm run typecheck`, `npm start` (serve `out/`),
+`npm run standings` (recompute the class championship tables from the private data into `src/content/standings.json`).
 
 ## Adding a photo or an edition
 

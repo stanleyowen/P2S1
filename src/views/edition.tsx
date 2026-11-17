@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Gallery } from "@/components/gallery";
 import { ArrowLeft, ArrowRight, Info } from "@/components/icons";
 import { Picture } from "@/components/picture";
+import { ClassChampions } from "@/components/class-champions";
 import { ChampionsBoard, ParticipantSearch } from "@/components/results";
 import { Stat } from "@/components/stat";
 import { EDITIONS, SITE, getEdition } from "@/content/editions";
@@ -78,7 +79,7 @@ export async function EditionPage({ locale, params }: EditionParams & { locale: 
             {[
               ["#story", pg.story],
               ["#gallery", pg.photos],
-              ...(e.results ? [["#results", pg.results]] : []),
+              ...(e.results ? [["#champions", t.champions.nav], ["#results", pg.results]] : []),
             ].map(([href, label]) => (
               <a key={href} href={href} className="rounded-full border border-white/25 px-4 py-2 text-sm font-semibold backdrop-blur transition hover:bg-white/10">
                 {label}
@@ -166,6 +167,9 @@ export async function EditionPage({ locale, params }: EditionParams & { locale: 
           </div>
         ))}
       </section>
+
+      {/* ── Class champions ──────────────────────────────────────── */}
+      {e.results && <ClassChampions year={e.year} locale={locale} />}
 
       {/* ── Results ──────────────────────────────────────────────── */}
       {e.results ? (

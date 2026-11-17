@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "@/components/icons";
+import { ArrowRight, Crown } from "@/components/icons";
 import { Picture } from "@/components/picture";
 import { Stat } from "@/components/stat";
 import { COUNTED, EDITIONS, LATEST, LATEST_WITH_RESULTS, SITE, TOTALS } from "@/content/editions";
 import { MOMENTS } from "@/content/photos";
+import { getStandings } from "@/content/standings";
 import { LOCALE_META, href, languageAlternates, type Locale } from "@/i18n/config";
-import { getDictionary } from "@/i18n/dictionaries";
+import { formatNumber, getDictionary } from "@/i18n/dictionaries";
 import { getImage } from "@/lib/images";
 
 export const homeMetadata = (locale: Locale): Metadata => ({
@@ -146,6 +147,61 @@ export function HomePage({ locale }: { locale: Locale }) {
             })}
           </ul>
         </div>
+      </section>
+
+      {/* ── Class champions ──────────────────────────────────────────── */}
+      <section aria-labelledby="class-champions-title" className="wrap py-20 sm:py-28">
+        <p className="eyebrow text-gold-ink">{t.champions.eyebrow}</p>
+        <h2 id="class-champions-title" className="mt-3 font-display text-4xl font-bold sm:text-5xl">
+          {t.champions.homeTitle}
+        </h2>
+        <p className="mt-3 max-w-xl text-lg text-muted">{t.champions.homeText}</p>
+        <ul className="mt-10 grid gap-4 md:grid-cols-3">
+          {EDITIONS.filter((e) => e.results && getStandings(e.year).length > 0).map((e) => {
+            const [champ, ...chasers] = getStandings(e.year);
+            if (!champ) return null;
+            return (
+              <li key={e.slug}>
+                <Link
+                  href={to(`/${e.slug}#champions`)}
+                  className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-ink p-7 text-on-ink transition hover:-translate-y-1 hover:shadow-[0_30px_70px_-35px_var(--gold)]"
+                >
+                  <div aria-hidden className="absolute -right-16 -top-16 size-56 rounded-full bg-gold/25 blur-3xl transition-opacity group-hover:opacity-80" />
+                  <div className="flex items-center justify-between">
+                    <p className="eyebrow text-gold">
+                      P2S1 {e.roman} · {e.year}
+                    </p>
+                    <span className="grid size-9 place-items-center rounded-full bg-gold text-black">
+                      <Crown className="size-4" />
+                    </span>
+                  </div>
+                  <p className="mt-8 font-display text-5xl font-extrabold tracking-tight">{champ.class}</p>
+                  <p className="mt-2 font-display text-2xl font-bold tabular-nums text-gold">
+                    {formatNumber(locale, champ.score)} <span className="text-base font-semibold text-on-ink-muted">{t.champions.pts}</span>
+                  </p>
+                  <p className="mt-3 flex gap-3 text-sm font-semibold tabular-nums" aria-label={t.champions.medals(champ.gold, champ.silver, champ.bronze)}>
+                    <span aria-hidden className="inline-flex items-center gap-1"><span className="size-2.5 rounded-full bg-gold" />{champ.gold}</span>
+                    <span aria-hidden className="inline-flex items-center gap-1"><span className="size-2.5 rounded-full bg-silver" />{champ.silver}</span>
+                    <span aria-hidden className="inline-flex items-center gap-1"><span className="size-2.5 rounded-full bg-bronze" />{champ.bronze}</span>
+                  </p>
+                  <ol start={2} className="mt-6 space-y-1 border-t border-white/10 pt-4 text-sm text-on-ink-muted">
+                    {chasers.slice(0, 2).map((c, i) => (
+                      <li key={c.class} className="flex justify-between tabular-nums">
+                        <span>
+                          {i + 2}. {c.class}
+                        </span>
+                        <span>{formatNumber(locale, c.score)}</span>
+                      </li>
+                    ))}
+                  </ol>
+                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-bold text-gold">
+                    {t.champions.view(e.year)} <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </section>
 
       {/* ── Moments ──────────────────────────────────────────────────── */}

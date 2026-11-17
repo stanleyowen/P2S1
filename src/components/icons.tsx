@@ -45,3 +45,8 @@ export const Info = (p: SVGProps<SVGSVGElement>) => (
     <path d="M12 11v5M12 8h.01" />
   </svg>
 );
+export const Crown = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base} {...p}>
+    <path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 10H5L3 8z" />
+  </svg>
+);

@@ -50,6 +50,10 @@
   --accent: #2c4fbf;
   --accent-ink: #253f9a;
 }
+[data-edition="2025"] {
+  --accent: #9a6a34;
+  --accent-ink: #7a4f22;
+}
 @media (prefers-color-scheme: dark) {
   [data-edition="2023"] {
     --accent: #f08c4e;
@@ -58,6 +62,10 @@
   [data-edition="2024"] {
     --accent: #8ea7ff;
     --accent-ink: #aabcff;
+  }
+  [data-edition="2025"] {
+    --accent: #d9a66b;
+    --accent-ink: #e8bd88;
   }
 }
 
@@ -171,6 +179,34 @@
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+/* Class standings bars grow as they scroll into view (CSS only; static where unsupported). */
+@utility grow-x {
+  transform-origin: left center;
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: grow-x linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 35%;
+    }
+  }
+}
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* A podium step rises into place as the section scrolls in. */
+@utility rise-in {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
   }
 }
 
