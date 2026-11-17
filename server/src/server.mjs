@@ -24,7 +24,7 @@ const PORT = Number(env("PORT", 8080));
 const HOST = env("HOST", "0.0.0.0");
 const DATA_DIR = env("DATA_DIR", path.resolve(import.meta.dirname, "../data"));
 const ALLOWED_ORIGINS = new Set(
-  env("ALLOWED_ORIGINS", "https://p2s1.netlify.app")
+  env("ALLOWED_ORIGINS", "https://p2s1.netlify.app,https://p2s1.stanleyowen.com")
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean),
