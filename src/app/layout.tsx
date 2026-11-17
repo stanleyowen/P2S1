@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Plus_Jakarta_Sans } from "next/font/google";
+import { ArchiveBanner } from "@/components/archive-banner";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { EDITIONS, SITE } from "@/content/editions";
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="sr-only z-50 rounded-full bg-fg px-4 py-2 text-bg focus:not-sr-only focus:fixed focus:left-4 focus:top-3">
           Skip to content
         </a>
+        <ArchiveBanner />
         <SiteHeader logo={getImage("logos/2024")} nav={NAV} />
         <main id="main">{children}</main>
         <SiteFooter />

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { EDITIONS, SITE } from "@/content/editions";
+import { ARCHIVE, EDITIONS, SITE } from "@/content/editions";
 
 export function SiteFooter() {
   return (
@@ -9,6 +9,9 @@ export function SiteFooter() {
           <p className="font-display text-3xl font-bold tracking-tight">P2S1</p>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-on-ink-muted">
             Pekan Prestasi Sutomo 1 — the annual competition week of SMA Sutomo 1 Medan, organised by the student council (OSIS).
+          </p>
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-on-ink-muted">
+            <span className="font-semibold text-gold">Archived.</span> {ARCHIVE.notice}
           </p>
         </div>
         <div>

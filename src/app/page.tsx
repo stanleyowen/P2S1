@@ -28,7 +28,7 @@ export default function Home() {
             Pekan Prestasi <span className="text-gold">Sutomo&nbsp;1</span>
           </h1>
           <p className="mt-6 max-w-xl animate-rise text-lg leading-relaxed text-on-ink/85 [animation-delay:160ms] sm:text-xl">
-            Twenty-seven editions of students competing in olympiads, debates, the arts and sport. This is the archive — the photos, the numbers and the results.
+            Students competing in olympiads, debates, the arts and sport. This archive keeps the photos, the numbers and the results of the 2023 and 2024 editions.
           </p>
           <div className="mt-9 flex animate-rise flex-wrap gap-3 [animation-delay:240ms]">
             <Link href="/2024" className="inline-flex h-12 items-center gap-2 rounded-full bg-gold px-6 font-bold text-black transition hover:brightness-110">

@@ -33,6 +33,10 @@ export const SITE = {
   repo: "https://github.com/stanleyowen/P2S1",
 };
 
+export const ARCHIVE = {
+  notice: "This site is an archive of P2S1 XXVI (2023) and XXVII (2024) and is no longer updated.",
+};
+
 export const EDITIONS: Edition[] = [
   {
     year: 2024,

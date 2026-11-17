@@ -3,6 +3,8 @@
 The archive site for **Pekan Prestasi Sutomo 1**, the annual competition week of SMA Sutomo 1 Medan organised by OSIS.
 Live at **https://p2s1.netlify.app**.
 
+> **Archived.** This site is a read-only archive of P2S1 XXVI (2023) and XXVII (2024) and is no longer updated.
+
 ```
 .
 ├── content/photos/        Web-master photos (≤2400px, metadata stripped). This replaces the old P2S1---CDN repo.
