@@ -37,7 +37,8 @@ services:
     profiles: [tunnel]
     image: cloudflare/cloudflared:2026.11.0
     restart: unless-stopped
-    command: tunnel --no-autoupdate run
+    # Dedicated tunnel for this API only; every request on it goes to the api container.
+    command: tunnel --no-autoupdate run --url http://api:8080
     environment:
       TUNNEL_TOKEN: ${CLOUDFLARE_TUNNEL_TOKEN:?set CLOUDFLARE_TUNNEL_TOKEN in server/.env}
     depends_on:

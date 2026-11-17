@@ -23,18 +23,22 @@ It exists so the participant list never has to live in the public repo or the si
 
 The public hostname is `p2s1-cdn.stanleyowen.com`. No router ports are opened: `cloudflared` makes an outbound connection to Cloudflare.
 
-**1. Create the tunnel** — Cloudflare dashboard → Zero Trust → Networks → Tunnels → *Create a tunnel* (Cloudflared).
-Copy the token. Under *Public Hostnames* add `p2s1-cdn.stanleyowen.com` → `HTTP` → `api:8080`.
+**1. Create a dedicated tunnel** (on the server, which is logged in to Cloudflare via `~/.cloudflared/cert.pem`):
 
-> Already running `cloudflared` on the host (e.g. for photos.stanleyowen.com)? Add the hostname to that tunnel instead,
-> pointing at `http://127.0.0.1:8787`, and skip `--profile tunnel` below.
+```bash
+cloudflared tunnel create p2s1-api
+cloudflared tunnel route dns p2s1-api p2s1-cdn.stanleyowen.com
+```
+
+The `cloudflared` container runs this tunnel with `--url http://api:8080`, so it can only ever reach the API. It is
+separate from the host's existing `ssh` tunnel. Current deployment: tunnel `p2s1-api`, code in `~/p2s1-api` on stanley-desktop.
 
 **2. Copy code and data to the server** (data goes over SSH, never through git):
 
 ```bash
 # on your laptop, from the repo root
 cd server && npm run normalize            # data/raw/*.json → data/2023.json, data/2024.json (IDs removed)
-rsync -av --exclude data/raw ./ ubuntu@192.168.1.100:~/p2s1-api/
+rsync -a --exclude data/raw/ --exclude .env --exclude test/ ./ stanley@192.168.1.100:~/p2s1-api/
 ```
 
 **3. Start it:**
@@ -42,8 +46,8 @@ rsync -av --exclude data/raw ./ ubuntu@192.168.1.100:~/p2s1-api/
 ```bash
 # on the server
 cd ~/p2s1-api
-cp .env.example .env && nano .env         # paste CLOUDFLARE_TUNNEL_TOKEN
-chmod 600 .env && chmod 644 data/*.json
+umask 077; printf "CLOUDFLARE_TUNNEL_TOKEN=%s\n" "$(cloudflared tunnel token p2s1-api)" > .env
+chmod 644 data/*.json
 docker compose --profile tunnel up -d --build
 curl -s localhost:8787/healthz            # → ok
 curl -s https://p2s1-cdn.stanleyowen.com/v1/editions
