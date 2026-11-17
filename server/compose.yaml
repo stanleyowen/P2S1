@@ -14,7 +14,7 @@ services:
     image: p2s1-api:latest
     restart: unless-stopped
     environment:
-      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://p2s1.netlify.app}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://p2s1.netlify.app,https://p2s1.stanleyowen.com}
       TRUST_PROXY: cloudflare
       RATE_LIMIT_PER_MIN: ${RATE_LIMIT_PER_MIN:-60}
       RATE_LIMIT_BURST: ${RATE_LIMIT_BURST:-20}
