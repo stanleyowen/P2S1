@@ -25,7 +25,7 @@ const VERSION = 3; // bump to force a full rebuild when encoder settings change
 
 const PHOTO_WIDTHS = [480, 828, 1280, 1920, 2400];
 const LOGO_WIDTHS = [96, 192, 384, 768];
-const OG = { "og-home": "2023/celebration", "og-2023": "2023/finale-stage", "og-2024": "2024/terompah", "og-2025": "2025/finale-group" };
+const OG = { "og-home": "2023/celebration", "og-2023": "2023/finale-stage", "og-2024": "2024/terompah", "og-2025": "2025/finale-colour", "og-2026": "2026/opening-dance" };
 
 sharp.concurrency(1);
 const parallel = Math.max(1, Math.min(4, os.availableParallelism() - 1));

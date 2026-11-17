@@ -36,6 +36,8 @@ export type Edition = {
   results: boolean;
   /** Results cover only the publicly announced winners, not every participant (shows a disclaimer). */
   winnersOnly?: boolean;
+  /** Podium is official but the other entries were rebuilt and may miss a few (shows a note). */
+  partialEntries?: boolean;
   copy: Localized<EditionCopy>;
   /** The official competition list; empty hides the section. */
   categories: Category[];
@@ -61,17 +63,78 @@ const CATEGORY = {
 
 export const EDITIONS: Edition[] = [
   {
+    year: 2026,
+    slug: "2026",
+    number: 29,
+    roman: "XXIX",
+    hero: "2026/opening-dance",
+    heroPosition: "50% 45%",
+    logo: "logos/2026",
+    og: "/og/og-2026.jpg",
+    // From OSIS's Instagram winner captions (posted August 2026); no participant list yet.
+    results: true,
+    winnersOnly: true,
+    copy: {
+      en: {
+        tagline: "Six weeks of competitions, from a pop-art opening to a Saturday finale.",
+        period: "February – March 2026",
+        finale: "14 March 2026 · Auditorium Yayasan Perguruan Sutomo",
+        summary:
+          "The 29th P2S1 opened on 7 February 2026 in the school courtyard, ran six weeks of competitions and closed with Puncak P2S1 on Saturday 14 March 2026.",
+        story: [
+          "The 29th Pekan Prestasi Sutomo 1 opened on 7 February 2026 in the school courtyard, in front of a pop-art backdrop of trophies, vinyl records, paint palettes and film reels, with speeches, a dance crew, a martial-arts display and live music.",
+          "Over the next six weeks students sat olympiads split by grade, debated in three languages, wrote, drew and designed, and played on the court, at the table and in the courtyard. New to the line-up were MonsoonSim, a business simulation, and a scientific paper competition (karya tulis ilmiah), and public speaking was held in both English and Mandarin.",
+          "It all ended at Puncak P2S1 on Saturday 14 March 2026 in the Auditorium Yayasan Perguruan Sutomo: class choirs, dance, bands and solo performances, medals for every podium, and XII MIA-02 crowned overall champion (juara umum).",
+        ],
+      },
+      id: {
+        tagline: "Enam minggu perlombaan, dari pembukaan bergaya pop art hingga puncak di hari Sabtu.",
+        period: "Februari – Maret 2026",
+        finale: "14 Maret 2026 · Auditorium Yayasan Perguruan Sutomo",
+        summary:
+          "P2S1 ke-29 dibuka pada 7 Februari 2026 di halaman sekolah, menghadirkan enam minggu perlombaan, dan ditutup dengan Puncak P2S1 pada Sabtu, 14 Maret 2026.",
+        story: [
+          "Pekan Prestasi Sutomo 1 ke-29 dibuka pada 7 Februari 2026 di halaman sekolah, di depan latar bergaya pop art penuh trofi, piringan hitam, palet cat, dan gulungan film, dengan sambutan, penampilan tari, peragaan bela diri, dan musik langsung.",
+          "Selama enam minggu berikutnya, siswa mengerjakan olimpiade per jenjang kelas, berdebat dalam tiga bahasa, menulis, menggambar, dan mendesain, serta bertanding di lapangan, di meja, dan di halaman sekolah. Lomba baru tahun ini adalah MonsoonSim, sebuah simulasi bisnis, dan karya tulis ilmiah, sementara public speaking digelar dalam bahasa Inggris dan Mandarin.",
+          "Semuanya berakhir di Puncak P2S1 pada Sabtu, 14 Maret 2026 di Auditorium Yayasan Perguruan Sutomo: paduan suara kelas, tari, band, dan penampilan solo, medali untuk setiap podium, serta XII MIA-02 yang dinobatkan sebagai juara umum.",
+        ],
+      },
+    },
+    // Every competition in the 2026 winners' captions (olympiads were also split by grade).
+    categories: [
+      {
+        name: CATEGORY.academic,
+        items: ["Math Olympiad", "Physics Olympiad", "Chemistry Olympiad", "Biology Olympiad", "Economics Olympiad", "Geography Olympiad", "English Olympiad", "Battle of Brains", "Competitive Programming", "Business Idea", "MonsoonSim", "Scientific Paper", "Spelling Bee"],
+      },
+      {
+        name: CATEGORY.language,
+        items: ["English Debate", "Indonesian Debate", "Mandarin Debate", "English Storytelling", "Mandarin Poetry", "English Public Speaking", "Mandarin Public Speaking", "Indonesian Writing", "English Writing", "Mandarin Writing", "English Newscasting", "Indonesian Newscasting"],
+      },
+      {
+        name: CATEGORY.art,
+        items: ["Object Sketch", "Crayon", "Manga", "Graphic Design", "Interior Design", "Fashion Design", "Photography", "Cinematography"],
+      },
+      { name: CATEGORY.performing, items: ["Vocal Solo", "Dance Solo", "Class Choir Battle", "Musical Instrument", "Band"] },
+      {
+        name: CATEGORY.sports,
+        items: ["Basketball", "Badminton", "Table Tennis", "Karate", "Tug of War", "Terompah", "Esports", "Chess", "Scrabble", "Rubik's Cube"],
+      },
+    ],
+  },
+  {
     year: 2025,
     slug: "2025",
     number: 28,
     roman: "XXVIII",
-    hero: "2025/finale-group",
+    hero: "2025/finale-colour",
     heroPosition: "50% 30%",
     logo: "logos/2025",
     og: "/og/og-2025.jpg",
-    // From the official OSIS winners' recap; the full participant list was never published.
+    // Participants from the registration forms; podium from the official OSIS winners' recap.
+    // `competitions` counts the recap's 63 podium events (olympiads split by grade).
+    stats: { participants: 1257, competitions: 63, entries: 2684, podium: 295 },
     results: true,
-    winnersOnly: true,
+    partialEntries: true,
     copy: {
       en: {
         tagline: "Seven weeks of competitions, crowned on the auditorium stage.",

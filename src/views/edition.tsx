@@ -191,6 +191,15 @@ export async function EditionPage({ locale, params }: EditionParams & { locale: 
               </span>
             </aside>
           )}
+          {e.partialEntries && (
+            <aside role="note" aria-label={pg.partialTitle} className="mx-auto mt-8 flex max-w-3xl gap-3 rounded-2xl border border-gold/40 bg-gold/10 p-5 text-left text-sm leading-relaxed">
+              <Info className="mt-0.5 size-5 shrink-0 text-gold-ink" />
+              <span>
+                <strong className="block font-semibold text-fg">{pg.partialTitle}</strong>
+                <span className="text-muted">{pg.partial(e.roman)}</span>
+              </span>
+            </aside>
+          )}
           <div className="mx-auto mt-10 max-w-3xl">
             <ParticipantSearch year={e.year} locale={locale} />
           </div>

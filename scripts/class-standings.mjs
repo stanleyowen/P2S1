@@ -28,6 +28,7 @@ const TEAM = new Set([
   "Battle of Brains", "Business Idea", "English Debate", "Indonesian Debate", "Mandarin Debate",
   "Doubles Badminton", "Mixed Doubles Badminton", "Doubles Table Tennis", "Mixed Doubles Table Tennis",
   "English Newscasting", "Indonesian Newscasting", "Cinematography",
+  "Men's Doubles Badminton", "Scientific Paper", "MonsoonSim",
 ]);
 const SMA = /^(X|XI|XII)(?: (?:MIA|IS))?-\d+$/;
 
