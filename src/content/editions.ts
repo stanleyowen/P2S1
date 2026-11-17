@@ -134,7 +134,7 @@ export const EDITIONS: Edition[] = [
     og: "/og/og-2025.jpg",
     // Participants from the registration forms; podium from the official OSIS winners' recap.
     // `competitions` counts the recap's 63 podium events (olympiads split by grade).
-    stats: { participants: 1253, competitions: 63, entries: 2682, podium: 297 },
+    stats: { participants: 1329, competitions: 63, entries: 2966, podium: 395 },
     results: true,
     partialEntries: true,
     copy: {
@@ -255,7 +255,7 @@ export const EDITIONS: Edition[] = [
     heroPosition: "50% 45%",
     logo: "logos/2023",
     og: "/og/og-2023.jpg",
-    stats: { participants: 1609, competitions: 48, entries: 3197, podium: 359 },
+    stats: { participants: 1609, competitions: 48, entries: 3192, podium: 356 },
     results: true,
     copy: {
       en: {
@@ -266,7 +266,7 @@ export const EDITIONS: Edition[] = [
           "After two years of the pandemic, the 26th P2S1 brought the competitions back in person — 48 competitions, 1,609 participants and a two-day finale in March.",
         story: [
           "Our school has celebrated P2S1 for a long time, but the pandemic kept the event from being held in person for two years. This year, we finally could.",
-          "The 26th P2S1 began in the first week of January 2023 and ended in the first week of March, closing with a two-day finale — Puncak P2S1 — on 3 and 6 March. Forty-eight competitions involved 1,609 participants, with 3,197 entries registered in total.",
+          "The 26th P2S1 began in the first week of January 2023 and ended in the first week of March, closing with a two-day finale — Puncak P2S1 — on 3 and 6 March. Forty-eight competitions involved 1,609 participants, with 3,192 entries registered in total.",
           "We were able to hold such a great event thanks to every student who took part. Congratulations to all of the champions — keep up the great work! To everyone who didn't reach the top three: there is always room to grow. See you at the 27th P2S1.",
         ],
       },
@@ -278,7 +278,7 @@ export const EDITIONS: Edition[] = [
           "Setelah dua tahun pandemi, P2S1 ke-26 kembali menghadirkan lomba secara tatap muka — 48 lomba, 1.609 peserta, dan puncak acara selama dua hari pada bulan Maret.",
         story: [
           "Sekolah kami sudah lama merayakan P2S1, tetapi pandemi membuat acara ini tidak dapat digelar secara tatap muka selama dua tahun. Tahun ini, akhirnya kami bisa.",
-          "P2S1 ke-26 dimulai pada minggu pertama Januari 2023 dan berakhir pada minggu pertama Maret, ditutup dengan puncak acara selama dua hari — Puncak P2S1 — pada 3 dan 6 Maret. Empat puluh delapan lomba diikuti oleh 1.609 peserta, dengan total 3.197 pendaftaran.",
+          "P2S1 ke-26 dimulai pada minggu pertama Januari 2023 dan berakhir pada minggu pertama Maret, ditutup dengan puncak acara selama dua hari — Puncak P2S1 — pada 3 dan 6 Maret. Empat puluh delapan lomba diikuti oleh 1.609 peserta, dengan total 3.192 pendaftaran.",
           "Acara sebesar ini dapat terselenggara berkat setiap siswa yang ikut serta. Selamat kepada semua juara — pertahankan prestasi kalian! Bagi yang belum masuk tiga besar: selalu ada ruang untuk berkembang. Sampai jumpa di P2S1 ke-27.",
         ],
       },
