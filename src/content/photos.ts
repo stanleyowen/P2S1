@@ -239,6 +239,85 @@ export const GALLERIES: Record<number, GallerySection[]> = {
   ],
   2024: [
     {
+      id: "finale",
+      title: { en: "Puncak P2S1 — the finale", id: "Puncak P2S1 — malam puncak" },
+      intro: {
+        en: "Two days in the school auditorium on 6 and 7 March 2024: performances, medals and trophies.",
+        id: "Dua hari di auditorium sekolah pada 6 dan 7 Maret 2024: penampilan, medali, dan trofi.",
+      },
+      photos: [
+        {
+          key: "2024/finale-champions",
+          caption: { en: "Champions with their trophies", id: "Para juara bersama trofi" },
+          alt: { en: "A large group of winners kneels and stands with trophies on stage under the P2S1 XXVII 2024 backdrop", id: "Sekelompok besar pemenang berlutut dan berdiri dengan trofi di panggung di bawah latar P2S1 XXVII 2024" },
+          wide: true,
+        },
+        {
+          key: "2024/finale-dance",
+          caption: { en: "Dance on stage", id: "Tari di panggung" },
+          alt: { en: "Dancers in white shirts and black ties throw their arms up on stage", id: "Para penari berkemeja putih dan berdasi hitam mengangkat tangan di panggung" },
+        },
+        {
+          key: "2024/finale-ensemble",
+          caption: { en: "Violin, piano and guzheng", id: "Biola, piano, dan guzheng" },
+          alt: { en: "A violinist, a pianist and a guzheng player perform together on stage", id: "Pemain biola, pianis, dan pemain guzheng tampil bersama di panggung" },
+        },
+        {
+          key: "2024/finale-choir-capes",
+          caption: { en: "Class choir in black capes", id: "Paduan suara kelas berjubah hitam" },
+          alt: { en: "Singers in black capes raise their hands to their heads mid-performance", id: "Para penyanyi berjubah hitam mengangkat tangan ke kepala saat tampil" },
+          tall: true,
+        },
+        {
+          key: "2024/finale-dance-group",
+          caption: { en: "Dance group", id: "Tari kelompok" },
+          alt: { en: "Four dancers in red and black strike a pose under red stage lights", id: "Empat penari berbaju merah dan hitam berpose di bawah lampu panggung merah" },
+        },
+        {
+          key: "2024/finale-cheering",
+          caption: { en: "Cheering for their class", id: "Bersorak untuk kelasnya" },
+          alt: { en: "Students in the audience punch the air and cheer", id: "Siswa di kursi penonton mengepalkan tangan ke atas dan bersorak" },
+          wide: true,
+        },
+        {
+          key: "2024/finale-vocal",
+          caption: { en: "Vocal performance", id: "Penampilan vokal" },
+          alt: { en: "A student in a pink blazer sings on stage", id: "Seorang siswi berblazer merah muda bernyanyi di panggung" },
+        },
+        {
+          key: "2024/finale-class-choir",
+          caption: { en: "Class choir", id: "Paduan suara kelas" },
+          alt: { en: "A class choir in white shirts and coloured ties performs on stage", id: "Paduan suara kelas berkemeja putih dan berdasi warna-warni tampil di panggung" },
+        },
+        {
+          key: "2024/finale-mcs",
+          caption: { en: "Hosting the finale", id: "Membawakan malam puncak" },
+          alt: { en: "Two masters of ceremony speak from the stage", id: "Dua pembawa acara berbicara dari panggung" },
+        },
+        {
+          key: "2024/finale-medal",
+          caption: { en: "Medal ceremony", id: "Pengalungan medali" },
+          alt: { en: "A teacher places a medal around a student's neck", id: "Seorang guru mengalungkan medali kepada seorang siswi" },
+        },
+        {
+          key: "2024/finale-trophy",
+          caption: { en: "A trophy for the class", id: "Trofi untuk kelas" },
+          alt: { en: "Students hold up a tall trophy with their teacher", id: "Siswa mengangkat trofi tinggi bersama guru mereka" },
+        },
+        {
+          key: "2024/finale-audience",
+          caption: { en: "A full auditorium", id: "Auditorium penuh" },
+          alt: { en: "Students and teachers stand in the auditorium seats", id: "Siswa dan guru berdiri di kursi auditorium" },
+        },
+        {
+          key: "2024/finale-stage",
+          caption: { en: "On the big stage", id: "Di panggung utama" },
+          alt: { en: "A choir in black lines the stage beneath the P2S1 XXVII 2024 screen", id: "Paduan suara berbaju hitam berjajar di panggung di bawah layar P2S1 XXVII 2024" },
+          wide: true,
+        },
+      ],
+    },
+    {
       id: "competitions",
       title: { en: "The competitions", id: "Perlombaan" },
       intro: { en: "From the basketball court to the debate floor.", id: "Dari lapangan basket hingga panggung debat." },
@@ -325,6 +404,38 @@ export const GALLERIES: Record<number, GallerySection[]> = {
           key: "2024/vocal-solo",
           caption: { en: "Vocal solo", id: "Solo vokal" },
           alt: { en: "A student sings with a hand on his chest", id: "Seorang siswa bernyanyi dengan tangan di dada" },
+        },
+        {
+          key: "2024/basketball-team",
+          caption: { en: "Basketball team", id: "Tim basket" },
+          alt: { en: "Three smiling basketball players in matching jerseys pose with arms crossed", id: "Tiga pemain basket berseragam sama tersenyum dan berpose sambil bersedekap" },
+        },
+        {
+          key: "2024/karate",
+          caption: { en: "Karate", id: "Karate" },
+          alt: { en: "Two karateka spar while classmates watch from the side", id: "Dua karateka bertanding sementara teman-teman menonton dari pinggir" },
+          wide: true,
+        },
+        {
+          key: "2024/badminton",
+          caption: { en: "Badminton", id: "Bulu tangkis" },
+          alt: { en: "A player lunges for a shot in the school hall", id: "Seorang pemain menjangkau kok di aula sekolah" },
+        },
+        {
+          key: "2024/chess",
+          caption: { en: "Chess", id: "Catur" },
+          alt: { en: "A hand moves a piece on a chessboard beside a timer", id: "Tangan menggerakkan bidak di papan catur di samping penunjuk waktu" },
+        },
+        {
+          key: "2024/violin",
+          caption: { en: "Musical instrument", id: "Alat musik" },
+          alt: { en: "A student plays the violin in a classroom", id: "Seorang siswi memainkan biola di dalam kelas" },
+        },
+        {
+          key: "2024/class-choir-scarves",
+          caption: { en: "Class Choir Battle", id: "Class Choir Battle" },
+          alt: { en: "A class choir throws coloured scarves into the air", id: "Paduan suara kelas melempar selendang warna-warni ke udara" },
+          wide: true,
         },
       ],
     },

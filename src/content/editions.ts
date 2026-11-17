@@ -67,24 +67,26 @@ export const EDITIONS: Edition[] = [
       en: {
         tagline: "Fifty-one competitions, one idea: get better.",
         themeMeaning: "to improve, or to make something better",
-        period: "January – February 2024",
+        period: "January – March 2024",
+        finale: "6 & 7 March 2024 · Auditorium Yayasan Perguruan Sutomo",
         summary:
-          "The 27th P2S1 ran from the first week of January to the last week of February 2024, with 51 competitions across academics, the arts, sports and content creation.",
+          "The 27th P2S1 ran from the first week of January to the last week of February 2024, with 51 competitions across academics, the arts, sports and content creation, and a two-day finale on 6 and 7 March.",
         story: [
           "SMA Sutomo 1 had the great honour of celebrating the 27th P2S1 this year. Every edition carries its own theme, and this year we were proud to present Amelioration — to improve, or to make something better.",
-          "The event kicked off in the first week of January 2024 and ended in the last week of February. Fifty-one competitions were held, ranging from academics and the arts to sports and content creation, supported by 1,319 participants.",
+          "The event kicked off in the first week of January 2024 and the competitions ran until the last week of February. Fifty-one competitions were held, ranging from academics and the arts to sports and content creation, supported by 1,319 participants. Puncak P2S1, the two-day finale, followed on 6 and 7 March in the Auditorium Yayasan Perguruan Sutomo.",
           "Thank you to every participant for making the 27th P2S1 a success. Congratulations to this year's winners — and to everyone who didn't make the top three: don't be discouraged. There are many fish in the sea and your future doesn't end here. Work hard and never give up!",
         ],
       },
       id: {
         tagline: "Lima puluh satu lomba, satu tujuan: menjadi lebih baik.",
         themeMeaning: "memperbaiki, atau menjadikan sesuatu lebih baik",
-        period: "Januari – Februari 2024",
+        period: "Januari – Maret 2024",
+        finale: "6 & 7 Maret 2024 · Auditorium Yayasan Perguruan Sutomo",
         summary:
-          "P2S1 ke-27 berlangsung dari minggu pertama Januari hingga minggu terakhir Februari 2024, dengan 51 lomba di bidang akademik, seni, olahraga, dan pembuatan konten.",
+          "P2S1 ke-27 berlangsung dari minggu pertama Januari hingga minggu terakhir Februari 2024, dengan 51 lomba di bidang akademik, seni, olahraga, dan pembuatan konten, serta puncak acara selama dua hari pada 6 dan 7 Maret.",
         story: [
           "Tahun ini SMA Sutomo 1 mendapat kehormatan besar untuk merayakan P2S1 yang ke-27. Setiap edisi membawa temanya sendiri, dan tahun ini kami dengan bangga mempersembahkan Amelioration — memperbaiki, atau menjadikan sesuatu lebih baik.",
-          "Acara dimulai pada minggu pertama Januari 2024 dan berakhir pada minggu terakhir Februari. Lima puluh satu lomba diselenggarakan, mulai dari bidang akademik dan seni hingga olahraga dan pembuatan konten, dengan dukungan 1.319 peserta.",
+          "Acara dimulai pada minggu pertama Januari 2024 dan perlombaan berlangsung hingga minggu terakhir Februari. Lima puluh satu lomba diselenggarakan, mulai dari bidang akademik dan seni hingga olahraga dan pembuatan konten, dengan dukungan 1.319 peserta. Puncak P2S1, puncak acara selama dua hari, menyusul pada 6 dan 7 Maret di Auditorium Yayasan Perguruan Sutomo.",
           "Terima kasih kepada seluruh peserta yang telah menyukseskan P2S1 ke-27. Selamat kepada para juara tahun ini — dan bagi kalian yang belum masuk tiga besar, jangan berkecil hati. Masih banyak kesempatan lain, dan masa depanmu tidak berhenti di sini. Terus berusaha dan jangan pernah menyerah!",
         ],
       },
