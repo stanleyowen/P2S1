@@ -69,7 +69,7 @@ export const EDITIONS: Edition[] = [
     heroPosition: "50% 30%",
     logo: "logos/2025",
     og: "/og/og-2025.jpg",
-    // Rebuilt from the winners OSIS announced on Instagram; the full participant list was never published.
+    // From the official OSIS winners' recap; the full participant list was never published.
     results: true,
     winnersOnly: true,
     copy: {
@@ -98,7 +98,7 @@ export const EDITIONS: Edition[] = [
         ],
       },
     },
-    // Competitions whose winners were announced publicly (olympiads were also split by grade).
+    // Every competition in the official 2025 winners' recap (olympiads were also split by grade).
     categories: [
       {
         name: CATEGORY.academic,
@@ -106,16 +106,16 @@ export const EDITIONS: Edition[] = [
       },
       {
         name: CATEGORY.language,
-        items: ["English Debate", "Mandarin Debate", "English Storytelling", "Indonesian Writing", "English Writing", "Mandarin Writing", "Public Speaking", "English Newscasting", "Indonesian Newscasting"],
+        items: ["English Debate", "Indonesian Debate", "Mandarin Debate", "English Storytelling", "Mandarin Poetry", "Indonesian Writing", "English Writing", "Mandarin Writing", "Public Speaking", "English Newscasting", "Indonesian Newscasting"],
       },
       {
         name: CATEGORY.art,
-        items: ["Object Sketch", "Crayon", "Manga", "Graphic Design", "Interior Design", "Fashion Design", "Photography"],
+        items: ["Object Sketch", "Crayon", "Watercolor", "Manga", "Graphic Design", "Interior Design", "Fashion Design", "Photography", "Cinematography"],
       },
       { name: CATEGORY.performing, items: ["Vocal Solo", "Dance Solo", "Class Choir Battle", "Musical Instrument", "Band"] },
       {
         name: CATEGORY.sports,
-        items: ["Basketball", "Badminton", "Table Tennis", "Tug of War", "Terompah", "Esports", "Chess", "Scrabble", "Rubik's Cube"],
+        items: ["Basketball", "Badminton", "Table Tennis", "Karate", "Tug of War", "Terompah", "Esports", "Chess", "Scrabble", "Rubik's Cube"],
       },
     ],
   },
