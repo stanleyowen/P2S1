@@ -9,7 +9,8 @@
 
 An archive of **Pekan Prestasi Sutomo 1**, the annual competition week held by OSIS at SMA Sutomo 1 Medan.<br>
 Photos, stories, results and class championships from every edition, in English and Bahasa Indonesia.<br>
-<sub>An unofficial archive kept by alumni who were once part of OSIS. Not an official OSIS SMA Sutomo 1 website.</sub>
+<sub>An unofficial archive kept by alumni who were once part of OSIS. Not an official OSIS SMA Sutomo 1 website.<br>
+Requests or updates: <a href="mailto:me@stanleyowen.com">me@stanleyowen.com</a></sub>
 
 **[p2s1.stanleyowen.com](https://p2s1.stanleyowen.com)** · [Bahasa Indonesia](https://p2s1.stanleyowen.com/id) · [p2s1.netlify.app](https://p2s1.netlify.app)
 

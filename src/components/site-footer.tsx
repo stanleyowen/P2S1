@@ -44,6 +44,12 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         <div className="wrap flex flex-col gap-2 py-6 text-xs text-on-ink-muted sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-1">
             <p>{t.footer.unofficial}</p>
+            <p>
+              {t.footer.contact}{" "}
+              <a href={`mailto:${SITE.contact}`} className="underline underline-offset-2 hover:text-on-ink">
+                {SITE.contact}
+              </a>
+            </p>
             <p>{t.footer.photos(SITE.organiser)}</p>
           </div>
           <a href={SITE.repo} className="hover:text-on-ink" rel="noopener noreferrer" target="_blank">

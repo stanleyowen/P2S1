@@ -50,6 +50,7 @@ export const SITE = {
   short: "P2S1",
   url: "https://p2s1.stanleyowen.com",
   organiser: "OSIS SMA Sutomo 1 Medan",
+  contact: "me@stanleyowen.com",
   repo: "https://github.com/stanleyowen/P2S1",
 };
 
