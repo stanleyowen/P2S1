@@ -12,9 +12,11 @@ Live at **https://p2s1.netlify.app**.
 │   ├── build-images.mjs   → AVIF + WebP at 5 widths, content-hashed, blur placeholders, OG cards
 │   └── security-headers.mjs → strict CSP (hash-based) written to out/_headers after each build
 ├── src/
-│   ├── app/               Next.js App Router pages: /, /[year] (2023, 2024)
+│   ├── app/               Next.js App Router routes: /, /[year] (English) and /id, /id/[year] (Indonesian)
+│   ├── views/             Home and edition pages, shared by both languages
+│   ├── i18n/              Locale config and interface strings (English, Bahasa Indonesia)
 │   ├── components/        Header, footer, gallery + lightbox, results search, champions board
-│   └── content/           Edition copy, stats and gallery curation — no personal data
+│   └── content/           Edition copy, stats and gallery curation in both languages — no personal data
 ├── server/                Participant search API (runs on the private server, not Netlify)
 └── netlify.toml           Build, security headers, caching, legacy redirects
 ```
@@ -39,8 +41,8 @@ Other scripts: `npm run build` (static export to `out/` + CSP), `npm run lint`, 
 
 1. Drop a JPEG into `content/photos/<year>/<slug>.jpg`. Any size is fine; keep it ≤2400px wide to keep the repo small.
    EXIF/GPS metadata is stripped from everything the site serves.
-2. Reference it in `src/content/photos.ts` with a caption and descriptive `alt` text.
-3. For a new year, add an entry to `EDITIONS` in `src/content/editions.ts`, a logo at `content/photos/logos/<year>.png`,
+2. Reference it in `src/content/photos.ts` with a caption and descriptive `alt` text, each in English and Indonesian (`{ en, id }`).
+3. For a new year, add an entry to `EDITIONS` in `src/content/editions.ts` (with `copy.en` and `copy.id`), a logo at `content/photos/logos/<year>.png`,
    and the year's data file on the API server.
 
 ## Security & privacy
