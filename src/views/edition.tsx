@@ -6,31 +6,44 @@ import { ArrowLeft, ArrowRight } from "@/components/icons";
 import { Picture } from "@/components/picture";
 import { ChampionsBoard, ParticipantSearch } from "@/components/results";
 import { Stat } from "@/components/stat";
-import { EDITIONS, getEdition } from "@/content/editions";
+import { EDITIONS, SITE, getEdition } from "@/content/editions";
 import { GALLERIES } from "@/content/photos";
+import { LOCALES, LOCALE_META, href, languageAlternates, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 import { getImage } from "@/lib/images";
 
-type Props = { params: Promise<{ year: string }> };
+export type EditionParams = { params: Promise<{ year: string }> };
 
-export const dynamicParams = false;
-export const generateStaticParams = () => EDITIONS.map((e) => ({ year: e.slug }));
+export const editionStaticParams = () => EDITIONS.map((e) => ({ year: e.slug }));
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function editionMetadata(locale: Locale, { params }: EditionParams): Promise<Metadata> {
   const e = getEdition((await params).year);
   if (!e) return {};
   const title = `P2S1 ${e.roman} — ${e.year}`;
+  const description = e.copy[locale].summary;
   return {
     title,
-    description: e.summary,
-    alternates: { canonical: `/${e.slug}` },
-    openGraph: { title, description: e.summary, images: [{ url: e.og, width: 1200, height: 630 }] },
+    description,
+    alternates: { canonical: href(locale, `/${e.slug}`), languages: languageAlternates(`/${e.slug}`) },
+    openGraph: {
+      type: "website",
+      siteName: SITE.name,
+      locale: LOCALE_META[locale].og,
+      alternateLocale: LOCALES.filter((l) => l !== locale).map((l) => LOCALE_META[l].og),
+      title,
+      description,
+      images: [{ url: e.og, width: 1200, height: 630 }],
+    },
   };
 }
 
-export default async function EditionPage({ params }: Props) {
+export async function EditionPage({ locale, params }: EditionParams & { locale: Locale }) {
   const edition = getEdition((await params).year);
   if (!edition) notFound();
   const e = edition;
+  const c = e.copy[locale];
+  const t = getDictionary(locale);
+  const pg = t.page;
   const idx = EDITIONS.indexOf(e);
   const newer = EDITIONS[idx - 1];
   const older = EDITIONS[idx + 1];
@@ -45,27 +58,27 @@ export default async function EditionPage({ params }: Props) {
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/55 via-black/15 to-transparent" />
         <div className="wrap pb-12 pt-28 sm:pb-16">
           <div className="flex animate-rise items-center gap-4">
-            <Picture img={getImage(e.logo)} alt={`P2S1 ${e.roman} logo`} sizes="80px" priority placeholder={false} imgClassName="size-16 rounded-full bg-white/95 object-contain p-1.5 sm:size-20" />
+            <Picture img={getImage(e.logo)} alt={t.edition.logoAlt(e.roman)} sizes="80px" priority placeholder={false} imgClassName="size-16 rounded-full bg-white/95 object-contain p-1.5 sm:size-20" />
             <div>
               <p className="eyebrow text-gold">
-                {e.ordinal} edition · {e.year}
+                {t.edition.label(e.number)} · {e.year}
               </p>
-              <p className="mt-1 text-sm text-on-ink/80">{e.period}</p>
+              <p className="mt-1 text-sm text-on-ink/80">{c.period}</p>
             </div>
           </div>
           <h1 className="mt-6 animate-rise font-display text-[clamp(3.25rem,11vw,8.5rem)] font-extrabold leading-[0.9] [animation-delay:80ms]">P2S1 {e.roman}</h1>
-          {e.theme ? (
+          {e.theme && c.themeMeaning ? (
             <p className="mt-5 max-w-2xl animate-rise text-xl leading-snug text-on-ink/90 [animation-delay:160ms] sm:text-2xl">
-              <span className="font-display font-bold text-gold">&ldquo;{e.theme.word}&rdquo;</span> — {e.theme.meaning}.
+              <span className="font-display font-bold text-gold">&ldquo;{e.theme}&rdquo;</span> — {c.themeMeaning}.
             </p>
           ) : (
-            <p className="mt-5 max-w-2xl animate-rise text-xl leading-snug text-on-ink/90 [animation-delay:160ms] sm:text-2xl">{e.tagline}</p>
+            <p className="mt-5 max-w-2xl animate-rise text-xl leading-snug text-on-ink/90 [animation-delay:160ms] sm:text-2xl">{c.tagline}</p>
           )}
-          <nav aria-label="On this page" className="mt-8 flex animate-rise flex-wrap gap-2 [animation-delay:240ms]">
+          <nav aria-label={pg.onThisPage} className="mt-8 flex animate-rise flex-wrap gap-2 [animation-delay:240ms]">
             {[
-              ["#story", "Story"],
-              ["#gallery", "Photos"],
-              ["#results", "Results"],
+              ["#story", pg.story],
+              ["#gallery", pg.photos],
+              ["#results", pg.results],
             ].map(([href, label]) => (
               <a key={href} href={href} className="rounded-full border border-white/25 px-4 py-2 text-sm font-semibold backdrop-blur transition hover:bg-white/10">
                 {label}
@@ -76,26 +89,28 @@ export default async function EditionPage({ params }: Props) {
       </section>
 
       {/* ── Numbers ──────────────────────────────────────────────── */}
-      <section aria-label={`${e.year} in numbers`} className="wrap py-14 sm:py-20">
+      <section aria-label={pg.inNumbers(e.year)} className="wrap py-14 sm:py-20">
         <dl className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
-          <Stat value={e.stats.participants} label="Participants" />
-          <Stat value={e.stats.competitions} label="Competitions" />
-          <Stat value={e.stats.entries} label="Entries" />
-          <Stat value={e.stats.podium} label="Podium finishes" />
+          <Stat locale={locale} value={e.stats.participants} label={t.stats.participants} />
+          <Stat locale={locale} value={e.stats.competitions} label={t.stats.competitions} />
+          <Stat locale={locale} value={e.stats.entries} label={t.stats.entries} />
+          <Stat locale={locale} value={e.stats.podium} label={t.stats.podium} />
         </dl>
       </section>
 
       {/* ── Story ────────────────────────────────────────────────── */}
       <section id="story" className="wrap grid gap-10 pb-20 sm:pb-28 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
         <div>
-          <p className="eyebrow text-accent-ink">The story</p>
-          <h2 className="mt-4 font-display text-4xl font-bold leading-[1.05] sm:text-5xl">
-            The {e.ordinal} Pekan Prestasi Sutomo 1
-          </h2>
-          {e.finale && <p className="mt-5 inline-flex rounded-full bg-surface-2 px-4 py-2 text-sm font-semibold">Finale · {e.finale}</p>}
+          <p className="eyebrow text-accent-ink">{pg.storyEyebrow}</p>
+          <h2 className="mt-4 font-display text-4xl font-bold leading-[1.05] sm:text-5xl">{t.edition.title(e.number)}</h2>
+          {c.finale && (
+            <p className="mt-5 inline-flex rounded-full bg-surface-2 px-4 py-2 text-sm font-semibold">
+              {pg.finale} · {c.finale}
+            </p>
+          )}
         </div>
         <div className="space-y-5 text-lg leading-relaxed text-muted">
-          {e.story.map((p, i) => (
+          {c.story.map((p, i) => (
             <p key={i} className={i === 0 ? "text-xl text-fg" : undefined}>
               {p}
             </p>
@@ -106,16 +121,16 @@ export default async function EditionPage({ params }: Props) {
       {/* ── Competitions ─────────────────────────────────────────── */}
       <section aria-labelledby="competitions-title" className="bg-surface py-20 sm:py-24">
         <div className="wrap">
-          <p className="eyebrow text-accent-ink">What was on</p>
+          <p className="eyebrow text-accent-ink">{pg.whatWasOn}</p>
           <h2 id="competitions-title" className="mt-3 font-display text-4xl font-bold sm:text-5xl">
-            {e.stats.competitions} competitions
+            {pg.competitions(e.stats.competitions)}
           </h2>
           <div className="mt-12 grid gap-x-10 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-            {e.categories.map((c) => (
-              <div key={c.name}>
-                <h3 className="text-sm font-bold uppercase tracking-wider text-muted">{c.name}</h3>
+            {e.categories.map((cat) => (
+              <div key={cat.name.en}>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-muted">{cat.name[locale]}</h3>
                 <ul className="mt-4 flex flex-wrap gap-2">
-                  {c.items.map((item) => (
+                  {cat.items.map((item) => (
                     <li key={item} className="rounded-full border border-line bg-bg px-3.5 py-1.5 text-sm font-medium">
                       {item}
                     </li>
@@ -128,16 +143,20 @@ export default async function EditionPage({ params }: Props) {
       </section>
 
       {/* ── Gallery ──────────────────────────────────────────────── */}
-      <section id="gallery" aria-label="Photos" className="wrap space-y-20 py-20 sm:py-28">
+      <section id="gallery" aria-label={pg.photos} className="wrap space-y-20 py-20 sm:py-28">
         {galleries.map((g) => (
           <div key={g.id} aria-labelledby={`g-${g.id}`}>
             <div className="mb-8 max-w-2xl">
               <h2 id={`g-${g.id}`} className="font-display text-3xl font-bold sm:text-4xl">
-                {g.title}
+                {g.title[locale]}
               </h2>
-              {g.intro && <p className="mt-3 text-lg text-muted">{g.intro}</p>}
+              {g.intro && <p className="mt-3 text-lg text-muted">{g.intro[locale]}</p>}
             </div>
-            <Gallery label={g.title} photos={g.photos.map((p) => ({ ...p, img: getImage(p.key) }))} />
+            <Gallery
+              locale={locale}
+              label={g.title[locale]}
+              photos={g.photos.map((p) => ({ ...p, caption: p.caption[locale], alt: p.alt[locale], img: getImage(p.key) }))}
+            />
           </div>
         ))}
       </section>
@@ -146,30 +165,30 @@ export default async function EditionPage({ params }: Props) {
       <section id="results" aria-labelledby="results-title" className="border-t border-line bg-surface py-20 sm:py-28">
         <div className="wrap">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow text-accent-ink">Results</p>
+            <p className="eyebrow text-accent-ink">{pg.results}</p>
             <h2 id="results-title" className="mt-3 font-display text-4xl font-bold sm:text-5xl">
-              Find a participant
+              {pg.findTitle}
             </h2>
-            <p className="mt-4 text-lg text-muted">Search the {e.year} entries by name or class.</p>
+            <p className="mt-4 text-lg text-muted">{pg.findText(e.year)}</p>
           </div>
           <div className="mx-auto mt-10 max-w-3xl">
-            <ParticipantSearch year={e.year} />
+            <ParticipantSearch year={e.year} locale={locale} />
           </div>
 
           <div className="mt-24">
-            <h3 className="font-display text-3xl font-bold sm:text-4xl">Champions of {e.year}</h3>
-            <p className="mb-8 mt-3 text-lg text-muted">The top three of every competition.</p>
-            <ChampionsBoard year={e.year} />
+            <h3 className="font-display text-3xl font-bold sm:text-4xl">{pg.championsTitle(e.year)}</h3>
+            <p className="mb-8 mt-3 text-lg text-muted">{pg.championsText}</p>
+            <ChampionsBoard year={e.year} locale={locale} />
           </div>
         </div>
       </section>
 
       {/* ── Prev / next ──────────────────────────────────────────── */}
-      <nav aria-label="Other editions" className="wrap grid gap-4 py-16 sm:grid-cols-2">
+      <nav aria-label={pg.otherEditions} className="wrap grid gap-4 py-16 sm:grid-cols-2">
         {older ? (
-          <Link href={`/${older.slug}`} className="group rounded-3xl border border-line p-7 transition hover:bg-surface">
+          <Link href={href(locale, `/${older.slug}`)} className="group rounded-3xl border border-line p-7 transition hover:bg-surface">
             <span className="flex items-center gap-2 text-sm text-muted">
-              <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-1" /> Previous edition
+              <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-1" /> {pg.previous}
             </span>
             <span className="mt-2 block font-display text-3xl font-bold">
               P2S1 {older.roman} · {older.year}
@@ -179,9 +198,9 @@ export default async function EditionPage({ params }: Props) {
           <span />
         )}
         {newer && (
-          <Link href={`/${newer.slug}`} className="group rounded-3xl border border-line p-7 text-right transition hover:bg-surface sm:col-start-2">
+          <Link href={href(locale, `/${newer.slug}`)} className="group rounded-3xl border border-line p-7 text-right transition hover:bg-surface sm:col-start-2">
             <span className="flex items-center justify-end gap-2 text-sm text-muted">
-              Next edition <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+              {pg.next} <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </span>
             <span className="mt-2 block font-display text-3xl font-bold">
               P2S1 {newer.roman} · {newer.year}
