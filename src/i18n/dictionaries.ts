@@ -12,7 +12,7 @@ const en = {
   archive: {
     badge: "Archived",
     label: "Archive notice",
-    notice: "This site is an archive of P2S1 XXVI (2023), XXVII (2024) and XXVIII (2025).",
+    notice: "This site is an archive of P2S1 XXVI (2023), XXVII (2024), XXVIII (2025) and XXIX (2026).",
   },
   header: {
     skip: "Skip to content",
@@ -49,7 +49,7 @@ const en = {
   home: {
     heroAlt: "Students in traditional costume cheer as a trophy is lifted on stage at the P2S1 finale",
     eyebrow: "The annual competition week of SMA Sutomo 1 Medan",
-    intro: "Students competing in olympiads, debates, the arts and sport. This archive keeps the photos, the numbers and the results of the 2023, 2024 and 2025 editions.",
+    intro: "Students competing in olympiads, debates, the arts and sport. This archive keeps the photos, the numbers and the results of the 2023, 2024, 2025 and 2026 editions.",
     explore: (year: number) => `Explore P2S1 ${year}`,
     find: "Find a participant",
     aboutEyebrow: "About P2S1",
@@ -85,6 +85,9 @@ const en = {
     winnersOnlyTitle: "Only public winners are listed",
     winnersOnly: (roman: string, year: number) =>
       `The full participant list for P2S1 ${roman} was never made public. These results come from the official winners' recap by OSIS SMA Sutomo 1, so they cover only the medal winners of each competition. Anyone who took part in ${year} without winning a medal will not appear here.`,
+    partialTitle: "Winners are official, entries may be incomplete",
+    partial: (roman: string) =>
+      `Every medal in P2S1 ${roman} comes from the official winners' recap. The list of other entries was rebuilt from the registration forms, so a few participants may be missing or listed under a slightly different spelling.`,
     noResultsTitle: "Results aren’t in the archive yet",
     noResultsText: (roman: string) => `Participant search and the champions board for P2S1 ${roman} will be added here once the results are archived.`,
     otherEditions: "Other editions",
@@ -169,7 +172,7 @@ const id: Dictionary = {
   archive: {
     badge: "Arsip",
     label: "Pemberitahuan arsip",
-    notice: "Situs ini adalah arsip P2S1 XXVI (2023), XXVII (2024), dan XXVIII (2025).",
+    notice: "Situs ini adalah arsip P2S1 XXVI (2023), XXVII (2024), XXVIII (2025), dan XXIX (2026).",
   },
   header: {
     skip: "Langsung ke konten",
@@ -206,7 +209,7 @@ const id: Dictionary = {
   home: {
     heroAlt: "Siswa berpakaian adat bersorak saat sebuah trofi diangkat di panggung puncak P2S1",
     eyebrow: "Pekan lomba tahunan SMA Sutomo 1 Medan",
-    intro: "Siswa berlomba dalam olimpiade, debat, seni, dan olahraga. Arsip ini menyimpan foto, angka, dan hasil lomba edisi 2023, 2024, dan 2025.",
+    intro: "Siswa berlomba dalam olimpiade, debat, seni, dan olahraga. Arsip ini menyimpan foto, angka, dan hasil lomba edisi 2023, 2024, 2025, dan 2026.",
     explore: (year) => `Jelajahi P2S1 ${year}`,
     find: "Cari peserta",
     aboutEyebrow: "Tentang P2S1",
@@ -242,6 +245,9 @@ const id: Dictionary = {
     winnersOnlyTitle: "Hanya pemenang yang diumumkan publik",
     winnersOnly: (roman, year) =>
       `Daftar lengkap peserta P2S1 ${roman} tidak pernah dipublikasikan. Hasil ini berasal dari rekap resmi pemenang OSIS SMA Sutomo 1, sehingga hanya memuat peraih medali setiap lomba. Peserta ${year} yang tidak meraih medali tidak akan muncul di sini.`,
+    partialTitle: "Pemenang resmi, daftar peserta mungkin belum lengkap",
+    partial: (roman) =>
+      `Semua medali P2S1 ${roman} berasal dari rekap resmi pemenang. Daftar peserta lainnya disusun ulang dari formulir pendaftaran, sehingga mungkin ada beberapa peserta yang terlewat atau tercatat dengan ejaan yang sedikit berbeda.`,
     noResultsTitle: "Hasil lomba belum masuk arsip",
     noResultsText: (roman) => `Pencarian peserta dan daftar juara P2S1 ${roman} akan ditambahkan di sini setelah hasilnya diarsipkan.`,
     otherEditions: "Edisi lainnya",
