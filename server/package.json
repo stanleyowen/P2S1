@@ -2,7 +2,7 @@
   "name": "p2s1-api",
   "private": true,
   "type": "module",
-  "description": "Read-only participant search API for p2s1.netlify.app (zero dependencies).",
+  "description": "Read-only participant search API for p2s1.stanleyowen.com (zero dependencies).",
   "engines": {
     "node": ">=22.12"
   },

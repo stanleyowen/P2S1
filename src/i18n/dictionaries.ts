@@ -80,11 +80,10 @@ const en = {
     findText: (year: number) => `Search the ${year} entries by name or class.`,
     championsTitle: (year: number) => `Champions of ${year}`,
     championsText: "The top three of every competition.",
-    announcedCompetitions: (n: number) => `${n} competitions with recorded winners`,
     findWinnersText: (year: number) => `Search the ${year} winners by name, team or class.`,
     winnersOnlyTitle: "Only public winners are listed",
     winnersOnly: (roman: string, year: number) =>
-      `The full participant list for P2S1 ${roman} was never made public. These results come from the official winners' recap by OSIS SMA Sutomo 1, so they cover only the medal winners of each competition. Anyone who took part in ${year} without winning a medal will not appear here.`,
+      `The full participant list for P2S1 ${roman} was never made public. These results come from the winners announced by OSIS SMA Sutomo 1, so they cover only the medal winners of each competition. Anyone who took part in ${year} without winning a medal will not appear here.`,
     partialTitle: "Winners are official, entries may be incomplete",
     partial: (roman: string) =>
       `Every medal in P2S1 ${roman} comes from the official winners' recap. The list of other entries was rebuilt from the registration forms, so a few participants may be missing or listed under a slightly different spelling.`,
@@ -99,7 +98,7 @@ const en = {
     noMatch: (q: string) => `No entries match “${q}”.`,
     truncated: (shown: number, total: number) => `Showing the first ${shown} of ${total} entries — add more of the name to narrow it down.`,
     found: (n: number) => `${n} ${n === 1 ? "entry" : "entries"} found.`,
-    minChars: (n: number) => `Type at least ${n} characters.`,
+    minChars: (n: number) => `Type a word of at least ${n} letters.`,
     searchLabel: (year: number) => `Search ${year} participants by name or class`,
     placeholder: "Name or class, e.g. “XII MIA-03”",
     search: "Search",
@@ -240,11 +239,10 @@ const id: Dictionary = {
     findText: (year) => `Cari pendaftaran ${year} berdasarkan nama atau kelas.`,
     championsTitle: (year) => `Para juara ${year}`,
     championsText: "Tiga besar dari setiap lomba.",
-    announcedCompetitions: (n) => `${n} lomba dengan pemenang tercatat`,
     findWinnersText: (year) => `Cari pemenang ${year} berdasarkan nama, tim, atau kelas.`,
     winnersOnlyTitle: "Hanya pemenang yang diumumkan publik",
     winnersOnly: (roman, year) =>
-      `Daftar lengkap peserta P2S1 ${roman} tidak pernah dipublikasikan. Hasil ini berasal dari rekap resmi pemenang OSIS SMA Sutomo 1, sehingga hanya memuat peraih medali setiap lomba. Peserta ${year} yang tidak meraih medali tidak akan muncul di sini.`,
+      `Daftar lengkap peserta P2S1 ${roman} tidak pernah dipublikasikan. Hasil ini berasal dari pengumuman pemenang oleh OSIS SMA Sutomo 1, sehingga hanya memuat peraih medali setiap lomba. Peserta ${year} yang tidak meraih medali tidak akan muncul di sini.`,
     partialTitle: "Pemenang resmi, daftar peserta mungkin belum lengkap",
     partial: (roman) =>
       `Semua medali P2S1 ${roman} berasal dari rekap resmi pemenang. Daftar peserta lainnya disusun ulang dari formulir pendaftaran, sehingga mungkin ada beberapa peserta yang terlewat atau tercatat dengan ejaan yang sedikit berbeda.`,
@@ -259,7 +257,7 @@ const id: Dictionary = {
     noMatch: (q) => `Tidak ada pendaftaran yang cocok dengan “${q}”.`,
     truncated: (shown, total) => `Menampilkan ${shown} pendaftaran pertama dari ${total} — ketik nama lebih lengkap untuk mempersempit hasil.`,
     found: (n) => `${n} pendaftaran ditemukan.`,
-    minChars: (n) => `Ketik minimal ${n} karakter.`,
+    minChars: (n) => `Ketik satu kata minimal ${n} huruf.`,
     searchLabel: (year) => `Cari peserta ${year} berdasarkan nama atau kelas`,
     placeholder: "Nama atau kelas, mis. “XII MIA-03”",
     search: "Cari",

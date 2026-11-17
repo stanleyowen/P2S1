@@ -2,6 +2,7 @@
 import { test, before, after } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import http from "node:http";
 import os from "node:os";
 import path from "node:path";
 
@@ -17,6 +18,7 @@ fs.writeFileSync(path.join(dir, "2099.json"), JSON.stringify(rows));
 process.env.DATA_DIR = dir;
 process.env.ALLOWED_ORIGINS = "https://allowed.test";
 process.env.RATE_LIMIT_BURST = "1000";
+process.env.RATE_LIMIT_PER_DAY = "100000";
 
 const { createServer, loadEditions } = await import("../src/server.mjs");
 let server, base;
@@ -63,7 +65,7 @@ test("one student's entries are all returned, even beyond 10", async () => {
 });
 
 test("rejects short, long and odd queries", async () => {
-  for (const q of ["ab", "x".repeat(65), "<script>", "a%00b%00c"]) {
+  for (const q of ["ab", "x".repeat(65), "<script>", "a%00b%00c", "a b", "a b c d", "x.y z"]) {
     assert.equal((await get(`/v1/editions/2099/search?q=${q}`)).status, 400, q);
   }
 });
@@ -80,6 +82,20 @@ test("CORS only for allow-listed origins", async () => {
   assert.equal(ok.headers.get("access-control-allow-origin"), "https://allowed.test");
   const bad = await get("/v1/editions", { Origin: "https://evil.test" });
   assert.equal(bad.headers.get("access-control-allow-origin"), null);
+});
+
+test("malformed URLs are a 400, not a 500", async () => {
+  const res = await new Promise((resolve, reject) => {
+    const r = http.get({ host: "127.0.0.1", port: server.address().port, path: "//%5B/v1/editions" }, resolve);
+    r.on("error", reject);
+  });
+  assert.equal(res.statusCode, 400);
+  res.resume();
+});
+
+test("class searches still work with the one-long-word rule", async () => {
+  assert.equal((await get("/v1/editions/2099/search?q=XII%20MIA-01")).status, 200);
+  assert.equal((await get("/v1/editions/2099/search?q=xi%20is-03")).status, 200);
 });
 
 test("only safe methods; unknown routes 404", async () => {

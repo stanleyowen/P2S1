@@ -127,9 +127,7 @@ export async function EditionPage({ locale, params }: EditionParams & { locale: 
         <div className="wrap">
           <p className="eyebrow text-accent-ink">{pg.whatWasOn}</p>
           <h2 id="competitions-title" className="mt-3 font-display text-4xl font-bold sm:text-5xl">
-            {e.winnersOnly
-              ? pg.announcedCompetitions(e.categories.reduce((n, cat) => n + cat.items.length, 0))
-              : pg.competitions(e.stats?.competitions ?? e.categories.reduce((n, cat) => n + cat.items.length, 0))}
+            {pg.competitions(e.stats?.competitions ?? e.categories.reduce((n, cat) => n + cat.items.length, 0))}
           </h2>
           <div className="mt-12 grid gap-x-10 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
             {e.categories.map((cat) => (

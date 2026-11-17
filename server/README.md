@@ -1,6 +1,6 @@
 # P2S1 participant API
 
-A tiny, read-only HTTP API that powers “Find a participant” and “Champions” on https://p2s1.netlify.app.
+A tiny, read-only HTTP API that powers “Find a participant” and “Champions” on https://p2s1.stanleyowen.com (and https://p2s1.netlify.app).
 It exists so the participant list never has to live in the public repo or the site's JavaScript.
 
 - **Zero dependencies** — just Node's `http` module. Nothing to `npm install`, nothing to patch.

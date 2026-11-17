@@ -48,7 +48,7 @@ export type Stats = { participants: number; competitions: number; entries: numbe
 export const SITE = {
   name: "Pekan Prestasi Sutomo 1",
   short: "P2S1",
-  url: "https://p2s1.netlify.app",
+  url: "https://p2s1.stanleyowen.com",
   organiser: "OSIS SMA Sutomo 1 Medan",
   repo: "https://github.com/stanleyowen/P2S1",
 };
@@ -72,31 +72,32 @@ export const EDITIONS: Edition[] = [
     logo: "logos/2026",
     og: "/og/og-2026.jpg",
     // From OSIS's Instagram winner captions (posted August 2026); no participant list yet.
+    // Dates from the photos' capture times: Week 1 from 13 Jan, opening 24 Jan, Puncak 14 Mar (morning).
     results: true,
     winnersOnly: true,
     copy: {
       en: {
         tagline: "Six weeks of competitions, from a pop-art opening to a Saturday finale.",
-        period: "February – March 2026",
+        period: "January – March 2026",
         finale: "14 March 2026 · Auditorium Yayasan Perguruan Sutomo",
         summary:
-          "The 29th P2S1 opened on 7 February 2026 in the school courtyard, ran six weeks of competitions and closed with Puncak P2S1 on Saturday 14 March 2026.",
+          "The 29th P2S1 ran six weeks of competitions from mid-January 2026, held its opening ceremony in the school courtyard on 24 January, and closed with Puncak P2S1 on Saturday 14 March 2026.",
         story: [
-          "The 29th Pekan Prestasi Sutomo 1 opened on 7 February 2026 in the school courtyard, in front of a pop-art backdrop of trophies, vinyl records, paint palettes and film reels, with speeches, a dance crew, a martial-arts display and live music.",
-          "Over the next six weeks students sat olympiads split by grade, debated in three languages, wrote, drew and designed, and played on the court, at the table and in the courtyard. New to the line-up were MonsoonSim, a business simulation, and a scientific paper competition (karya tulis ilmiah), and public speaking was held in both English and Mandarin.",
-          "It all ended at Puncak P2S1 on Saturday 14 March 2026 in the Auditorium Yayasan Perguruan Sutomo: class choirs, dance, bands and solo performances, medals for every podium, and XII MIA-02 crowned overall champion (juara umum).",
+          "The 29th Pekan Prestasi Sutomo 1 held its opening ceremony on the morning of 24 January 2026 in the school courtyard, in front of a pop-art backdrop of trophies, vinyl records, paint palettes and film reels, with speeches, a dance crew, a martial-arts display and live music.",
+          "Across six weeks of competitions, starting in mid-January, students sat olympiads split by grade, debated in three languages, wrote, drew and designed, and played on the court, at the table and in the courtyard. New to the line-up were MonsoonSim, a business simulation, and a scientific paper competition (karya tulis ilmiah), and public speaking was held in both English and Mandarin.",
+          "It all ended at Puncak P2S1 on the morning of Saturday 14 March 2026 in the Auditorium Yayasan Perguruan Sutomo: class choirs, dance, bands and solo performances, medals for every podium, and XII MIA-02 crowned overall champion (juara umum).",
         ],
       },
       id: {
         tagline: "Enam minggu perlombaan, dari pembukaan bergaya pop art hingga puncak di hari Sabtu.",
-        period: "Februari – Maret 2026",
+        period: "Januari – Maret 2026",
         finale: "14 Maret 2026 · Auditorium Yayasan Perguruan Sutomo",
         summary:
-          "P2S1 ke-29 dibuka pada 7 Februari 2026 di halaman sekolah, menghadirkan enam minggu perlombaan, dan ditutup dengan Puncak P2S1 pada Sabtu, 14 Maret 2026.",
+          "P2S1 ke-29 menghadirkan enam minggu perlombaan sejak pertengahan Januari 2026, menggelar upacara pembukaan di halaman sekolah pada 24 Januari, dan ditutup dengan Puncak P2S1 pada Sabtu, 14 Maret 2026.",
         story: [
-          "Pekan Prestasi Sutomo 1 ke-29 dibuka pada 7 Februari 2026 di halaman sekolah, di depan latar bergaya pop art penuh trofi, piringan hitam, palet cat, dan gulungan film, dengan sambutan, penampilan tari, peragaan bela diri, dan musik langsung.",
-          "Selama enam minggu berikutnya, siswa mengerjakan olimpiade per jenjang kelas, berdebat dalam tiga bahasa, menulis, menggambar, dan mendesain, serta bertanding di lapangan, di meja, dan di halaman sekolah. Lomba baru tahun ini adalah MonsoonSim, sebuah simulasi bisnis, dan karya tulis ilmiah, sementara public speaking digelar dalam bahasa Inggris dan Mandarin.",
-          "Semuanya berakhir di Puncak P2S1 pada Sabtu, 14 Maret 2026 di Auditorium Yayasan Perguruan Sutomo: paduan suara kelas, tari, band, dan penampilan solo, medali untuk setiap podium, serta XII MIA-02 yang dinobatkan sebagai juara umum.",
+          "Upacara pembukaan Pekan Prestasi Sutomo 1 ke-29 digelar pada pagi hari 24 Januari 2026 di halaman sekolah, di depan latar bergaya pop art penuh trofi, piringan hitam, palet cat, dan gulungan film, dengan sambutan, penampilan tari, peragaan bela diri, dan musik langsung.",
+          "Selama enam minggu perlombaan yang dimulai pertengahan Januari, siswa mengerjakan olimpiade per jenjang kelas, berdebat dalam tiga bahasa, menulis, menggambar, dan mendesain, serta bertanding di lapangan, di meja, dan di halaman sekolah. Lomba baru tahun ini adalah MonsoonSim, sebuah simulasi bisnis, dan karya tulis ilmiah, sementara public speaking digelar dalam bahasa Inggris dan Mandarin.",
+          "Semuanya berakhir di Puncak P2S1 pada Sabtu pagi, 14 Maret 2026 di Auditorium Yayasan Perguruan Sutomo: paduan suara kelas, tari, band, dan penampilan solo, medali untuk setiap podium, serta XII MIA-02 yang dinobatkan sebagai juara umum.",
         ],
       },
     },
@@ -126,38 +127,41 @@ export const EDITIONS: Edition[] = [
     slug: "2025",
     number: 28,
     roman: "XXVIII",
+    theme: "Areté",
     hero: "2025/finale-colour",
     heroPosition: "50% 30%",
     logo: "logos/2025",
     og: "/og/og-2025.jpg",
     // Participants from the registration forms; podium from the official OSIS winners' recap.
     // `competitions` counts the recap's 63 podium events (olympiads split by grade).
-    stats: { participants: 1255, competitions: 63, entries: 2682, podium: 297 },
+    stats: { participants: 1253, competitions: 63, entries: 2682, podium: 297 },
     results: true,
     partialEntries: true,
     copy: {
       en: {
         tagline: "Seven weeks of competitions, crowned on the auditorium stage.",
-        period: "Seven weeks of competitions · March 2025",
+        themeMeaning: "Greek for excellence in every form, and for reaching your full potential",
+        period: "January – March 2025",
         finale: "10 & 11 March 2025 · Auditorium Yayasan Perguruan Sutomo",
         summary:
           "The 28th P2S1 ran seven weeks of competitions across academics, language, the arts and sport, and closed with a two-day Puncak P2S1 on 10 and 11 March 2025.",
         story: [
           "The 28th Pekan Prestasi Sutomo 1 took its look from Greek myth: marble columns on the stage, a laurel-wreathed logo, and weekly recaps that travelled from the depths of the underworld, through the sea and the mountains, up to Olympus.",
           "Over seven weeks, students sat olympiads, debated, told stories, coded, sketched and painted, and competed on the court, at the table and in the courtyard, from basketball and badminton to chess, Scrabble and tug of war.",
-          "It all came together at Puncak P2S1 on 10 and 11 March 2025 in the Auditorium Yayasan Perguruan Sutomo: two evenings of class choirs, dance, bands and solo performances, medals and trophies for the winners, and the overall champions (juara umum) crowned on stage.",
+          "It all came together at Puncak P2S1 on 10 and 11 March 2025 in the Auditorium Yayasan Perguruan Sutomo: two afternoons of class choirs, dance, bands and solo performances, medals and trophies for the winners, and the overall champions (juara umum) crowned on stage.",
         ],
       },
       id: {
         tagline: "Tujuh minggu perlombaan, dimahkotai di panggung auditorium.",
-        period: "Tujuh minggu perlombaan · Maret 2025",
+        themeMeaning: "bahasa Yunani untuk keunggulan dalam segala bentuk, dan mewujudkan potensi diri sepenuhnya",
+        period: "Januari – Maret 2025",
         finale: "10 & 11 Maret 2025 · Auditorium Yayasan Perguruan Sutomo",
         summary:
           "P2S1 ke-28 menghadirkan tujuh minggu perlombaan di bidang akademik, bahasa, seni, dan olahraga, lalu ditutup dengan Puncak P2S1 selama dua hari pada 10 dan 11 Maret 2025.",
         story: [
           "Pekan Prestasi Sutomo 1 ke-28 mengambil inspirasi dari mitologi Yunani: pilar marmer di panggung, logo berhias karangan daun salam, serta rangkuman mingguan yang berkelana dari dasar dunia bawah, melintasi laut dan pegunungan, hingga ke Olympus.",
           "Selama tujuh minggu, siswa mengerjakan olimpiade, berdebat, bercerita, menulis kode, membuat sketsa dan melukis, serta bertanding di lapangan, di meja, dan di halaman sekolah — mulai dari basket dan bulu tangkis hingga catur, Scrabble, dan tarik tambang.",
-          "Semuanya berpuncak pada Puncak P2S1 tanggal 10 dan 11 Maret 2025 di Auditorium Yayasan Perguruan Sutomo: dua malam penuh paduan suara kelas, tari, band, dan penampilan solo, medali dan trofi untuk para pemenang, serta penobatan juara umum di atas panggung.",
+          "Semuanya berpuncak pada Puncak P2S1 tanggal 10 dan 11 Maret 2025 di Auditorium Yayasan Perguruan Sutomo: dua sore penuh paduan suara kelas, tari, band, dan penampilan solo, medali dan trofi untuk para pemenang, serta penobatan juara umum di atas panggung.",
         ],
       },
     },
@@ -192,7 +196,7 @@ export const EDITIONS: Edition[] = [
     heroPosition: "60% 35%",
     logo: "logos/2024",
     og: "/og/og-2024.jpg",
-    stats: { participants: 1319, competitions: 51, entries: 2563, podium: 339 },
+    stats: { participants: 1319, competitions: 47, entries: 2558, podium: 339 },
     results: true,
     copy: {
       en: {
@@ -201,7 +205,7 @@ export const EDITIONS: Edition[] = [
         period: "January – March 2024",
         finale: "6 & 7 March 2024 · Auditorium Yayasan Perguruan Sutomo",
         summary:
-          "The 27th P2S1 ran from the first week of January to the last week of February 2024, with 51 competitions across academics, the arts, sports and content creation, and a two-day finale on 6 and 7 March.",
+          "The 27th P2S1 ran from the first week of January to the last week of February 2024, with 47 competitions across academics, the arts, sports and content creation, and a two-day finale on 6 and 7 March.",
         story: [
           "SMA Sutomo 1 had the great honour of celebrating the 27th P2S1 this year. Every edition carries its own theme, and this year we were proud to present Amelioration — to improve, or to make something better.",
           "The event kicked off in the first week of January 2024 and the competitions ran until the last week of February. Fifty-one competitions were held, ranging from academics and the arts to sports and content creation, supported by 1,319 participants. Puncak P2S1, the two-day finale, followed on 6 and 7 March in the Auditorium Yayasan Perguruan Sutomo.",
@@ -214,7 +218,7 @@ export const EDITIONS: Edition[] = [
         period: "Januari – Maret 2024",
         finale: "6 & 7 Maret 2024 · Auditorium Yayasan Perguruan Sutomo",
         summary:
-          "P2S1 ke-27 berlangsung dari minggu pertama Januari hingga minggu terakhir Februari 2024, dengan 51 lomba di bidang akademik, seni, olahraga, dan pembuatan konten, serta puncak acara selama dua hari pada 6 dan 7 Maret.",
+          "P2S1 ke-27 berlangsung dari minggu pertama Januari hingga minggu terakhir Februari 2024, dengan 47 lomba di bidang akademik, seni, olahraga, dan pembuatan konten, serta puncak acara selama dua hari pada 6 dan 7 Maret.",
         story: [
           "Tahun ini SMA Sutomo 1 mendapat kehormatan besar untuk merayakan P2S1 yang ke-27. Setiap edisi membawa temanya sendiri, dan tahun ini kami dengan bangga mempersembahkan Amelioration — memperbaiki, atau menjadikan sesuatu lebih baik.",
           "Acara dimulai pada minggu pertama Januari 2024 dan perlombaan berlangsung hingga minggu terakhir Februari. Lima puluh satu lomba diselenggarakan, mulai dari bidang akademik dan seni hingga olahraga dan pembuatan konten, dengan dukungan 1.319 peserta. Puncak P2S1, puncak acara selama dua hari, menyusul pada 6 dan 7 Maret di Auditorium Yayasan Perguruan Sutomo.",
@@ -225,7 +229,7 @@ export const EDITIONS: Edition[] = [
     categories: [
       {
         name: CATEGORY.academic,
-        items: ["Math Olympiad", "Physics Olympiad", "Chemistry Olympiad", "Biology Olympiad", "Economics & Accounting Olympiad", "Geography Olympiad", "English Olympiad", "Battle of Brains", "Competitive Programming", "Business Idea"],
+        items: ["Math Olympiad", "Physics Olympiad", "Chemistry Olympiad", "Biology Olympiad", "Economics and Accounting Olympiad", "Geography Olympiad", "English Olympiad", "Battle of Brains", "Competitive Programming", "Business Idea"],
       },
       {
         name: CATEGORY.language,
@@ -233,7 +237,7 @@ export const EDITIONS: Edition[] = [
       },
       {
         name: CATEGORY.art,
-        items: ["Sketch", "Object Sketch", "Watercolor", "Crayon", "Manga", "Graphic Design", "Interior Design", "Fashion Design", "Photography", "Cinematography"],
+        items: ["Object Sketch", "Watercolor", "Crayon", "Manga", "Graphic Design", "Interior Design", "Fashion Design", "Photography", "Cinematography"],
       },
       { name: CATEGORY.performing, items: ["Vocal Solo", "Dance Solo", "Class Choir Battle", "Musical Instrument"] },
       {
@@ -282,7 +286,7 @@ export const EDITIONS: Edition[] = [
     categories: [
       {
         name: CATEGORY.academic,
-        items: ["Math Olympiad", "Physics Olympiad", "Chemistry Olympiad", "Biology Olympiad", "Economics Olympiad", "Geography Olympiad", "English Olympiad", "Battle of Brains", "Competitive Programming", "Business Idea"],
+        items: ["Math Olympiad", "Physics Olympiad", "Chemistry Olympiad", "Biology Olympiad", "Economics Olympiad", "Economics and Accounting Olympiad", "Geography Olympiad", "English Olympiad", "Battle of Brains", "Competitive Programming", "Business Idea"],
       },
       {
         name: CATEGORY.language,
@@ -290,7 +294,7 @@ export const EDITIONS: Edition[] = [
       },
       {
         name: CATEGORY.art,
-        items: ["Sketch", "Watercolor", "Crayon", "Manga", "Graphic Design", "Interior Design", "Fashion Design", "Certificate Design", "Photography"],
+        items: ["Sketch", "Watercolor", "Crayon", "Manga", "Graphic Design", "Interior Design", "Fashion Design", "Certificate Design", "Photography", "A Timeless Activity"],
       },
       { name: CATEGORY.performing, items: ["Vocal Solo", "Dance Solo", "Dance Group", "Class Choir Battle", "Musical Instrument"] },
       {

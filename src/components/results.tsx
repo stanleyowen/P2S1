@@ -7,6 +7,8 @@ import { ApiError, fetchChampions, searchParticipants, type Champions, type Sear
 import { Lock, Search } from "./icons";
 
 const MIN = 3;
+// Mirrors the API: a query needs at least one word of MIN+ letters ("a b" is rejected).
+const searchable = (q: string) => q.split(/\s+/).some((w) => w.replace(/[.,'’-]/g, "").length >= MIN);
 const TEAM_THRESHOLD = 6; // podium places with more names than this (choirs, tug of war) collapse into a team summary
 
 type SearchState =
@@ -47,7 +49,7 @@ export function ParticipantSearch({ year, locale }: { year: number; locale: Loca
     clearTimeout(timer.current);
     ctrl.current?.abort();
     const query = value.trim();
-    if (query.length < MIN) return setState({ status: "idle" });
+    if (!searchable(query)) return setState({ status: "idle" });
     const c = new AbortController();
     ctrl.current = c;
     setState({ status: "loading", q: query });
@@ -79,7 +81,7 @@ export function ParticipantSearch({ year, locale }: { year: number; locale: Loca
             : state.data.truncated
               ? r.truncated(state.data.results.length, state.data.total)
               : r.found(state.data.total)
-          : q.trim().length > 0 && q.trim().length < MIN
+          : q.trim().length > 0 && !searchable(q.trim())
             ? r.minChars(MIN)
             : "";
 

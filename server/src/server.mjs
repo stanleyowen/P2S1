@@ -33,6 +33,9 @@ const ALLOWED_ORIGINS = new Set(
 const TRUST_PROXY = env("TRUST_PROXY", "none");
 const RATE_PER_MIN = Number(env("RATE_LIMIT_PER_MIN", 60));
 const RATE_BURST = Number(env("RATE_LIMIT_BURST", 20));
+// A ceiling per client per UTC day, so a patient crawler cannot rebuild the dataset term by term.
+const RATE_PER_DAY = Number(env("RATE_LIMIT_PER_DAY", 500));
+const MAX_BUCKETS = 50_000; // past this, new clients share one bucket instead of growing memory
 const MAX_RESULTS = 10;
 const MAX_ONE_STUDENT = 100;
 const MIN_QUERY = 3;
@@ -106,22 +109,40 @@ function search(edition, rawQuery) {
   return { query: rawQuery, total: hits.length, truncated: hits.length > limit, results: hits.slice(0, limit).map(strip) };
 }
 
-// ── Rate limiting (token bucket per client IP) ─────────────────────────────
+// ── Rate limiting (token bucket + daily quota per client) ──────────────────
 const buckets = new Map();
+// IPv6 clients usually control a whole /64, so they are limited per /64, not per address.
+function clientKey(ip) {
+  if (!ip.includes(":") || ip.startsWith("::ffff:")) return ip;
+  const [head, tail = ""] = ip.split("::");
+  const left = head ? head.split(":") : [];
+  const right = tail ? tail.split(":") : [];
+  const full = [...left, ...Array(Math.max(0, 8 - left.length - right.length)).fill("0"), ...right];
+  return full.slice(0, 4).map((h) => h.toLowerCase().replace(/^0+(?=.)/, "")).join(":") + "::/64";
+}
 function allow(ip) {
   const now = Date.now();
+  const day = Math.floor(now / 86_400_000);
   const refill = RATE_PER_MIN / 60_000;
-  const b = buckets.get(ip) ?? { tokens: RATE_BURST, at: now };
+  let key = clientKey(ip);
+  if (!buckets.has(key) && buckets.size >= MAX_BUCKETS) key = "overflow";
+  const b = buckets.get(key) ?? { tokens: RATE_BURST, at: now, day, used: 0 };
+  if (b.day !== day) Object.assign(b, { day, used: 0 });
   b.tokens = Math.min(RATE_BURST, b.tokens + (now - b.at) * refill);
   b.at = now;
-  const ok = b.tokens >= 1;
-  if (ok) b.tokens -= 1;
-  buckets.set(ip, b);
-  return ok ? 0 : Math.ceil((1 - b.tokens) / refill / 1000);
+  buckets.set(key, b);
+  if (b.used >= RATE_PER_DAY) return Math.ceil(((day + 1) * 86_400_000 - now) / 1000);
+  if (b.tokens < 1) return Math.ceil((1 - b.tokens) / refill / 1000);
+  b.tokens -= 1;
+  b.used += 1;
+  return 0;
 }
 setInterval(() => {
-  const cutoff = Date.now() - 10 * 60_000;
-  for (const [ip, b] of buckets) if (b.at < cutoff) buckets.delete(ip);
+  const now = Date.now();
+  const today = Math.floor(now / 86_400_000);
+  const cutoff = now - 10 * 60_000;
+  // Keep clients that used their daily quota until the day rolls over, so waiting 10 minutes doesn't reset it.
+  for (const [k, b] of buckets) if (b.at < cutoff && (b.used < RATE_PER_DAY || b.day !== today)) buckets.delete(k);
 }, 60_000).unref();
 
 function clientIp(req) {
@@ -170,11 +191,18 @@ export function createServer(editions) {
       if (req.method !== "GET" && req.method !== "HEAD") return err(req, res, 405, "Method not allowed", { Allow: "GET, HEAD, OPTIONS" });
       if ((req.url ?? "").length > 512) return err(req, res, 414, "URI too long");
 
-      const url = new URL(req.url ?? "/", "http://localhost");
-      if (url.pathname === "/healthz") return send(req, res, 200, "ok", { "Cache-Control": "no-store" });
+      if (req.url === "/healthz") return send(req, res, 200, "ok", { "Cache-Control": "no-store" });
 
+      // Rate-limit before parsing, so malformed requests are counted too.
       const retry = allow(clientIp(req));
       if (retry) return err(req, res, 429, "Too many requests — please slow down.", { "Retry-After": String(retry) });
+
+      let url;
+      try {
+        url = new URL(req.url ?? "/", "http://localhost");
+      } catch {
+        return err(req, res, 400, "Bad request");
+      }
 
       if (url.pathname === "/v1/editions") return send(req, res, 200, years, { "Cache-Control": "public, max-age=3600" });
 
@@ -188,6 +216,9 @@ export function createServer(editions) {
       const q = (url.searchParams.get("q") ?? "").normalize("NFKC").replace(/\s+/g, " ").trim();
       if (q.length < MIN_QUERY || q.length > MAX_QUERY) return err(req, res, 400, `Query must be ${MIN_QUERY}–${MAX_QUERY} characters.`);
       if (!/^[\p{L}\p{N} .,'’\-]+$/u.test(q)) return err(req, res, 400, "Query contains unsupported characters.");
+      // Every query needs one word of 3+ characters; "a b"-style probes would otherwise match hundreds of rows.
+      if (!fold(q).split(" ").some((t) => t.replace(/[.,'’-]/g, "").length >= MIN_QUERY))
+        return err(req, res, 400, `Include at least one word of ${MIN_QUERY} or more characters.`);
 
       return send(req, res, 200, search(edition, q), { "Cache-Control": "public, max-age=300" });
     } catch (e) {
