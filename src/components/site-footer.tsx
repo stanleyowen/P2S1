@@ -42,7 +42,10 @@ export function SiteFooter({ locale }: { locale: Locale }) {
       </div>
       <div className="border-t border-white/10">
         <div className="wrap flex flex-col gap-2 py-6 text-xs text-on-ink-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>{t.footer.photos(SITE.organiser)}</p>
+          <div className="space-y-1">
+            <p>{t.footer.unofficial}</p>
+            <p>{t.footer.photos(SITE.organiser)}</p>
+          </div>
           <a href={SITE.repo} className="hover:text-on-ink" rel="noopener noreferrer" target="_blank">
             {t.footer.source}
           </a>

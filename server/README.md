@@ -31,21 +31,22 @@ cloudflared tunnel route dns p2s1-api p2s1-cdn.stanleyowen.com
 ```
 
 The `cloudflared` container runs this tunnel with `--url http://api:8080`, so it can only ever reach the API. It is
-separate from the host's existing `ssh` tunnel. Current deployment: tunnel `p2s1-api`, code in `~/p2s1-api` on stanley-desktop.
+separate from the host's existing `ssh` tunnel. Current deployment: tunnel `p2s1-api`, code in `~/server/p2s1-api` on stanley-desktop.
+Keep the folder named `p2s1-api`: Compose derives the project name (and so the container names) from it.
 
 **2. Copy code and data to the server** (data goes over SSH, never through git):
 
 ```bash
 # on your laptop, from the repo root
 cd server && npm run normalize            # data/raw/*.json → data/2023.json, data/2024.json (IDs removed)
-rsync -a --exclude data/raw/ --exclude .env --exclude test/ ./ stanley@192.168.1.100:~/p2s1-api/
+rsync -a --exclude data/raw/ --exclude .env --exclude test/ ./ stanley@192.168.1.100:~/server/p2s1-api/
 ```
 
 **3. Start it:**
 
 ```bash
 # on the server
-cd ~/p2s1-api
+cd ~/server/p2s1-api
 umask 077; printf "CLOUDFLARE_TUNNEL_TOKEN=%s\n" "$(cloudflared tunnel token p2s1-api)" > .env
 chmod 644 data/*.json
 docker compose --profile tunnel up -d --build

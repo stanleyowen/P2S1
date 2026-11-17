@@ -12,7 +12,7 @@ const en = {
   archive: {
     badge: "Archived",
     label: "Archive notice",
-    notice: "This site is an archive of P2S1 XXVI (2023), XXVII (2024), XXVIII (2025) and XXIX (2026).",
+    notice: "An unofficial archive of P2S1 XXVI (2023), XXVII (2024), XXVIII (2025) and XXIX (2026), kept by alumni.",
   },
   header: {
     skip: "Skip to content",
@@ -30,6 +30,7 @@ const en = {
     archived: "Archived.",
     photos: (org: string) => `Photos © ${org}. Shared for the school community — please ask before reusing.`,
     source: "Source on GitHub",
+    unofficial: "An unofficial archive kept by alumni who were once part of OSIS. Not an official OSIS SMA Sutomo 1 website.",
   },
   stats: {
     participants: "Participants",
@@ -171,7 +172,7 @@ const id: Dictionary = {
   archive: {
     badge: "Arsip",
     label: "Pemberitahuan arsip",
-    notice: "Situs ini adalah arsip P2S1 XXVI (2023), XXVII (2024), XXVIII (2025), dan XXIX (2026).",
+    notice: "Arsip tidak resmi P2S1 XXVI (2023), XXVII (2024), XXVIII (2025), dan XXIX (2026), dikelola oleh alumni.",
   },
   header: {
     skip: "Langsung ke konten",
@@ -189,6 +190,7 @@ const id: Dictionary = {
     archived: "Arsip.",
     photos: (org) => `Foto © ${org}. Dibagikan untuk komunitas sekolah — mohon minta izin sebelum menggunakannya kembali.`,
     source: "Kode sumber di GitHub",
+    unofficial: "Arsip tidak resmi yang dikelola oleh alumni yang pernah menjadi bagian dari OSIS. Bukan situs resmi OSIS SMA Sutomo 1.",
   },
   stats: {
     participants: "Peserta",
