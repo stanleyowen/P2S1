@@ -24,14 +24,18 @@ const CANONICAL = {
   "Sketsa Objek": "Object Sketch",
   "Dance Grup": "Dance Group",
   "Certificate Design Competition": "Certificate Design",
-  "Bulu Tangkis Putra": "Men's Badminton",
-  "Bulu Tangkis Putri": "Women's Badminton",
+  // 2023 registered singles as "Bulu Tangkis Putra/Putri" but recorded winners as "… Tunggal …".
+  "Bulu Tangkis Putra": "Men's Single Badminton",
+  "Bulu Tangkis Putri": "Women's Single Badminton",
 };
 const canonical = (c) => CANONICAL[c] ?? c;
 
 function dedupe(rows) {
   const seen = new Set();
+  // A winner sometimes also appears as a plain "Participant" in the same competition; keep only the medal.
+  const podium = new Set(rows.filter((r) => r.result !== "Participant").map((r) => `${r.name}|${r.class}|${r.competition}`));
   return rows.filter((r) => {
+    if (r.result === "Participant" && podium.has(`${r.name}|${r.class}|${r.competition}`)) return false;
     const k = `${r.name}|${r.class}|${r.competition}|${r.result}`;
     return seen.has(k) ? false : (seen.add(k), true);
   });
@@ -57,7 +61,8 @@ if (fs.existsSync(path.join(rawDir, "2024-rekap.json"))) {
   datasets[2024] = read("2024-rekap.json").map((r) => ({
     name: clean(r.NAME),
     class: clean(r.CLASS),
-    competition: canonical(clean(r.COMPETITION)),
+    // 2024's "Sketch" rows are the Sketsa Objek podium (the participants are under "Sketsa Objek").
+    competition: canonical(clean(r.COMPETITION) === "Sketch" ? "Sketsa Objek" : clean(r.COMPETITION)),
     result: clean(r.STATUS),
   }));
 }

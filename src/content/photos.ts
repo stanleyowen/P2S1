@@ -18,10 +18,10 @@ export const GALLERIES: Record<number, GallerySection[]> = {
   2026: [
     {
       id: "finale",
-      title: { en: "Puncak P2S1 — the finale", id: "Puncak P2S1 — malam puncak" },
+      title: { en: "Puncak P2S1 — the finale", id: "Puncak P2S1 — acara puncak" },
       intro: {
-        en: "Saturday 14 March 2026 in the Auditorium Yayasan Perguruan Sutomo.",
-        id: "Sabtu, 14 Maret 2026 di Auditorium Yayasan Perguruan Sutomo.",
+        en: "The morning of Saturday 14 March 2026 in the Auditorium Yayasan Perguruan Sutomo.",
+        id: "Sabtu pagi, 14 Maret 2026 di Auditorium Yayasan Perguruan Sutomo.",
       },
       photos: [
         p("2026/finale-juara-umum", "The overall champions", "Juara umum",
@@ -50,18 +50,18 @@ export const GALLERIES: Record<number, GallerySection[]> = {
           "A teacher hangs a medal around a student's neck at the side of the stage", "Seorang guru mengalungkan medali kepada seorang siswa di sisi panggung"),
         p("2026/finale-winners", "Winners on stage", "Para pemenang di panggung",
           "Winners pose with trophies and medals in front of the P2S1 XXIX screen", "Para pemenang berpose dengan trofi dan medali di depan layar P2S1 XXIX", "wide"),
-        p("2026/finale-mcs", "Hosting the finale", "Membawakan malam puncak",
+        p("2026/finale-mcs", "Hosting the finale", "Membawakan acara puncak",
           "Two masters of ceremony in black and white hold microphones and cue cards", "Dua pembawa acara berbusana hitam putih memegang mikrofon dan kartu panduan"),
         p("2026/finale-group", "Everyone on stage", "Semua naik panggung",
-          "Dozens of students and teachers crowd the stage at the end of the night", "Puluhan siswa dan guru memenuhi panggung di akhir acara", "wide"),
+          "Dozens of students and teachers crowd the stage at the end of the finale", "Puluhan siswa dan guru memenuhi panggung di akhir acara", "wide"),
       ],
     },
     {
       id: "opening",
       title: { en: "Opening day", id: "Pembukaan" },
       intro: {
-        en: "7 February 2026 in the school courtyard, in front of a pop-art backdrop.",
-        id: "7 Februari 2026 di halaman sekolah, di depan latar bergaya pop art.",
+        en: "The morning of 24 January 2026 in the school courtyard, in front of a pop-art backdrop.",
+        id: "Pagi hari 24 Januari 2026 di halaman sekolah, di depan latar bergaya pop art.",
       },
       photos: [
         p("2026/opening-dance", "Opening dance", "Tari pembukaan",
@@ -103,7 +103,7 @@ export const GALLERIES: Record<number, GallerySection[]> = {
         p("2026/mandarin-poetry", "Mandarin Poetry", "Puisi Mandarin",
           "A student in a qipao recites a poem in front of the class", "Seorang siswi berbaju qipao membacakan puisi di depan kelas"),
         p("2026/terompah", "Terompah", "Terompah",
-          "A team walks in step on a long wooden terompah", "Satu tim melangkah serempak di atas terompah kayu panjang", "wide"),
+          "A terompah team moves in step across the courtyard, holding on to each other", "Satu tim terompah melangkah serempak di halaman sekolah sambil saling berpegangan", "wide"),
         p("2026/karate", "Karate", "Karate",
           "Two karateka in head guards spar as others watch", "Dua karateka berpelindung kepala bertanding sementara yang lain menonton"),
         p("2026/rubik", "Rubik's Cube", "Rubik",
@@ -136,10 +136,10 @@ export const GALLERIES: Record<number, GallerySection[]> = {
   2025: [
     {
       id: "finale",
-      title: { en: "Puncak P2S1 — the finale", id: "Puncak P2S1 — malam puncak" },
+      title: { en: "Puncak P2S1 — the finale", id: "Puncak P2S1 — acara puncak" },
       intro: {
-        en: "Two days in the school auditorium on 10 and 11 March 2025, under a stage dressed with Greek columns.",
-        id: "Dua hari di auditorium sekolah pada 10 dan 11 Maret 2025, di bawah panggung berhias pilar Yunani.",
+        en: "Two afternoons in the school auditorium on 10 and 11 March 2025, under a stage dressed with Greek columns.",
+        id: "Dua sore di auditorium sekolah pada 10 dan 11 Maret 2025, di bawah panggung berhias pilar Yunani.",
       },
       photos: [
         p("2025/finale-juara-umum", "The overall champions", "Juara umum",
@@ -170,7 +170,7 @@ export const GALLERIES: Record<number, GallerySection[]> = {
           "Three dancers crouch low in front of a drum kit", "Tiga penari merunduk di depan seperangkat drum"),
         p("2025/finale-choir-black", "Choir in black", "Paduan suara berbusana hitam",
           "A choir dressed in black sings with hands raised", "Paduan suara berbusana hitam bernyanyi sambil mengangkat tangan"),
-        p("2025/finale-mcs", "Hosting the finale", "Membawakan malam puncak",
+        p("2025/finale-mcs", "Hosting the finale", "Membawakan acara puncak",
           "Two masters of ceremony in black blazers read from cue cards", "Dua pembawa acara berblazer hitam membaca dari kartu panduan"),
         p("2025/finale-medals", "Medals waiting", "Medali menanti",
           "Rows of gold, silver and bronze medals laid out on a red cloth", "Deretan medali emas, perak, dan perunggu tertata di atas kain merah"),
@@ -248,10 +248,10 @@ export const GALLERIES: Record<number, GallerySection[]> = {
   2023: [
     {
       id: "finale",
-      title: { en: "Puncak P2S1 — the finale", id: "Puncak P2S1 — malam puncak" },
+      title: { en: "Puncak P2S1 — the finale", id: "Puncak P2S1 — acara puncak" },
       intro: {
-        en: "Two evenings in the school auditorium on 3 and 6 March 2023: performances, medals and trophies.",
-        id: "Dua malam di auditorium sekolah pada 3 dan 6 Maret 2023: penampilan, medali, dan trofi.",
+        en: "Two days in the school auditorium on 3 and 6 March 2023: performances, medals and trophies.",
+        id: "Dua hari di auditorium sekolah pada 3 dan 6 Maret 2023: penampilan, medali, dan trofi.",
       },
       photos: [
         {
@@ -273,7 +273,7 @@ export const GALLERIES: Record<number, GallerySection[]> = {
         },
         {
           key: "2023/mcs",
-          caption: { en: "Opening the finale", id: "Membuka malam puncak" },
+          caption: { en: "Opening the finale", id: "Membuka acara puncak" },
           alt: { en: "Two masters of ceremony speaking into microphones in front of the P2S1 XXVI banner", id: "Dua pembawa acara berbicara di depan spanduk P2S1 XXVI" },
         },
         {
@@ -284,7 +284,7 @@ export const GALLERIES: Record<number, GallerySection[]> = {
         {
           key: "2023/finale-dance-group",
           caption: { en: "Dance group", id: "Tari kelompok" },
-          alt: { en: "A dance group performs in front of the finale backdrop", id: "Sekelompok penari tampil di depan latar panggung malam puncak" },
+          alt: { en: "A dance group performs in front of the finale backdrop", id: "Sekelompok penari tampil di depan latar panggung acara puncak" },
         },
         {
           key: "2023/guitar",
@@ -336,7 +336,7 @@ export const GALLERIES: Record<number, GallerySection[]> = {
         {
           key: "2023/finale-audience",
           caption: { en: "A full house", id: "Auditorium penuh" },
-          alt: { en: "The auditorium filled with students in front of the finale screen", id: "Auditorium dipenuhi siswa di depan layar malam puncak" },
+          alt: { en: "The auditorium filled with students in front of the finale screen", id: "Auditorium dipenuhi siswa di depan layar acara puncak" },
           wide: true,
         },
       ],
@@ -345,8 +345,8 @@ export const GALLERIES: Record<number, GallerySection[]> = {
       id: "competitions",
       title: { en: "The competitions", id: "Perlombaan" },
       intro: {
-        en: "Eight weeks of matches, olympiads, debates and studio time.",
-        id: "Delapan minggu pertandingan, olimpiade, debat, dan berkarya.",
+        en: "January to March: matches, olympiads, debates and studio time.",
+        id: "Januari hingga Maret: pertandingan, olimpiade, debat, dan berkarya.",
       },
       photos: [
         {
@@ -477,7 +477,7 @@ export const GALLERIES: Record<number, GallerySection[]> = {
   2024: [
     {
       id: "finale",
-      title: { en: "Puncak P2S1 — the finale", id: "Puncak P2S1 — malam puncak" },
+      title: { en: "Puncak P2S1 — the finale", id: "Puncak P2S1 — acara puncak" },
       intro: {
         en: "Two days in the school auditorium on 6 and 7 March 2024: performances, medals and trophies.",
         id: "Dua hari di auditorium sekolah pada 6 dan 7 Maret 2024: penampilan, medali, dan trofi.",
@@ -528,7 +528,7 @@ export const GALLERIES: Record<number, GallerySection[]> = {
         },
         {
           key: "2024/finale-mcs",
-          caption: { en: "Hosting the finale", id: "Membawakan malam puncak" },
+          caption: { en: "Hosting the finale", id: "Membawakan acara puncak" },
           alt: { en: "Two masters of ceremony speak from the stage", id: "Dua pembawa acara berbicara dari panggung" },
         },
         {
