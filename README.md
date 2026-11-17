@@ -1,38 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# P2S1 — Pekan Prestasi Sutomo 1
 
-## Getting Started
+The archive site for **Pekan Prestasi Sutomo 1**, the annual competition week of SMA Sutomo 1 Medan organised by OSIS.
+Live at **https://p2s1.netlify.app**.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```
+.
+├── content/photos/        Web-master photos (≤2400px, metadata stripped). This replaces the old P2S1---CDN repo.
+├── scripts/
+│   ├── build-images.mjs   → AVIF + WebP at 5 widths, content-hashed, blur placeholders, OG cards
+│   └── security-headers.mjs → strict CSP (hash-based) written to out/_headers after each build
+├── src/
+│   ├── app/               Next.js App Router pages: /, /[year] (2023, 2024)
+│   ├── components/        Header, footer, gallery + lightbox, results search, champions board
+│   └── content/           Edition copy, stats and gallery curation — no personal data
+├── server/                Participant search API (runs on the private server, not Netlify)
+└── netlify.toml           Build, security headers, caching, legacy redirects
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Develop
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev            # builds images on first run (~3 min cold, instant after), then next dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+To use participant search locally, run the API in another terminal (needs the data files — see `server/README.md`):
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+cd server && npm run dev                                # http://localhost:8787
+NEXT_PUBLIC_API_URL=http://localhost:8787 npm run dev   # in the repo root
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Other scripts: `npm run build` (static export to `out/` + CSP), `npm run lint`, `npm run typecheck`, `npm start` (serve `out/`).
 
-## Learn More
+## Adding a photo or an edition
 
-To learn more about Next.js, take a look at the following resources:
+1. Drop a JPEG into `content/photos/<year>/<slug>.jpg`. Any size is fine; keep it ≤2400px wide to keep the repo small.
+   EXIF/GPS metadata is stripped from everything the site serves.
+2. Reference it in `src/content/photos.ts` with a caption and descriptive `alt` text.
+3. For a new year, add an entry to `EDITIONS` in `src/content/editions.ts`, a logo at `content/photos/logos/<year>.png`,
+   and the year's data file on the API server.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Security & privacy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **No participant data in this repository or in the site bundle.** Names, classes and results are served one search
+  at a time by the API in `server/`, which never stores or returns student ID numbers. `server/data/` is gitignored.
+- Fully static site with a hash-based **Content-Security-Policy** (no `unsafe-inline` scripts), HSTS, `nosniff`,
+  `frame-ancestors 'none'`, a locked-down Permissions-Policy and COOP/CORP.
+- Fonts are self-hosted at build time; the site makes no third-party requests apart from the results API.
+- Zero runtime dependencies beyond Next.js/React; the API has none at all.
 
-## Deploy on Vercel
+## Licence
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Code: MIT (see `LICENSE`). Photos in `content/photos/` are © OSIS SMA Sutomo 1 Medan and are **not** covered by the MIT licence.

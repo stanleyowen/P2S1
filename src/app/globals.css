@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+/* ── Tokens ──────────────────────────────────────────────────────────────────
+   Ink + trophy gold, shared by every edition. Each edition page sets
+   data-edition="<year>" to swap in its own accent (2023 ember, 2024 royal blue),
+   taken from that year's logo. */
+
+:root {
+  color-scheme: light dark;
+  --bg: #f7f4ed;
+  --surface: #fffdf8;
+  --surface-2: #efe9dd;
+  --fg: #16130e;
+  --muted: #5c554a;
+  --line: #e1d9ca;
+  --gold: #c08a1e;
+  --gold-ink: #7f5600;
+  --ink: #0f1013;
+  --on-ink: #f7f2e8;
+  --on-ink-muted: #b9b2a6;
+  --accent: var(--gold);
+  --accent-ink: var(--gold-ink);
+  --silver: #8d939c;
+  --bronze: #b06a3b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d0c0a;
+    --surface: #161411;
+    --surface-2: #1f1c17;
+    --fg: #f3eee4;
+    --muted: #aaa294;
+    --line: #2c2821;
+    --gold: #e3b45c;
+    --gold-ink: #f0c776;
+    --ink: #07080a;
+    --on-ink: #f7f2e8;
+    --on-ink-muted: #b9b2a6;
+    --silver: #b3b9c2;
+    --bronze: #d58c5c;
+  }
+}
+
+[data-edition="2023"] {
+  --accent: #c8531a;
+  --accent-ink: #a3400c;
+}
+[data-edition="2024"] {
+  --accent: #2c4fbf;
+  --accent-ink: #253f9a;
+}
+@media (prefers-color-scheme: dark) {
+  [data-edition="2023"] {
+    --accent: #f08c4e;
+    --accent-ink: #f6a674;
+  }
+  [data-edition="2024"] {
+    --accent: #8ea7ff;
+    --accent-ink: #aabcff;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-gold: var(--gold);
+  --color-gold-ink: var(--gold-ink);
+  --color-ink: var(--ink);
+  --color-on-ink: var(--on-ink);
+  --color-on-ink-muted: var(--on-ink-muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-silver: var(--silver);
+  --color-bronze: var(--bronze);
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-rise: rise 0.9s var(--ease-out-expo) both;
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+  }
+}
+
+/* ── Base ───────────────────────────────────────────────────────────────── */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: var(--gold);
+    color: #000;
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ── Utilities ──────────────────────────────────────────────────────────── */
+
+@utility wrap {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Film grain over hero photos — subtle texture, no extra request. */
+@utility grain {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.12;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}

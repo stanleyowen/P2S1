@@ -1,23 +1,36 @@
 {
   "name": "p2s1",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
   "scripts": {
+    "images": "node scripts/build-images.mjs",
+    "predev": "npm run images",
     "dev": "next dev",
+    "prebuild": "npm run images",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "postbuild": "node scripts/security-headers.mjs",
+    "start": "npx --yes serve@14 out",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@types/node": "20.12.7",
-    "@types/react": "18.2.79",
-    "@types/react-dom": "18.2.25",
-    "eslint": "9.1.1",
-    "eslint-config-next": "14.2.3",
-    "natives": "^1.1.6",
-    "next": "14.2.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "5.4.5"
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.5",
+    "@types/node": "22.20.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.4.6",
+    "sharp": "0.35.5",
+    "tailwindcss": "4.3.5",
+    "typescript": "5.9.3"
   }
 }
